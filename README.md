@@ -1,14 +1,23 @@
 TIPI DI MICROSERVIZI DA PROVARE AD IMPOSTARE:
+
     - Microservizi di stato (ora, data)
+    
     - Microservizio meteo
+    
     - Microservizio numero persone (IOLO)
+    
     - Attuatore(acceso/spento)
+    
     - Attuatore(acceso/spento, byte)
+    
     - attuatore(acceso/spento, 3 byte)
 
     - Decisore (e profiler non più necessario) per ultimi
+    
 Inoltre sartà necessario, a soli fini illustrativi:
+
     - Visualizzatore
+    
 Quest'ultimo può o funzionare in polling o, sarebbe meglio, ad interrupt. La maniera più semplice per utilizzarlo a mo di
 interrupt (e sarebbe anche la maniera più efficiente ad ogni modo) è attrverso websockets (vedasi 
 https://spring.io/guides/gs/messaging-stomp-websocket/), o altrimenti VERIFICARE SE CON LE RICHIESTE HTTP DI PUT anzichè
