@@ -65,3 +65,6 @@ How does Maven work it's explained in a basic but really understandable way with
 *We care about women and men basically, the other 48 are out of this experiment's scope
 
 UPDATE: the genders are actually 63 now not 50 anymore
+
+Contacts: 245756@studenti.unimore.it Leonardo Mirotti
+          244122@studenti.unimore.it Stefano Lugli
