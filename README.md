@@ -35,7 +35,7 @@ Using Maven to compile and handle the services.
 For the system deplyment, OSGI would be an option: https://www.theserverside.com/news/1363825/OSGi-for-Beginners ← What is OSGI and how doe sit work
 
 
-MORE INFOS: 
+MORE INFOS (NOTES): 
 
 REST architecture: is a set of linked resources, which makes a web's subsystem. 
 https://restlet.com/use-cases/api-first/rest-apis/
