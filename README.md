@@ -30,18 +30,12 @@ WEBSOCKETS within spring framework: https://spring.io/guides/gs/messaging-stomp-
 
 Using Maven to compile and handle the services.
 
-For the system deplyment, OSGI would be an option:
-
-https://www.theserverside.com/news/1363825/OSGi-for-Beginners ← What is OSGI and how doe sit work
+For the system deplyment, OSGI would be an option: https://www.theserverside.com/news/1363825/OSGi-for-Beginners ← What is OSGI and how doe sit work
 
 
 MORE INFOS: 
 
-REST architecture: 
-
-A rest architecture it's a set of linked resources, which makes a web's subsystem, showed as services.
-
-https://restlet.com/use-cases/api-first/rest-apis/
+REST architecture: A rest architecture it's a set of linked resources, which makes a web's subsystem, showed as services. https://restlet.com/use-cases/api-first/rest-apis/
 
 Restlet: REST API, library to create and handle a REST architecture. System of communication between services.
 
@@ -52,9 +46,7 @@ In spring the inputs are model classes to take care of and the views are JSP fil
 https://www.html.it/pag/44655/spring-mvc-introduzione-2/ (Tutorial in italian).
 
 SPRINGBOOT: it's a configurator for the SPring Framework. It writes the XML files needed without having the programmer to care about them. It basically build a project that is server of himself, which means it does not need a services handler being Apache Tomcat included in the *.jar* itself.
-
-To install SPringBoot within Eclipse: https://www.codejava.net/ides/eclipse/install-spring-tool-suite-for-existing-eclipse-ide
-
+To install SpringBoot within Eclipse: https://www.codejava.net/ides/eclipse/install-spring-tool-suite-for-existing-eclipse-ide
 To write a Spring microservices using a maven project within eclipse: https://www.springboottutorial.com/creating-spring-boot-project-with-eclipse-and-maven
 
 THe *annotations* are declaration of the functions to map their functioning and they are compulsory to compile a spring project.
