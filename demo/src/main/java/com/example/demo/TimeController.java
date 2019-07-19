@@ -1,5 +1,5 @@
 /**
- * 
+ * Default package for this demo application
  */
 package com.example.demo;
 
@@ -8,11 +8,20 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Date;
 
 /**
- * @author Leonardo;
+ * Implementing a REST microservice to get time and date information
+ * using a HTTP protocol;
+ * 
+ * @author Leonardo
  */
 @RestController
 public class TimeController {
 	
+	/**
+	 * Basic function that gets the time info from local
+	 * machine and publish it
+	 * 
+	 * @return String The time and date
+	 */
 	@GetMapping("/get-time")
 	  public String getTime() {
 		Date x = new Date();
