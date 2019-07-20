@@ -17,7 +17,7 @@ public class ServiceController {
 	double value = 4000;
 	boolean ascending = true;
 
-	@RequestMapping("/data")
+	@RequestMapping("/light")
 	public Light data() {
 		return new Light(id, description, value);
 	}

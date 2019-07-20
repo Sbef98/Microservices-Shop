@@ -17,7 +17,7 @@ public class ServiceController {
 	double value = 30;
 	boolean ascending = true;
 
-	@RequestMapping("/data")
+	@RequestMapping("/people")
 	public People data() {
 		return new People(id, description, value, 0, 0);
 	}
