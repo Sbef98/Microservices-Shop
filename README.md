@@ -60,6 +60,8 @@ Maven can be seen as an *accumulation of knowledge*. It handles the whole buildi
 Everything must be set within its configurtation file, the *pom.xml*
 
 How does Maven work it's explained in a basic but really understandable way within spring's tutorials.
+
+Nice and tidy guide  on how to implement CRUD RESTful APIs
 ###########################################################################################
 
 
