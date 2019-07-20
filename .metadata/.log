@@ -14445,3 +14445,15 @@ Caused by: java.lang.NullPointerException
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-07-20 19:11:50.262
 !MESSAGE executing callback sts4.classpath.LSLkeTPm SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-07-20 19:40:11.857
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.LSLkeTPm
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-07-20 19:40:12.180
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.LSLkeTPm
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-07-20 19:40:12.375
+!MESSAGE subsribers = null
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-07-20 19:40:12.572
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.LSLkeTPm => OK
