@@ -61,7 +61,11 @@ Everything must be set within its configurtation file, the *pom.xml*
 
 How does Maven work it's explained in a basic but really understandable way within spring's tutorials.
 
-Nice and tidy guide  on how to implement CRUD RESTful APIs
+Nice and tidy guide  on how to implement CRUD RESTful APIs: 
+https://www.javaguides.net/2019/02/spring-resttemplate-spring-rest-client-get-post-put-delete-example.html
+
+http://appsdeveloperblog.com/putmapping-spring-mvc/
+
 ###########################################################################################
 
 
