@@ -1,0 +1,112 @@
+FUNCTION_BLOCK UserComfort
+
+VAR_INPUT				
+	light_outside : REAL;
+	temp_outside : REAL;
+	humidity_outside : REAL;
+	wind_outside : REAL;
+	people_density : REAL;
+//	people_gender : REAL;
+//	people_age : REAL;
+//	people_emotion : REAL;
+END_VAR
+
+VAR_OUTPUT			
+	light_intensity : REAL;
+//	light_color_componentA : REAL;
+//	light_color_componentB : REAL;
+//	light_color_componentC : REAL;
+ 	music_intensity : REAL;
+//	music_genre_componentA : REAL;
+//	music_genre_componentB : REAL;
+	scent_intensity : REAL;
+//	scent_componentA : REAL;
+//	scent_componentB : REAL;
+//	scent_componentC : REAL;
+	
+// Pampalk et. al. Content-based Organization and Visualization of Music Archives
+// Castro et al. Categorical Dimensions of Human Odor Descriptor Space Revealed by Non-Negative Matrix Factorization
+
+END_VAR
+
+// Lux (https://en.wikipedia.org/wiki/Daylight)
+FUZZIFY light_outside			
+	TERM low := trape 0 0 400 600 ; 
+	TERM medium := trape 400 600 4000 5000;
+	TERM high := trape 4000 5000 15000 15000;
+END_FUZZIFY
+
+// Celsius degrees
+FUZZIFY temp_outside			
+	TERM low := trape -40 -40 0 5 ; 
+	TERM medium := trape 0 5 20 25;
+	TERM high := trape 20 25 40 40 ;
+END_FUZZIFY
+
+// Percent
+FUZZIFY humidity_outside			
+	TERM low := trape 0 0 20 40; 
+	TERM medium := trape 20 40 50 60;
+	TERM high := trape 50 60 100 100;
+END_FUZZIFY
+
+// m/s
+FUZZIFY wind_outside			
+	TERM low := trape 0 0 3 4; 
+	TERM medium := trape 3 4 8 9;
+	TERM high := trape 8 9 30 30 ;
+END_FUZZIFY
+
+// # people in 100 square meter
+FUZZIFY people_density			
+	TERM low := trape 0 0 10 20; 
+	TERM medium := trape 10 20 40 50;
+	TERM high := trape 40 50 100 100 ;
+END_FUZZIFY
+
+// normalized [0, 1]
+DEFUZZIFY light_intensity			
+	TERM low := gauss 0.25 0.1;
+	TERM medium := gauss 0.5 0.1;
+	TERM high := gauss 0.75 0.1;
+	METHOD : COG;		// Use 'Center Of Gravity' defuzzification method
+	DEFAULT := 0;		// Default value is 0 (if no rule activates defuzzifier)
+END_DEFUZZIFY
+
+// normalized [0, 1]
+DEFUZZIFY music_intensity			
+	TERM low := gauss 0.25 0.2;
+	TERM medium := gauss 0.5 0.2;
+	TERM high := gauss 0.75 0.2;
+	METHOD : COG;		// Use 'Center Of Gravity' defuzzification method
+	DEFAULT := 0;		// Default value is 0 (if no rule activates defuzzifier)
+END_DEFUZZIFY
+
+// normalized [0, 1]
+DEFUZZIFY scent_intensity			
+	TERM low := gauss 0 0.1;
+	TERM medium := gauss 0.5 0.1;
+	TERM high := gauss 1.0 0.1;
+	METHOD : COG;		// Use 'Center Of Gravity' defuzzification method
+	DEFAULT := 0;		// Default value is 0 (if no rule activates defuzzifier)
+END_DEFUZZIFY
+
+RULEBLOCK No1
+	AND : MIN;			// Use 'min' for 'and' (also implicit use 'max' for 'or' to fulfill DeMorgan's Law)
+	ACT : MIN;			// Use 'min' activation method
+	ACCU : MAX;			// Use 'max' accumulation method
+
+	RULE 1 : IF light_outside IS low THEN light_intensity IS high;
+	RULE 2 : IF light_outside IS medium THEN light_intensity IS medium;
+	RULE 3 : IF light_outside IS high THEN light_intensity IS low;
+	
+	RULE 4 : IF people_density IS high THEN music_intensity IS high;
+	RULE 5 : IF people_density IS medium THEN music_intensity IS medium;
+	RULE 6 : IF people_density IS low THEN music_intensity IS high;
+	
+	RULE 7 : IF people_density IS high THEN scent_intensity IS low;
+	RULE 8 : IF people_density IS medium THEN scent_intensity IS medium;
+	RULE 9 : IF people_density IS low THEN scent_intensity IS high;
+END_RULEBLOCK
+
+END_FUNCTION_BLOCK
