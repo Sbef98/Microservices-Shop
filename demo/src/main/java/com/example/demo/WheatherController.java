@@ -28,7 +28,7 @@ import java.net.URL;
 public class WheatherController {
 
 	@GetMapping("/get-wheather")
-	  public String getWheather() throws IOException {
+	  public JSONObject getWheather() throws IOException {
 		
 		URL WhetherSite = new URL("http://example.com/");
 		try {
@@ -67,8 +67,11 @@ public class WheatherController {
         System.out.println(response.toString());
         
         //Producing JSONobject
-        JSONObject result = new JSONObject(response.toString());
+        StringBuilder sb = new StringBuilder(response.toString());
+        sb.deleteCharAt(0);
+        sb.deleteCharAt(sb.length() - 1);
+        JSONObject result = new JSONObject(sb.toString());
         System.out.println(result);
-        return result.toString();
+        return result;
 	}
 }
