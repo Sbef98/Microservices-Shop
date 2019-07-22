@@ -30,9 +30,9 @@ public class WheatherController {
 	 * Getting bollettino meteo of specified location from internet using openwheathermap.org
 	 * and returning it using HTTP protocol
 	 * 
-	 * @param String City to retrive wheather conditions;
-	 * @return String JSONS's string view rapresenting wheather information;
-	 * @throws IOException
+	 * @param city String of city's name to retrive wheather conditions;
+	 * @return JSONS's string view rapresenting wheather information;
+	 * @throws IOException Error in input buffer reader;
 	 */
 	@GetMapping("/get-wheather/{city}")
 	  public String getWheather(@PathVariable String city) throws IOException {
