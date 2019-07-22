@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Date;
 
 /**
- * Implementing a REST microservice to get time and date information
- * using a HTTP protocol;
+ * Implementing a REST microservice using SPRING framework
+ * to get time and date information using a HTTP protocol;
  * 
  * @author Leonardo
  */

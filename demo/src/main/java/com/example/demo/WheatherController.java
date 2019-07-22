@@ -3,36 +3,43 @@
  */
 package com.example.demo;
 
-import org.apache.tomcat.util.json.JSONParser;
-import org.apache.tomcat.util.json.ParseException;
 import org.json.JSONObject;
-import org.json.JSONString;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.BufferedReader;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
 
 /**
- * @author Leonardo;
+ * Implementing a REST microservice using SPRING framework
+ * to get weather information from internet, 
+ * using default java.net libraries for connection and org.json library to manage JSONs files. 
+ * 
+ * @author Leonardo
  */
 @RestController
 public class WheatherController {
-
-	@GetMapping("/get-wheather")
-	  public String getWheather() throws IOException {
-		
+	
+	/**
+	 * Getting bollettino meteo of specified location from internet using openwheathermap.org
+	 * and returning it using HTTP protocol
+	 * 
+	 * @param String City to retrive wheather conditions;
+	 * @return String JSONS's string view rapresenting wheather information;
+	 * @throws IOException
+	 */
+	@GetMapping("/get-wheather/{city}")
+	  public String getWheather(@PathVariable String city) throws IOException {
+		//		TODO: Implementing a JSON return, at place of a normal string;
 		URL WhetherSite = new URL("http://example.com/");
 		try {
-			WhetherSite = new URL("http://api.openweathermap.org/data/2.5/weather?q=Modena,it&APPID=ebd0ace07cbc44cc01d888e9ca579a9f&mode=JSON");
+			WhetherSite = new URL("http://api.openweathermap.org/data/2.5/weather?q=" + city + ",it&APPID=ebd0ace07cbc44cc01d888e9ca579a9f&mode=JSON");
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
@@ -68,6 +75,7 @@ public class WheatherController {
         
         //Producing JSONobject
         JSONObject result = new JSONObject(response.toString());
+        //JSONObject is correctly created, but returning it as JSONObject generate problems;
         System.out.println(result);
         return result.toString();
 	}
