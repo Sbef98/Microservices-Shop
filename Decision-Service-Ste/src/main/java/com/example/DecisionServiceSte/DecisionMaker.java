@@ -1,12 +1,13 @@
 package com.example.DecisionServiceSte;
 
+import java.util.HashMap;
 import java.util.Hashtable;
 
 public class DecisionMaker 
 {
-	public String takeDecision(ServiceDetailsRequestModel applicantInfo, Hashtable<String,ServiceDetailsRequestModel> availableServices)
+	public static String takeDecision(ServiceDetailsRequestModel applicantInfo, HashMap<String,ServiceDetailsRequestModel> availableServices)
 	{
 		
-		return;
+		return "ciao";
 	}
 }

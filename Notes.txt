@@ -1,0 +1,7 @@
+sensore {info:sensore, data : {id: id,  description : description, measured : {value1 : value, value2 : value, ...}, wanted : {value1 : value, value2 : value, ...} } }
+attuatore {info : auttuatore, data : { id: id,  description : description, active : {value1 : active_value, value2 : active_value, ...}, suggested : {value1: value, value2 : value, ...}  } }
+
+
+In info c'è: URI, port, type, getMapping (opzionale), putMapping (opzionale)
+
+DOMtype = {sensor, actuator}
