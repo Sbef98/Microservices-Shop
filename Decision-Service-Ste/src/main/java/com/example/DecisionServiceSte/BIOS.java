@@ -47,7 +47,7 @@ public class BIOS { //basic input output service (nice joke i know)
 	}
 	
 	
-	@PutMapping("put") //update services data
+	@PutMapping(value = "put", produces="application/json") //update services data
 	public String updateService(@RequestParam(value="serviceName") String serviceName, @RequestBody ServiceDetailsRequestModel requestServiceDetails) {
 		availableServices.put(serviceName, requestServiceDetails); 
 		String returnValue = requestServiceDetails.getType().compareToIgnoreCase("sensor") == 0 ? 

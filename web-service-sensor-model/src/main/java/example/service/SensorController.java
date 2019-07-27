@@ -1,14 +1,16 @@
 package example.service;
 
 import java.util.concurrent.ThreadLocalRandom; //since java 1.7
+
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class SensorController {
 	private String id;
 	private String description;
-	private static String wanted_value1 = "95";
-	private static String wanted_value2 = "82";
-	private static String wanted_value3 = "200";
+	private static float wanted_value1 = 95;
+	private static float wanted_value2 = 82;
+	private static float wanted_value3 = 200;
 	
 	public SensorController(String id, String description) {
 		super();
@@ -33,9 +35,17 @@ public class SensorController {
 		JSONObject data = new JSONObject();
 		JSONObject suggestedValues = new JSONObject();
 		
-		data.put("value1", ThreadLocalRandom.current().nextInt(0, 256));
-		data.put("value2", ThreadLocalRandom.current().nextInt(0, 256));
-		data.put("value3", ThreadLocalRandom.current().nextInt(0, 256));
+		JSONArray value1 = new JSONArray();
+		value1.put(ThreadLocalRandom.current().nextInt(0, 256));
+		value1.put(ThreadLocalRandom.current().nextInt(0, 256));
+		JSONArray value2 = new JSONArray();
+		value2.put(ThreadLocalRandom.current().nextInt(0, 256));
+		JSONArray value3 = new JSONArray();
+		value3.put(ThreadLocalRandom.current().nextInt(0, 256));
+		
+		data.put("value1", value1);
+		data.put("value2", value2);
+		data.put("value3", value3);
 		
 		suggestedValues.put("value1", wanted_value1);
 		suggestedValues.put("value2", wanted_value2);

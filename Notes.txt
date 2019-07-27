@@ -1,7 +1,14 @@
-sensore {info:sensore, data : {id: id,  description : description, measured : {value1 : value, value2 : value, ...}, wanted : {value1 : value, value2 : value, ...} } }
-attuatore {info : auttuatore, data : { id: id,  description : description, active : {value1 : active_value, value2 : active_value, ...}, suggested : {value1: value, value2 : value, ...}  } }
+sensor : {info:sensore, data : {id: id,  description : description, measured : {value1 : [value,...], value2 : [value,...], ...}, wanted : {value1 : value, value2 : value, ...} } }
+
+actuator : {info : auttuatore, data : { id: id,  description : description, active : {value1 : active_value, value2 : active_value,...}, suggested : {value1 : value, value2: value, ...}, needed_sensors : howToGetTheRightInfo } }
 
 
-In info c'è: URI, port, type, getMapping (opzionale), putMapping (opzionale)
+Info = URI, port, type, getMapping (opzionale), putMapping (opzionale)
 
 DOMtype = {sensor, actuator}
+
+if, in needed_sensors, sensorName = *, it means this value from all sensors!
+howToGetTheRightInfo possible approach:
+
+needed_sensors : {sensor_name : 		    {sensor's data we look for : {other_sensor_directions, ...}, ... }, ...}
+		 ^ The sensor we need the values of  ^what type (eg: °C)	 ^ the wanted/suggested values for that data_type pointed by the other sensors

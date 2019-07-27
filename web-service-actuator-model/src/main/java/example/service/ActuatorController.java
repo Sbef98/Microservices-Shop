@@ -1,5 +1,6 @@
 package example.service;
 
+import org.json.JSONArray;
 //import java.util.concurrent.ThreadLocalRandom; //since java 1.7
 import org.json.JSONObject;
 
@@ -7,20 +8,20 @@ public class ActuatorController {
 	private String id;
 	private String description;
 	//private static String suggested_value1 = "95";
-	private static String suggested_value2 = "82";
-	private static String suggested_value3 = "200";
-	private String activeValue1 = "off"; // useremo un booleano per questo
-	private String activeValue2 = "82";
-	private String activeValue3 = "200";
+	private static float suggested_value2 = 82;
+	private static float suggested_value3 = 200;
+	private boolean activeValue1 = false; // like an on/off
+	private float activeValue2 = 82;
+	private float activeValue3 = 200;
 	
 	
-	public void setActiveValue1(String activeValue1) {
+	public void setActiveValue1(boolean activeValue1) {
 		this.activeValue1 = activeValue1;
 	}
-	public void setActiveValue2(String activeValue2) {
+	public void setActiveValue2(float activeValue2) {
 		this.activeValue2 = activeValue2;
 	}
-	public void setActiveValue3(String activeValue3) {
+	public void setActiveValue3(float activeValue3) {
 		this.activeValue3 = activeValue3;
 	}
 	public ActuatorController(String id, String description) {
@@ -45,6 +46,26 @@ public class ActuatorController {
 		JSONObject returnValue = new JSONObject();
 		JSONObject data = new JSONObject();
 		JSONObject suggestedValues = new JSONObject();
+		JSONObject needed_sensors = new JSONObject();
+		JSONArray references1 = new JSONArray();
+		JSONArray references2 = new JSONArray();
+		JSONArray references3 = new JSONArray();
+		JSONObject needed_value1 = new JSONObject();
+		JSONObject needed_value2 = new JSONObject();
+		JSONObject needed_value3 = new JSONObject();
+		
+		references1.put("sensor-name");  //references = In which services should i look for the "wanted" amount of this value
+		references2.put("sensor-name");
+		references3.put("sensor-name");
+		references3.put("sensor-name2");
+		
+		needed_value1.put("value1", references1); //Which values i look for : references 
+		needed_value2.put("value2", references2);
+		needed_value3.put("value3", references3);
+		
+		needed_sensors.put("sensor-name", needed_value1); //As a key, the name of the sensor where i should look for the emasured values.
+		needed_sensors.put("sensor-name", needed_value2);
+		needed_sensors.put("sensor-name", needed_value3);
 		
 		data.put("value1", activeValue1);
 		data.put("value2", activeValue2);
@@ -58,6 +79,7 @@ public class ActuatorController {
 		returnValue.put("description", description);
 		returnValue.put("active", data);
 		returnValue.put("suggested", suggestedValues);
+		returnValue.put("needed_sensors", needed_sensors);
 		
 		return returnValue;
 	}
