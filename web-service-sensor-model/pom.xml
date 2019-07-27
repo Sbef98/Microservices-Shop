@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.example</groupId>
-	<artifactId>webservice-sensor-modelr</artifactId>
+	<artifactId>webservice-actuator-model</artifactId>
 	<version>0.1.0</version>
 
 	<parent>
@@ -15,11 +15,12 @@
 	</parent>
 	
 	<dependencies>
-    	<dependency>
-        	<groupId>org.json</groupId>
-        	<artifactId>json</artifactId>
-        	<version>20160810</version>
-    	</dependency>
+    	<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+		<dependency>
+    		<groupId>com.fasterxml.jackson.core</groupId>
+    		<artifactId>jackson-core</artifactId>
+    		<version>2.10.0.pr1</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>

@@ -8,7 +8,7 @@ public class ServiceDetailsRequestModel {
 	private String port;
 	private String type;
 	private Date lastUpdate;
-	private String data;
+	private JSONObject data;
 	private String URI;
 	private String get_mapping = "NULL"; //optional
 	private String get_putting = "NULL"; //optional
@@ -32,10 +32,10 @@ public class ServiceDetailsRequestModel {
 	public void setURI(String uRI) { //Self generated. I don't know why the u is lower case
 		URI = uRI;
 	}
-	public String getData() {
+	public JSONObject getData() {
 		return data;
 	}
-	public void setData(String data) {
+	public void setData(JSONObject data) {
 		lastUpdate = new Date();
 		this.data = data; //NEED TO BE CHACKED!
 	}
@@ -60,15 +60,19 @@ public class ServiceDetailsRequestModel {
 	public Date getLastUpdateDate() {
 		return lastUpdate;
 	}
-	@Override
-	public String toString() {
+	public JSONObject getServiceData()
+	{
 		JSONObject returnValue = new JSONObject();
 		returnValue.put("URI", URI);
 		returnValue.put("port", port);
 		returnValue.put("type", type);
 		returnValue.put("lastUpdate", lastUpdate);
 		returnValue.put("data", data);
-		return returnValue.toString(); //"{\"port\":\"" + port + "\", \"type\":\"" + type + "\", \"lastUpdate\":" + lastUpdate + "\", \"data\":\"" + data + "\"}"; //Should be kinda JSON formatted
+		return returnValue;
+	}
+	@Override
+	public String toString() {
+		return getServiceData().toString(); //"{\"port\":\"" + port + "\", \"type\":\"" + type + "\", \"lastUpdate\":" + lastUpdate + "\", \"data\":\"" + data + "\"}"; //Should be kinda JSON formatted
 	}
 	
 }

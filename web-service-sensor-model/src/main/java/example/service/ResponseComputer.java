@@ -2,9 +2,9 @@ package example.service;
 
 public class ResponseComputer 
 {
-	protected static void elabResponse(String response, SensorController sensor)
+	protected static void elabResponse(String response, SensorController actuator)
 	{
-		if(response.compareToIgnoreCase(sensor.toString()) != 0) //TODO make a better check
-			System.out.println("Errore nella comunicazione");
+		//It should compare the two values and check if the decision server was updated successfully.
+		
 	}
 }

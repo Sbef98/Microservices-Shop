@@ -1,11 +1,14 @@
 package com.example.DecisionServiceSte;
 
 import java.util.HashMap;
+import java.util.Iterator;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,6 +33,19 @@ public class BIOS { //basic input output service (nice joke i know)
 		// possible TODO The surveillance thread used to check the correct services updates will be starting from here
 		//Not sure if i actually do need this
 	}
+	
+	@GetMapping(value="get-available-services",produces="application/json")
+	public String getConnectionsInfo()
+	{
+	    Iterator it = availableServices.entrySet().iterator();
+	    JSONObject returnValue = new JSONObject();
+	    while (it.hasNext()) {
+	        HashMap.Entry pair = (HashMap.Entry)it.next();
+	        returnValue.put((String) pair.getKey(), ((ServiceDetailsRequestModel) pair.getValue()).getServiceData());
+	    }
+		return returnValue.toString();
+	}
+	
 	
 	@PutMapping("put") //update services data
 	public String updateService(@RequestParam(value="serviceName") String serviceName, @RequestBody ServiceDetailsRequestModel requestServiceDetails) {

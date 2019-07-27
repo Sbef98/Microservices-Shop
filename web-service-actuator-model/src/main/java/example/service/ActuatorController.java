@@ -56,8 +56,8 @@ public class ActuatorController {
 		
 		returnValue.put("id", id);
 		returnValue.put("description", description);
-		returnValue.put("active", data.toString());
-		returnValue.put("suggested", suggestedValues.toString());
+		returnValue.put("active", data);
+		returnValue.put("suggested", suggestedValues);
 		
 		return returnValue;
 	}

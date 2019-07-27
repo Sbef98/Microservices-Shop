@@ -7,6 +7,7 @@ import javax.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableScheduling
 public class ServiceController
 {
+	@Value("${service.connectTo}")
 	private String url; // "http://localhost:8000/put?serviceName=thisServiceName"; //Where is the decision service located
 	@Value("${server.port}")
     private String servicePort;
@@ -21,28 +23,28 @@ public class ServiceController
 	private String id;
 	@Value("${service.description}")
 	private String description;
+	@Value("${service.name}")
 	private String serviceName;
+	@Value("${service.URI}")
 	private String serviceURI;
+	@Value("${service.type}")
 	private String type;
 	private SensorController sensor; //TODO fix The difference SensorController/SensorController
-
-	
-	public ServiceController(String[] serviceArgs) {
-		super();
-		this.url = serviceArgs[0] + serviceArgs[1]; //First argument is the Url at which the decision service is listening. The second one is the service name
-		this.serviceName = serviceArgs[1];
-		this.serviceURI = serviceArgs[2]; 
-		this.type = serviceArgs[3];
-	}
 	
 	@PostConstruct
 	public void init() {
-		if(type.compareToIgnoreCase("actuator") == 0) {
+		if(type.compareToIgnoreCase("sensor") == 0) {
 			sensor = new SensorController(id,description);
 		}
+		url = url + serviceName;
 	}
-
-
+	
+	@GetMapping(value="get", produces="application/json")
+	public String showData()
+	{
+		return new SensorController(id,description).toString();
+	}
+	
 	@Scheduled(fixedDelay = 1000) //cool feature
 	public void update()
 	{
@@ -62,7 +64,7 @@ public class ServiceController
 		//System.out.println(response.toString());
 		ResponseComputer.elabResponse(response.toString(), sensor);
 	}
-	
+	 
 	@PreDestroy
 	public void destroy() {
 		// TODO
