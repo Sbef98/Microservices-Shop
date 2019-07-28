@@ -44,7 +44,7 @@ public class ServiceController
 	@GetMapping(value="get", produces="application/json")
 	public String showData()
 	{
-		return new ActuatorController(id,description).toString();
+		return actuator.toString();
 	}
 	
 	@Scheduled(fixedDelay = 1000) //cool feature
