@@ -38,7 +38,7 @@ public class ServiceController
 			actuator = new ActuatorController(id,description);
 		}
 		url = url + serviceName;
-		System.out.println(url);
+		//System.out.println(url);
 	}
 	
 	@GetMapping(value="get", produces="application/json")
@@ -55,7 +55,7 @@ public class ServiceController
 			actuator = new ActuatorController(id,description);
 		}
 		try {
-			 System.out.println("Attendo connessione a " + url);
+			 //System.out.println("Attendo connessione a " + url);
 			 //response = connectToService(url, servicePort, actuator);
 			 response = Communication.put(url, serviceURI, servicePort, type, actuator);
 		/*} catch (IOException e) {

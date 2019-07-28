@@ -36,12 +36,12 @@ public class SensorController {
 		JSONObject suggestedValues = new JSONObject();
 		
 		JSONArray value1 = new JSONArray();
-		value1.put(ThreadLocalRandom.current().nextInt(0, 256));
-		value1.put(ThreadLocalRandom.current().nextInt(0, 256));
+		value1.put((float) ThreadLocalRandom.current().nextInt(0, 256));
+		value1.put((float) ThreadLocalRandom.current().nextInt(0, 256));
 		JSONArray value2 = new JSONArray();
-		value2.put(ThreadLocalRandom.current().nextInt(0, 256));
+		value2.put((float) ThreadLocalRandom.current().nextInt(0, 256));
 		JSONArray value3 = new JSONArray();
-		value3.put(ThreadLocalRandom.current().nextInt(0, 256));
+		value3.put((float) ThreadLocalRandom.current().nextInt(0, 256));
 		
 		data.put("value1", value1);
 		data.put("value2", value2);
