@@ -6,8 +6,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DecisionServiceSteApplication {
+public class DecisionServiceApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(DecisionServiceSteApplication.class);
+		SpringApplication.run(DecisionServiceApplication.class);
 	}
 }

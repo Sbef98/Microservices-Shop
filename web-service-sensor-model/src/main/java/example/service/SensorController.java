@@ -8,9 +8,9 @@ import org.json.JSONObject;
 public class SensorController {
 	private String id;
 	private String description;
-	private static float wanted_value1 = 95;
-	private static float wanted_value2 = 82;
-	private static float wanted_value3 = 200;
+	private final float wanted_value1 = 95;
+	private final float wanted_value2 = 82;
+	private final float wanted_value3 = 200;
 	
 	public SensorController(String id, String description) {
 		super();

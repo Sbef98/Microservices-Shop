@@ -1,8 +1,6 @@
 package com.example.DecisionServiceSte;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.Hashtable;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -20,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class BIOS { // basic input output service (nice joke i know)
-	HashMap<String, ServiceDetailsRequestModel> availableServices = new HashMap<String, ServiceDetailsRequestModel>();
+	Hashtable<String, ServiceDetailsRequestModel> availableServices = new Hashtable<String, ServiceDetailsRequestModel>();
 	// Hashtable has a big overhead due to sync features, but it's thread safe.
 	// TODO File servicesHistory; Files in java suck. Check it later
 
@@ -40,11 +38,9 @@ public class BIOS { // basic input output service (nice joke i know)
 
 	@GetMapping(value = "get-available-services", produces = "application/json")
 	public String getConnectionsInfo() {
-		Iterator it = availableServices.entrySet().iterator();
 		JSONObject returnValue = new JSONObject();
-		while (it.hasNext()) {
-			HashMap.Entry pair = (HashMap.Entry) it.next();
-			returnValue.put((String) pair.getKey(), ((ServiceDetailsRequestModel) pair.getValue()).getServiceData());
+		for(String key : availableServices.keySet()) {
+			returnValue.put(key, availableServices.get(key).getServiceData());
 		}
 		return returnValue.toString();
 	}

@@ -1,6 +1,6 @@
 package com.example.DecisionServiceSte;
 
-import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
@@ -28,14 +28,11 @@ public class DecisionMaker {
 		return maxValue;
 	}
 
-	private static LinkedList<String> getAllSensorsNames(
-			HashMap<String, ServiceDetailsRequestModel> availableServices) {
+	private static LinkedList<String> getAllSensorsNames(Hashtable<String, ServiceDetailsRequestModel> availableServices) {
 		LinkedList<String> names_list = new LinkedList<String>();
-		Iterator it = availableServices.entrySet().iterator();
-		while (it.hasNext()) {
-			HashMap.Entry pair = (HashMap.Entry) it.next();
-			if (((ServiceDetailsRequestModel) pair.getValue()).getType().compareToIgnoreCase("sensor") == 0) {
-				names_list.add((String) pair.getKey());
+		for(String key : availableServices.keySet()) {
+			if (availableServices.get(key).getType().compareToIgnoreCase("sensor") == 0) {
+				names_list.add(key);
 			}
 		}
 		return names_list;
@@ -49,10 +46,10 @@ public class DecisionMaker {
 		 */
 		float returnValue = 0;
 		int i = 0;
-		Iterator it = measuredValues.keys();// entrySet().iterator();
+		Iterator<String> it = measuredValues.keys();// entrySet().iterator();
 		while (it.hasNext()) {
 			// Map.Entry pair = (Map.Entry) it.next();
-			String key = (String) it.next();
+			String key = it.next();
 			// I need to check if this is the value i was looking for
 			if (valueName.compareToIgnoreCase(key) == 0) {
 				// This is what i was looking for!
@@ -72,7 +69,7 @@ public class DecisionMaker {
 	}
 
 	private static float getWantedSensorValue(String valueName, JSONArray references, JSONObject suggestedValues,
-			HashMap<String, ServiceDetailsRequestModel> availableServices) {
+			Hashtable<String, ServiceDetailsRequestModel> availableServices) {
 		/*
 		 * Will be using modal value. This is because finding an average value may not
 		 * make happy anybody. So let's just choose the most wanted one, the democratic
@@ -128,7 +125,7 @@ public class DecisionMaker {
 	}
 
 	private static JSONObject ComputeAnswer(String key, JSONObject value,
-			HashMap<String, ServiceDetailsRequestModel> availableServices, JSONObject suggestedValues,
+			Hashtable<String, ServiceDetailsRequestModel> availableServices, JSONObject suggestedValues,
 			JSONObject activeValues) {
 		/*
 		 * Key is the sensor's name value is needed_value : [references,...]
@@ -138,10 +135,10 @@ public class DecisionMaker {
 		if (sensorData == null)
 			System.out.println("Servizio " + key + " non disponibile");
 		else {
-			Iterator it = value.keys();// entrySet().iterator();
+			Iterator<String> it = value.keys();// entrySet().iterator();
 			while (it.hasNext()) {
 				// Map.Entry pair = (Map.Entry) it.next();
-				String key2 = (String) it.next(); // We can use the key to retrieve the right sensor measured
+				String key2 = it.next(); // We can use the key to retrieve the right sensor measured
 													// value
 													// from
 				float measuredValue;
@@ -183,7 +180,7 @@ public class DecisionMaker {
 	}
 
 	public static String takeDecision(ServiceDetailsRequestModel applicantInfo,
-			HashMap<String, ServiceDetailsRequestModel> availableServices) {
+			Hashtable<String, ServiceDetailsRequestModel> availableServices) {
 
 		JSONObject returnValue = new JSONObject();
 		JSONObject suggestedValues;
@@ -207,10 +204,10 @@ public class DecisionMaker {
 			System.out.println("No active values found!");
 			activeValues = null;
 		}
-		Iterator it = needed_sensors.keys();// entrySet().iterator();
+		Iterator<String> it = needed_sensors.keys();// entrySet().iterator();
 		while (it.hasNext()) {
 			// Map.Entry pair = (Map.Entry) it.next();
-			String key = (String) it.next();
+			String key = it.next();
 			// String key = (String) pair.getKey();
 			// JSONObject value = (JSONObject) pair.getValue();
 

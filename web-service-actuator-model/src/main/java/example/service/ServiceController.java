@@ -4,7 +4,6 @@ package example.service;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;

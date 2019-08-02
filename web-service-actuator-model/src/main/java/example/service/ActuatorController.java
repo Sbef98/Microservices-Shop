@@ -7,24 +7,24 @@ import org.json.JSONObject;
 public class ActuatorController {
 	private String id;
 	private String description;
-	private static float suggested_value1 = 95;
-	private static float suggested_value2 = 82;
-	private static float suggested_value3 = 200;
+	private final float suggested_value1 = 95;
+	private final float suggested_value2 = 82;
+	private final float suggested_value3 = 200;
 	private boolean activeValue1 = false; // like an on/off
 	private float activeValue2 = 82;
 	private float activeValue3 = 200;
 
 	
 	
-	public static float getSuggested_value1() {
+	public float getSuggested_value1() {
 		return suggested_value1;
 	}
 
-	public static float getSuggested_value2() {
+	public float getSuggested_value2() {
 		return suggested_value2;
 	}
 
-	public static float getSuggested_value3() {
+	public float getSuggested_value3() {
 		return suggested_value3;
 	}
 
