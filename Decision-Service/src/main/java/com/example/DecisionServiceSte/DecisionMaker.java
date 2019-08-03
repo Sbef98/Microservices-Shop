@@ -3,7 +3,6 @@ package com.example.DecisionServiceSte;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.Map;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -124,33 +123,23 @@ public class DecisionMaker {
 		return ((wantedValue + (wantedValue - measuredValue)) - activeValue);
 	}
 
-	private static JSONObject ComputeAnswer(String key, JSONObject value,
-			Hashtable<String, ServiceDetailsRequestModel> availableServices, JSONObject suggestedValues,
-			JSONObject activeValues) {
+	private static JSONObject ComputeAnswer(String neededSensorName, JSONObject evaluationDataNeeded, Hashtable<String, ServiceDetailsRequestModel> groupAvailableServices, ServiceDetailsRequestModel applicantInfo) 
+	{
 		/*
-		 * Key is the sensor's name value is needed_value : [references,...]
+		 * evaluationDataNeeded is needed_value : [references,...]
 		 */
 		JSONObject returnValue = new JSONObject();
-		ServiceDetailsRequestModel sensorData = availableServices.get(key);
+		ServiceDetailsRequestModel sensorData = groupAvailableServices.get(neededSensorName);
 		if (sensorData == null)
 			System.out.println("Servizio " + key + " non disponibile");
 		else {
 			Iterator<String> it = value.keys();// entrySet().iterator();
 			while (it.hasNext()) {
 				// Map.Entry pair = (Map.Entry) it.next();
-				String key2 = it.next(); // We can use the key to retrieve the right sensor measured
-													// value
-													// from
+				String key2 = it.next(); // We can use the key to retrieve the right sensor measured value from
 				float measuredValue;
 				try {
-					measuredValue = getMeasuredSensorData(key2, sensorData.getData().getJSONObject("measured")); // This
-																													// is
-																													// the
-																													// value
-																													// measured
-																													// by
-																													// this
-																													// sensor
+					measuredValue = getMeasuredSensorData(key2, sensorData.getData().getJSONObject("measured")); // This is the value measured by this sensor
 				} catch (JSONException e) {
 					System.out.println("Missing measured field in sensor " + key);
 					continue;
@@ -170,8 +159,8 @@ public class DecisionMaker {
 				 * To warm up the room faster, i may want to make the heaters run at 29°C. This
 				 * may mean having an history of the measured temperatures and calculate the
 				 * gradient 😭 At the moment, i will just do a simple difference between the
-				 * measured value and the wanted one. m = measured, w = wanted, a = active. a =
-				 * w + (w - m) Using the gradient will be possible once added the history of
+				 * measured value and the wanted one. m = measured, w = wanted, a = active. 
+				 * a = w + (w - m) Using the gradient will be possible once added the history of
 				 * services
 				 */
 			}
@@ -180,45 +169,23 @@ public class DecisionMaker {
 	}
 
 	public static String takeDecision(ServiceDetailsRequestModel applicantInfo,
-			Hashtable<String, ServiceDetailsRequestModel> availableServices) {
+			Hashtable<String, ServiceDetailsRequestModel> groupAvailableServices) {
 
 		JSONObject returnValue = new JSONObject();
-		JSONObject suggestedValues;
-		JSONObject activeValues;
-		// Map<String, Object> needed_sensors;
-		JSONObject needed_sensors;
-		try {
-			needed_sensors = (applicantInfo.getData().getJSONObject("needed_sensors"));// .toMap();
-		} catch (JSONException e) {
-			return "Wrong protocol used.";
-		}
-
-		try {
-			suggestedValues = (applicantInfo.getData().getJSONObject("suggested"));
-		} catch (JSONException e) {
-			suggestedValues = null; // WHich is empty
-		}
-		try {
-			activeValues = (applicantInfo.getData().getJSONObject("active"));
-		} catch (JSONException e) {
-			System.out.println("No active values found!");
-			activeValues = null;
-		}
-		Iterator<String> it = needed_sensors.keys();// entrySet().iterator();
+		Iterator<String> it = applicantInfo.getNeeded_sensors().keys();
 		while (it.hasNext()) {
 			// Map.Entry pair = (Map.Entry) it.next();
-			String key = it.next();
+			String neededSensorName = it.next();
 			// String key = (String) pair.getKey();
 			// JSONObject value = (JSONObject) pair.getValue();
 
-			if (key.compareToIgnoreCase("*") != 0) {
-				returnValue.put(key, ComputeAnswer(key, needed_sensors.getJSONObject(key), availableServices,
-						suggestedValues, activeValues));
-			} else {
-				for (String key2 : getAllSensorsNames(availableServices)) {
-					returnValue.put(key2, ComputeAnswer(key2, needed_sensors.getJSONObject(key), availableServices,
-							suggestedValues, activeValues));
-				}
+			if (neededSensorName.compareToIgnoreCase("*") != 0) {
+				returnValue.put(neededSensorName, ComputeAnswer(neededSensorName, applicantInfo.getNeeded_sensors().getJSONObject(neededSensorName), groupAvailableServices, applicantInfo));
+				//JSONObject ComputeAnswer(String neededSensorName, JSONObject evaluationDataNeeded, Hashtable<String, ServiceDetailsRequestModel> groupAvailableServices, ServiceDetailsRequestModel applicantInfo)
+			} 
+			else {
+				for (String key : getAllSensorsNames(groupAvailableServices)) 
+					returnValue.put(key, ComputeAnswer(key, applicantInfo.getNeeded_sensors().getJSONObject(key), groupAvailableServices, applicantInfo));
 			}
 
 		}

@@ -18,42 +18,66 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class BIOS { // basic input output service (nice joke i know)
-	Hashtable<String, ServiceDetailsRequestModel> availableServices = new Hashtable<String, ServiceDetailsRequestModel>();
-	// Hashtable has a big overhead due to sync features, but it's thread safe.
-	// TODO File servicesHistory; Files in java suck. Check it later
+	Hashtable<String, Hashtable<String, ServiceDetailsRequestModel>> availableServices = new Hashtable<String, Hashtable<String, ServiceDetailsRequestModel>>();
+	/*
+	 * Using HASHTABLES for thread safety
+	 * This hastable uses the groupid of each service as key. The vlues is itself an hastable composed of every sensor
+	 * that is part of the group. Its key will be the services' name and its value the ServiceDetailsRequestModel 
+	 */
 
 	@Autowired
-	public BIOS() { // throws IOException{
+	public BIOS() 
+	{
 		// TODO servicesHistory = new File("servicesHistory.JSON"); //Used just for
 		// personal Info
 		// or maybe a tiny data base
 	}
 
 	@PostConstruct
-	public void init() {
+	public void init() 
+	{
 		// possible TODO The surveillance thread used to check the correct services
 		// updates will be starting from here
 		// Not sure if i actually do need this
 	}
 
 	@GetMapping(value = "get-available-services", produces = "application/json")
-	public String getConnectionsInfo() {
+	public String getConnectionsInfo() 
+	{	
 		JSONObject returnValue = new JSONObject();
+		
 		for(String key : availableServices.keySet()) {
-			returnValue.put(key, availableServices.get(key).getServiceData());
+			//Iterate through all the groups
+			JSONObject thisGroupValue = new JSONObject();
+			Hashtable<String, ServiceDetailsRequestModel> groupAvailableServices = availableServices.get(key); 
+			for(String key2 : groupAvailableServices.keySet())
+				//Iterate trough all the services in a group
+				thisGroupValue.put(key2, groupAvailableServices.get(key2).getServiceData());
+				//Key2 is the service name
+			returnValue.put(key, thisGroupValue);
+			//key is the groupID
 		}
 		return returnValue.toString();
 	}
 
 	@PutMapping(value = "put", produces = "application/json") // update services data
-	public String updateService(@RequestParam(value = "serviceName") String serviceName,
-			@RequestBody ServiceDetailsRequestModel requestServiceDetails) {
-		availableServices.put(serviceName, requestServiceDetails);
+	public String updateService(@RequestParam(value = "serviceName") String serviceName, @RequestBody ServiceDetailsRequestModel requestServiceDetails) 
+	{	
+		Hashtable<String, ServiceDetailsRequestModel> groupAvailableServices;
+		try{
+			groupAvailableServices = availableServices.get(requestServiceDetails.getGroupID());
+			//The group is already available in the services list
+		}catch(NullPointerException e){
+			groupAvailableServices = new Hashtable<String, ServiceDetailsRequestModel>();
+			//The group is not available in the services list, so we create a new one
+			availableServices.put(requestServiceDetails.getGroupID(), groupAvailableServices);
+			//And add it to the services list!
+		}
+		groupAvailableServices.put(serviceName, requestServiceDetails);
+		
 		String returnValue = requestServiceDetails.getType().compareToIgnoreCase("sensor") == 0
-				? new String(requestServiceDetails.toString())
-				: // Returning the same string may be used to check that the communcation was
-					// correct!
-				DecisionMaker.takeDecision(requestServiceDetails, availableServices); // The way decision will be
+				? new String(requestServiceDetails.toString()) // Returning the same string may be used to check that the communcation was correct!
+				: DecisionMaker.takeDecision(requestServiceDetails, groupAvailableServices); // The way decision will be
 																						// hadnled may vary
 		// TODO availableServices.get(serviceName); //Write the old ServiceName's value
 		// in the service history.

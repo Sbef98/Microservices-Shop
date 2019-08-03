@@ -4,16 +4,53 @@ import java.util.Date;
 
 import org.json.JSONObject;
 
-public class ServiceDetailsRequestModel {
+public class ServiceDetailsRequestModel 
+{
+	private String URI;
 	private String port;
 	private String type;
-	private Date lastUpdate;
-	private JSONObject data;
-	private String URI;
 	private String get_mapping = "NULL"; //optional
 	private String get_putting = "NULL"; //optional
+	private String groupID;
+	private String description;
+	private JSONObject values;
+	private JSONObject wanted;
+	private JSONObject needed_sensors;  //Will be empty in case of a sensor
+
+	
+	private Date lastUpdate;
 	
 	
+	public String getGroupID() {
+		return groupID;
+	}
+	public void setGroupID(String groupID) {
+		this.groupID = groupID;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public JSONObject getValues() {
+		return values;
+	}
+	public void setValues(JSONObject values) {
+		this.values = values;
+	}
+	public JSONObject getWanted() {
+		return wanted;
+	}
+	public void setWanted(JSONObject wanted) {
+		this.wanted = wanted;
+	}
+	public JSONObject getNeeded_sensors() {
+		return needed_sensors;
+	}
+	public void setNeeded_sensors(JSONObject needed_sensors) {
+		this.needed_sensors = needed_sensors;
+	}
 	public String getGet_mapping() {
 		return get_mapping;
 	}
@@ -31,13 +68,6 @@ public class ServiceDetailsRequestModel {
 	}
 	public void setURI(String uRI) { //Self generated. I don't know why the u is lower case
 		URI = uRI;
-	}
-	public JSONObject getData() {
-		return data;
-	}
-	public void setData(JSONObject data) {
-		lastUpdate = new Date();
-		this.data = data; //NEED TO BE CHACKED!
 	}
 	
 	public String getPort() {
@@ -67,12 +97,14 @@ public class ServiceDetailsRequestModel {
 		returnValue.put("port", port);
 		returnValue.put("type", type);
 		returnValue.put("lastUpdate", lastUpdate);
-		returnValue.put("data", data);
+		returnValue.put("values", values);
+		returnValue.put("wanted", wanted);
+		returnValue.put("needed_sensors", needed_sensors);
 		return returnValue;
 	}
 	@Override
 	public String toString() {
-		return getServiceData().toString(); //"{\"port\":\"" + port + "\", \"type\":\"" + type + "\", \"lastUpdate\":" + lastUpdate + "\", \"data\":\"" + data + "\"}"; //Should be kinda JSON formatted
+		return getServiceData().toString(); 
 	}
 	
 }

@@ -19,20 +19,20 @@ Add group id for the sensors
 Sensore:
    {
 	URI : uri, port : xxxx, type : "sensor"/"actuator", GetMapping : "/xxx/", PutMapping : "/yyy/",   # General informations (GetMapping and PutMapping are optional)-
-	GroupID : "id", Description : "Some description",						  # For group detection
+	groupID : "id", description : "Some description",						  # For group detection
 													  # Next is the actual data
-	measured : {value1 : [value,...], value2 : [value,...], ...},					  # What the sensor is measuring at the time of the update
+	values : {value1 : [value,...], value2 : [value,...], ...},					  # What the sensor is measuring at the time of the update
 	wanted : {value1 : value, value2 : value, ...}							  # What the sensor tells the Decision service to confront the data to
    }
 
 Attuatore:
    {
 	URI : uri, port : xxxx, type : "sensor"/"actuator", GetMapping : "/xxx/", PutMapping : "/yyy/",
-	GroupID : "id", Description : "Some description",
-	active : {value1 : active_value, value2 : active_value,...}, 
-	suggested : {value1 : value, value2: value, ...}, 						  # Do we need this for real?
+	groupID : "id", description : "Some description",
+	values : {value1 : active_value, value2 : active_value,...}, 
+	wanted : {value1 : value, value2: value, ...}, 						  	  # Do we need this for real?
 													  # And now the needed sensors!
-	needed_sensors : {sensor_name : {sensor's data we look for : [other_sensor_directions, ...], ... }, ...}
+	needed_sensors : {sensor_name : {sensor's data we look for : [other_sensor_directions, ...], ... }, ...} <- the only difference with the sensor
    }
 
 For the other_sensor_direction we could actually just use the groupid. The actuators will use the directions give by all the services in their own groupid!
