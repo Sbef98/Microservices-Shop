@@ -27,10 +27,10 @@ public class DecisionMaker {
 		return maxValue;
 	}
 
-	private static LinkedList<String> getAllSensorsNames(Hashtable<String, ServiceDetailsRequestModel> availableServices) {
+	private static LinkedList<String> getAllSensorsNames(Hashtable<String, ServiceDetailsRequestModel> groupAvailableServices) {
 		LinkedList<String> names_list = new LinkedList<String>();
-		for(String key : availableServices.keySet()) {
-			if (availableServices.get(key).getType().compareToIgnoreCase("sensor") == 0) {
+		for(String key : groupAvailableServices.keySet()) {
+			if (groupAvailableServices.get(key).getType().compareToIgnoreCase("sensor") == 0) {
 				names_list.add(key);
 			}
 		}
@@ -67,8 +67,8 @@ public class DecisionMaker {
 		return returnValue;
 	}
 
-	private static float getWantedSensorValue(String valueName, JSONArray references, JSONObject suggestedValues,
-			Hashtable<String, ServiceDetailsRequestModel> availableServices) {
+	private static float getWantedSensorValue(String valueName, JSONArray references, JSONObject suggestedValues, Hashtable<String, ServiceDetailsRequestModel> groupAvailableServices) 
+	{
 		/*
 		 * Will be using modal value. This is because finding an average value may not
 		 * make happy anybody. So let's just choose the most wanted one, the democratic
@@ -79,15 +79,9 @@ public class DecisionMaker {
 		for (Object reference : references) {
 			JSONObject wanted;
 			try {
-				if (availableServices.get((String) reference).getType().compareToIgnoreCase("sensor") == 0)
-					wanted = availableServices.get((String) reference).getData().getJSONObject("wanted");
-				else
-					wanted = availableServices.get((String) reference).getData().getJSONObject("suggested");
-			} catch (JSONException e) {
-				System.out.println(e);
-				continue;
-			} catch (java.lang.NullPointerException e) {
-				System.out.println(e);
+				wanted = groupAvailableServices.get((String) reference).getWanted();
+			}catch(NullPointerException e) {
+				System.out.println("The needed sensor" + (String) reference + " is missing!");
 				continue;
 			}
 			try {
@@ -126,44 +120,57 @@ public class DecisionMaker {
 	private static JSONObject ComputeAnswer(String neededSensorName, JSONObject evaluationDataNeeded, Hashtable<String, ServiceDetailsRequestModel> groupAvailableServices, ServiceDetailsRequestModel applicantInfo) 
 	{
 		/*
-		 * evaluationDataNeeded is needed_value : [references,...]
+		 * evaluationDataNeeded is {needed_value : [references,...], ...}
 		 */
 		JSONObject returnValue = new JSONObject();
 		ServiceDetailsRequestModel sensorData = groupAvailableServices.get(neededSensorName);
-		if (sensorData == null)
-			System.out.println("Servizio " + key + " non disponibile");
-		else {
-			Iterator<String> it = value.keys();// entrySet().iterator();
-			while (it.hasNext()) {
-				// Map.Entry pair = (Map.Entry) it.next();
-				String key2 = it.next(); // We can use the key to retrieve the right sensor measured value from
-				float measuredValue;
-				try {
-					measuredValue = getMeasuredSensorData(key2, sensorData.getData().getJSONObject("measured")); // This is the value measured by this sensor
-				} catch (JSONException e) {
-					System.out.println("Missing measured field in sensor " + key);
-					continue;
-				}
-				float wantedValue = getWantedSensorValue(key2, value.getJSONArray(key2), suggestedValues,
-						availableServices);
-				// I am passing the ValueName i am evaluating, from which services i should get
-				// the suggested value it should actually be, the suggested vlues from this
-				// actuator
-				returnValue.put(key2, computeCorrection(key2, measuredValue, wantedValue, activeValues));
-				/*
-				 * Will be passing the measured value and the wanted one, its name and all the
-				 * active values on the actuator This way i will be computing how much i should
-				 * correct the active value to make it get closer to the desired one given the
-				 * me4asured one. For example, i may want a temperature of 24 °C, but my heaters
-				 * are already running at 28°C, but the average temperature in the room is 22°C.
-				 * To warm up the room faster, i may want to make the heaters run at 29°C. This
-				 * may mean having an history of the measured temperatures and calculate the
-				 * gradient 😭 At the moment, i will just do a simple difference between the
-				 * measured value and the wanted one. m = measured, w = wanted, a = active. 
-				 * a = w + (w - m) Using the gradient will be possible once added the history of
-				 * services
-				 */
+		
+		Iterator<String> it = evaluationDataNeeded.keys();
+		while (it.hasNext()) {
+			String needed_value = it.next(); // We can use the key to retrieve the right sensor measured value from
+			float measuredValue;
+			if(sensorData.getValues() == null)
+				measuredValue = getMeasuredSensorData(needed_value, sensorData.getValues()); // This is the value measured by this sensor
+			else {
+				System.out.println("Missing measured field in sensor " + neededSensorName);
+				continue;
 			}
+			JSONArray references = evaluationDataNeeded.getJSONArray(needed_value);
+			switch (references.length()) {
+			case 1:
+				if(((String) references.get(0)).compareTo("*") != 0)
+					break;
+				//else: no break, does the same as the case 0
+			case 0:
+				references = new JSONArray(getAllSensorsNames(groupAvailableServices));
+				/*
+				 * In cese the references are not specified or in case the special character * is used, it will be compared to all the sensors in its group
+				 */
+				break;
+
+			default:
+				break;
+			}
+			float wantedValue = getWantedSensorValue(needed_value, references, applicantInfo.getWanted(), groupAvailableServices);
+			/* 
+			 * I am passing the ValueName i am evaluating, from which services i should get
+			 * the suggested values, the suggested vlues from this
+			 * actuator
+			 */
+			returnValue.put(needed_value, computeCorrection(needed_value, measuredValue, wantedValue, applicantInfo.getValues()));
+			/*
+			 * Will be passing the measured value and the wanted one, its name and all the
+			 * active values on the actuator This way i will be computing how much i should
+			 * correct the active value to make it get closer to the desired one given the
+			 * me4asured one. For example, i may want a temperature of 24 °C, but my heaters
+			 * are already running at 28°C, but the average temperature in the room is 22°C.
+			 * To warm up the room faster, i may want to make the heaters run at 29°C. This
+			 * may mean having an history of the measured temperatures and calculate the
+			 * gradient 😭 At the moment, i will just do a simple difference between the
+			 * measured value and the wanted one. m = measured, w = wanted, a = active. 
+			 * a = w + (w - m) Using the gradient will be possible once added the history of
+			 * services
+			 */
 		}
 		return returnValue;
 	}
