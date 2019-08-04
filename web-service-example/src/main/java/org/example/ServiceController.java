@@ -1,6 +1,7 @@
 package org.example;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
@@ -58,5 +59,15 @@ public abstract class ServiceController
 		}
 		//System.out.println(response.toString());
 		elabResponse(response.toString());
+	}
+	@PreDestroy
+	public void end()
+	{
+		try {
+			Communication.close(url, groupID);
+		} catch (kong.unirest.UnirestException e) {
+			System.out.println("UnirestException while connecting to " + url);
+		}
+		System.out.println("Uscita da " + serviceName);
 	}
 }

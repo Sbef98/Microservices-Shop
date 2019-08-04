@@ -63,6 +63,16 @@ public class BIOS { // basic input output service (nice joke i know)
 	@PutMapping(value = "put", produces = "application/json") // update services data
 	public String updateService(@RequestParam(value = "serviceName") String serviceName, @RequestBody ServiceDetailsRequestModel requestServiceDetails) 
 	{	
+		if(requestServiceDetails.isClosed() == true) {
+			try {
+				availableServices.get(requestServiceDetails.getGroupID()).remove(serviceName);
+				if(availableServices.get(requestServiceDetails.getGroupID()).size() == 0) // IF the group is empty
+					availableServices.remove(requestServiceDetails.getGroupID()); //delete it from the map!
+				return "ok";
+			}catch(NullPointerException e) {
+				return "error";
+			}
+		}
 		Hashtable<String, ServiceDetailsRequestModel> groupAvailableServices;
 		try{
 			groupAvailableServices = availableServices.get(requestServiceDetails.getGroupID());

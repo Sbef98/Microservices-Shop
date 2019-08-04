@@ -16,11 +16,18 @@ public class ServiceDetailsRequestModel
 	private JSONObject values;
 	private JSONObject wanted;
 	private JSONObject needed_sensors;  //Will be empty in case of a sensor
+	private boolean closed = false;
 
 	
 	private Date lastUpdate;
 	
 	
+	public boolean isClosed() {
+		return closed;
+	}
+	public void setClosed(boolean closed) {
+		this.closed = closed;
+	}
 	public String getGroupID() {
 		return groupID;
 	}

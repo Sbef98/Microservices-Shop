@@ -7706,3 +7706,1402 @@ java.lang.InterruptedException
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 16:57:09.483
 !MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.odxhsoGl => OK
+!SESSION 2019-08-04 17:18:37.810 -----------------------------------------------
+eclipse.buildId=4.12.0.I20190605-1800
+java.version=1.8.0_222
+java.vendor=Azul Systems, Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=it_IT
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.core 1 0 2019-08-04 17:21:48.074
+!MESSAGE Using Apache MINA sshd as ssh client.
+
+!ENTRY org.eclipse.jface 2 0 2019-08-04 17:21:52.884
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-08-04 17:21:52.884
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@77eb607e,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1f1fbc9f,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2019-08-04 17:23:01.255
+!MESSAGE Error changing index details workspace://
+!STACK 0
+java.io.FileNotFoundException: D:\Università\Java\Progetto\Project-NewVilla\.metadata\.plugins\org.eclipse.m2e.core\nexus\830bc118332e77292949ed1e6d2fabe0\_0.cfs (Impossibile trovare il file specificato)
+	at java.io.RandomAccessFile.open0(Native Method)
+	at java.io.RandomAccessFile.open(RandomAccessFile.java:316)
+	at java.io.RandomAccessFile.<init>(RandomAccessFile.java:243)
+	at org.apache.lucene.store.FSDirectory$FSIndexInput$Descriptor.<init>(FSDirectory.java:552)
+	at org.apache.lucene.store.FSDirectory$FSIndexInput.<init>(FSDirectory.java:582)
+	at org.apache.lucene.store.FSDirectory.openInput(FSDirectory.java:488)
+	at org.apache.lucene.index.CompoundFileReader.<init>(CompoundFileReader.java:70)
+	at org.apache.lucene.index.SegmentReader.initialize(SegmentReader.java:321)
+	at org.apache.lucene.index.SegmentReader.get(SegmentReader.java:306)
+	at org.apache.lucene.index.SegmentReader.get(SegmentReader.java:236)
+	at org.apache.lucene.index.DocumentsWriter.applyDeletes(DocumentsWriter.java:915)
+	at org.apache.lucene.index.IndexWriter.applyDeletes(IndexWriter.java:4339)
+	at org.apache.lucene.index.IndexWriter.doFlush(IndexWriter.java:3579)
+	at org.apache.lucene.index.IndexWriter.flush(IndexWriter.java:3450)
+	at org.apache.lucene.index.IndexWriter.closeInternal(IndexWriter.java:1638)
+	at org.apache.lucene.index.IndexWriter.close(IndexWriter.java:1602)
+	at org.apache.lucene.index.IndexWriter.close(IndexWriter.java:1578)
+	at org.apache.maven.index.context.NexusIndexWriter.close(NexusIndexWriter.java:58)
+	at org.apache.maven.index.context.DefaultIndexingContext.prepareCleanIndex(DefaultIndexingContext.java:235)
+	at org.apache.maven.index.context.DefaultIndexingContext.prepareIndex(DefaultIndexingContext.java:205)
+	at org.apache.maven.index.context.DefaultIndexingContext.<init>(DefaultIndexingContext.java:173)
+	at org.apache.maven.index.DefaultNexusIndexer.addIndexingContextForced(DefaultNexusIndexer.java:160)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.createIndexingContext(NexusIndexManager.java:965)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.setIndexDetails(NexusIndexManager.java:932)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.repositoryAdded(NexusIndexManager.java:878)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistry.addRepository(RepositoryRegistry.java:163)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistry.updateRegistry(RepositoryRegistry.java:236)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistryUpdateJob.run(RepositoryRegistryUpdateJob.java:47)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2019-08-04 17:23:01.428
+!MESSAGE Could not add repository index
+!STACK 1
+org.eclipse.core.runtime.CoreException: Could not add repository index
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.setIndexDetails(NexusIndexManager.java:945)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.repositoryAdded(NexusIndexManager.java:878)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistry.addRepository(RepositoryRegistry.java:163)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistry.updateRegistry(RepositoryRegistry.java:236)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistryUpdateJob.run(RepositoryRegistryUpdateJob.java:47)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.io.FileNotFoundException: D:\Università\Java\Progetto\Project-NewVilla\.metadata\.plugins\org.eclipse.m2e.core\nexus\830bc118332e77292949ed1e6d2fabe0\_0.cfs (Impossibile trovare il file specificato)
+	at java.io.RandomAccessFile.open0(Native Method)
+	at java.io.RandomAccessFile.open(RandomAccessFile.java:316)
+	at java.io.RandomAccessFile.<init>(RandomAccessFile.java:243)
+	at org.apache.lucene.store.FSDirectory$FSIndexInput$Descriptor.<init>(FSDirectory.java:552)
+	at org.apache.lucene.store.FSDirectory$FSIndexInput.<init>(FSDirectory.java:582)
+	at org.apache.lucene.store.FSDirectory.openInput(FSDirectory.java:488)
+	at org.apache.lucene.index.CompoundFileReader.<init>(CompoundFileReader.java:70)
+	at org.apache.lucene.index.SegmentReader.initialize(SegmentReader.java:321)
+	at org.apache.lucene.index.SegmentReader.get(SegmentReader.java:306)
+	at org.apache.lucene.index.SegmentReader.get(SegmentReader.java:236)
+	at org.apache.lucene.index.DocumentsWriter.applyDeletes(DocumentsWriter.java:915)
+	at org.apache.lucene.index.IndexWriter.applyDeletes(IndexWriter.java:4339)
+	at org.apache.lucene.index.IndexWriter.doFlush(IndexWriter.java:3579)
+	at org.apache.lucene.index.IndexWriter.flush(IndexWriter.java:3450)
+	at org.apache.lucene.index.IndexWriter.closeInternal(IndexWriter.java:1638)
+	at org.apache.lucene.index.IndexWriter.close(IndexWriter.java:1602)
+	at org.apache.lucene.index.IndexWriter.close(IndexWriter.java:1578)
+	at org.apache.maven.index.context.NexusIndexWriter.close(NexusIndexWriter.java:58)
+	at org.apache.maven.index.context.DefaultIndexingContext.prepareCleanIndex(DefaultIndexingContext.java:235)
+	at org.apache.maven.index.context.DefaultIndexingContext.prepareIndex(DefaultIndexingContext.java:205)
+	at org.apache.maven.index.context.DefaultIndexingContext.<init>(DefaultIndexingContext.java:173)
+	at org.apache.maven.index.DefaultNexusIndexer.addIndexingContextForced(DefaultNexusIndexer.java:160)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.createIndexingContext(NexusIndexManager.java:965)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.setIndexDetails(NexusIndexManager.java:932)
+	... 5 more
+!SUBENTRY 1 org.eclipse.m2e.core 4 -1 2019-08-04 17:23:01.428
+!MESSAGE Could not add repository index
+!STACK 0
+java.io.FileNotFoundException: D:\Università\Java\Progetto\Project-NewVilla\.metadata\.plugins\org.eclipse.m2e.core\nexus\830bc118332e77292949ed1e6d2fabe0\_0.cfs (Impossibile trovare il file specificato)
+	at java.io.RandomAccessFile.open0(Native Method)
+	at java.io.RandomAccessFile.open(RandomAccessFile.java:316)
+	at java.io.RandomAccessFile.<init>(RandomAccessFile.java:243)
+	at org.apache.lucene.store.FSDirectory$FSIndexInput$Descriptor.<init>(FSDirectory.java:552)
+	at org.apache.lucene.store.FSDirectory$FSIndexInput.<init>(FSDirectory.java:582)
+	at org.apache.lucene.store.FSDirectory.openInput(FSDirectory.java:488)
+	at org.apache.lucene.index.CompoundFileReader.<init>(CompoundFileReader.java:70)
+	at org.apache.lucene.index.SegmentReader.initialize(SegmentReader.java:321)
+	at org.apache.lucene.index.SegmentReader.get(SegmentReader.java:306)
+	at org.apache.lucene.index.SegmentReader.get(SegmentReader.java:236)
+	at org.apache.lucene.index.DocumentsWriter.applyDeletes(DocumentsWriter.java:915)
+	at org.apache.lucene.index.IndexWriter.applyDeletes(IndexWriter.java:4339)
+	at org.apache.lucene.index.IndexWriter.doFlush(IndexWriter.java:3579)
+	at org.apache.lucene.index.IndexWriter.flush(IndexWriter.java:3450)
+	at org.apache.lucene.index.IndexWriter.closeInternal(IndexWriter.java:1638)
+	at org.apache.lucene.index.IndexWriter.close(IndexWriter.java:1602)
+	at org.apache.lucene.index.IndexWriter.close(IndexWriter.java:1578)
+	at org.apache.maven.index.context.NexusIndexWriter.close(NexusIndexWriter.java:58)
+	at org.apache.maven.index.context.DefaultIndexingContext.prepareCleanIndex(DefaultIndexingContext.java:235)
+	at org.apache.maven.index.context.DefaultIndexingContext.prepareIndex(DefaultIndexingContext.java:205)
+	at org.apache.maven.index.context.DefaultIndexingContext.<init>(DefaultIndexingContext.java:173)
+	at org.apache.maven.index.DefaultNexusIndexer.addIndexingContextForced(DefaultNexusIndexer.java:160)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.createIndexingContext(NexusIndexManager.java:965)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.setIndexDetails(NexusIndexManager.java:932)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.repositoryAdded(NexusIndexManager.java:878)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistry.addRepository(RepositoryRegistry.java:163)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistry.updateRegistry(RepositoryRegistry.java:236)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistryUpdateJob.run(RepositoryRegistryUpdateJob.java:47)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2019-08-04 22:07:07.091 -----------------------------------------------
+eclipse.buildId=4.12.0.I20190605-1800
+java.version=1.8.0_222
+java.vendor=Azul Systems, Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=it_IT
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.core 1 0 2019-08-04 22:07:46.091
+!MESSAGE Using Apache MINA sshd as ssh client.
+
+!ENTRY org.eclipse.jface 2 0 2019-08-04 22:07:49.693
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-08-04 22:07:49.693
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6de33fde,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@69c33ea2,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2019-08-04 22:08:45.956
+!MESSAGE Error changing index details workspace://
+!STACK 0
+java.io.FileNotFoundException: D:\Università\Java\Progetto\Project-NewVilla\.metadata\.plugins\org.eclipse.m2e.core\nexus\830bc118332e77292949ed1e6d2fabe0\_0.cfs (Impossibile trovare il file specificato)
+	at java.io.RandomAccessFile.open0(Native Method)
+	at java.io.RandomAccessFile.open(RandomAccessFile.java:316)
+	at java.io.RandomAccessFile.<init>(RandomAccessFile.java:243)
+	at org.apache.lucene.store.FSDirectory$FSIndexInput$Descriptor.<init>(FSDirectory.java:552)
+	at org.apache.lucene.store.FSDirectory$FSIndexInput.<init>(FSDirectory.java:582)
+	at org.apache.lucene.store.FSDirectory.openInput(FSDirectory.java:488)
+	at org.apache.lucene.index.CompoundFileReader.<init>(CompoundFileReader.java:70)
+	at org.apache.lucene.index.SegmentReader.initialize(SegmentReader.java:321)
+	at org.apache.lucene.index.SegmentReader.get(SegmentReader.java:306)
+	at org.apache.lucene.index.SegmentReader.get(SegmentReader.java:236)
+	at org.apache.lucene.index.DocumentsWriter.applyDeletes(DocumentsWriter.java:915)
+	at org.apache.lucene.index.IndexWriter.applyDeletes(IndexWriter.java:4339)
+	at org.apache.lucene.index.IndexWriter.doFlush(IndexWriter.java:3579)
+	at org.apache.lucene.index.IndexWriter.flush(IndexWriter.java:3450)
+	at org.apache.lucene.index.IndexWriter.closeInternal(IndexWriter.java:1638)
+	at org.apache.lucene.index.IndexWriter.close(IndexWriter.java:1602)
+	at org.apache.lucene.index.IndexWriter.close(IndexWriter.java:1578)
+	at org.apache.maven.index.context.NexusIndexWriter.close(NexusIndexWriter.java:58)
+	at org.apache.maven.index.context.DefaultIndexingContext.prepareCleanIndex(DefaultIndexingContext.java:235)
+	at org.apache.maven.index.context.DefaultIndexingContext.prepareIndex(DefaultIndexingContext.java:205)
+	at org.apache.maven.index.context.DefaultIndexingContext.<init>(DefaultIndexingContext.java:173)
+	at org.apache.maven.index.DefaultNexusIndexer.addIndexingContextForced(DefaultNexusIndexer.java:160)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.createIndexingContext(NexusIndexManager.java:965)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.setIndexDetails(NexusIndexManager.java:932)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.repositoryAdded(NexusIndexManager.java:878)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistry.addRepository(RepositoryRegistry.java:163)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistry.updateRegistry(RepositoryRegistry.java:236)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistryUpdateJob.run(RepositoryRegistryUpdateJob.java:47)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2019-08-04 22:08:46.175
+!MESSAGE Could not add repository index
+!STACK 1
+org.eclipse.core.runtime.CoreException: Could not add repository index
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.setIndexDetails(NexusIndexManager.java:945)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.repositoryAdded(NexusIndexManager.java:878)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistry.addRepository(RepositoryRegistry.java:163)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistry.updateRegistry(RepositoryRegistry.java:236)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistryUpdateJob.run(RepositoryRegistryUpdateJob.java:47)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.io.FileNotFoundException: D:\Università\Java\Progetto\Project-NewVilla\.metadata\.plugins\org.eclipse.m2e.core\nexus\830bc118332e77292949ed1e6d2fabe0\_0.cfs (Impossibile trovare il file specificato)
+	at java.io.RandomAccessFile.open0(Native Method)
+	at java.io.RandomAccessFile.open(RandomAccessFile.java:316)
+	at java.io.RandomAccessFile.<init>(RandomAccessFile.java:243)
+	at org.apache.lucene.store.FSDirectory$FSIndexInput$Descriptor.<init>(FSDirectory.java:552)
+	at org.apache.lucene.store.FSDirectory$FSIndexInput.<init>(FSDirectory.java:582)
+	at org.apache.lucene.store.FSDirectory.openInput(FSDirectory.java:488)
+	at org.apache.lucene.index.CompoundFileReader.<init>(CompoundFileReader.java:70)
+	at org.apache.lucene.index.SegmentReader.initialize(SegmentReader.java:321)
+	at org.apache.lucene.index.SegmentReader.get(SegmentReader.java:306)
+	at org.apache.lucene.index.SegmentReader.get(SegmentReader.java:236)
+	at org.apache.lucene.index.DocumentsWriter.applyDeletes(DocumentsWriter.java:915)
+	at org.apache.lucene.index.IndexWriter.applyDeletes(IndexWriter.java:4339)
+	at org.apache.lucene.index.IndexWriter.doFlush(IndexWriter.java:3579)
+	at org.apache.lucene.index.IndexWriter.flush(IndexWriter.java:3450)
+	at org.apache.lucene.index.IndexWriter.closeInternal(IndexWriter.java:1638)
+	at org.apache.lucene.index.IndexWriter.close(IndexWriter.java:1602)
+	at org.apache.lucene.index.IndexWriter.close(IndexWriter.java:1578)
+	at org.apache.maven.index.context.NexusIndexWriter.close(NexusIndexWriter.java:58)
+	at org.apache.maven.index.context.DefaultIndexingContext.prepareCleanIndex(DefaultIndexingContext.java:235)
+	at org.apache.maven.index.context.DefaultIndexingContext.prepareIndex(DefaultIndexingContext.java:205)
+	at org.apache.maven.index.context.DefaultIndexingContext.<init>(DefaultIndexingContext.java:173)
+	at org.apache.maven.index.DefaultNexusIndexer.addIndexingContextForced(DefaultNexusIndexer.java:160)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.createIndexingContext(NexusIndexManager.java:965)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.setIndexDetails(NexusIndexManager.java:932)
+	... 5 more
+!SUBENTRY 1 org.eclipse.m2e.core 4 -1 2019-08-04 22:08:46.175
+!MESSAGE Could not add repository index
+!STACK 0
+java.io.FileNotFoundException: D:\Università\Java\Progetto\Project-NewVilla\.metadata\.plugins\org.eclipse.m2e.core\nexus\830bc118332e77292949ed1e6d2fabe0\_0.cfs (Impossibile trovare il file specificato)
+	at java.io.RandomAccessFile.open0(Native Method)
+	at java.io.RandomAccessFile.open(RandomAccessFile.java:316)
+	at java.io.RandomAccessFile.<init>(RandomAccessFile.java:243)
+	at org.apache.lucene.store.FSDirectory$FSIndexInput$Descriptor.<init>(FSDirectory.java:552)
+	at org.apache.lucene.store.FSDirectory$FSIndexInput.<init>(FSDirectory.java:582)
+	at org.apache.lucene.store.FSDirectory.openInput(FSDirectory.java:488)
+	at org.apache.lucene.index.CompoundFileReader.<init>(CompoundFileReader.java:70)
+	at org.apache.lucene.index.SegmentReader.initialize(SegmentReader.java:321)
+	at org.apache.lucene.index.SegmentReader.get(SegmentReader.java:306)
+	at org.apache.lucene.index.SegmentReader.get(SegmentReader.java:236)
+	at org.apache.lucene.index.DocumentsWriter.applyDeletes(DocumentsWriter.java:915)
+	at org.apache.lucene.index.IndexWriter.applyDeletes(IndexWriter.java:4339)
+	at org.apache.lucene.index.IndexWriter.doFlush(IndexWriter.java:3579)
+	at org.apache.lucene.index.IndexWriter.flush(IndexWriter.java:3450)
+	at org.apache.lucene.index.IndexWriter.closeInternal(IndexWriter.java:1638)
+	at org.apache.lucene.index.IndexWriter.close(IndexWriter.java:1602)
+	at org.apache.lucene.index.IndexWriter.close(IndexWriter.java:1578)
+	at org.apache.maven.index.context.NexusIndexWriter.close(NexusIndexWriter.java:58)
+	at org.apache.maven.index.context.DefaultIndexingContext.prepareCleanIndex(DefaultIndexingContext.java:235)
+	at org.apache.maven.index.context.DefaultIndexingContext.prepareIndex(DefaultIndexingContext.java:205)
+	at org.apache.maven.index.context.DefaultIndexingContext.<init>(DefaultIndexingContext.java:173)
+	at org.apache.maven.index.DefaultNexusIndexer.addIndexingContextForced(DefaultNexusIndexer.java:160)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.createIndexingContext(NexusIndexManager.java:965)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.setIndexDetails(NexusIndexManager.java:932)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.repositoryAdded(NexusIndexManager.java:878)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistry.addRepository(RepositoryRegistry.java:163)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistry.updateRegistry(RepositoryRegistry.java:236)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistryUpdateJob.run(RepositoryRegistryUpdateJob.java:47)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-08-04 22:08:50.345
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\stopp'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:08:54.363
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:08:54.423
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:08:54.433
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@2c0a69b9[org.springframework.tooling.boot.ls:1.9.0.201907120625(id=527)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:08:54.445
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@2c0a69b9[org.springframework.tooling.boot.ls:1.9.0.201907120625(id=527)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:08:54.511
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:08:54.521
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:08:56.722
+!MESSAGE Instantiating ReusableClasspathListenerHandler
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-04 22:09:10.920
+!MESSAGE Cannot run program "git" (in directory "\usr\bin"): CreateProcess error=2, Impossibile trovare il file specificato
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:06.559
+!MESSAGE Boot LS startup time from start to initialized: 53293ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:06.606
+!MESSAGE Boot LS startup time from start to initialized: 53297ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:06.853
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.EgCWCOFuisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:06.868
+!MESSAGE subscribing to classpath changes: sts4.classpath.EgCWCOFu isBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:06.889
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:06.902
+!MESSAGE subsribers = {sts4.classpath.EgCWCOFu=Send Classpath Notifications(794)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:06.916
+!MESSAGE Sending initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:06.938
+!MESSAGE project web-service-actuator-model ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:06.954
+!MESSAGE project web-service-example ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:06.976
+!MESSAGE Preparing classpath changed notification web-service-actuator-model
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:06.985
+!MESSAGE project Decision-Service ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:06.994
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:07.003
+!MESSAGE project web-service-sensor-model ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:07.030
+!MESSAGE Sending initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:07.043
+!MESSAGE classpath=84 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:07.053
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.EgCWCOFu => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:07.085
+!MESSAGE buffering callback sts4.classpath.EgCWCOFu web-service-actuator-model false 84
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:07.097
+!MESSAGE Preparing classpath changed notification web-service-example
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:07.110
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:07.135
+!MESSAGE classpath=93 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:07.162
+!MESSAGE buffering callback sts4.classpath.EgCWCOFu web-service-example false 93
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:07.179
+!MESSAGE Preparing classpath changed notification Decision-Service
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:07.191
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:07.223
+!MESSAGE classpath=85 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:07.242
+!MESSAGE buffering callback sts4.classpath.EgCWCOFu Decision-Service false 85
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:07.252
+!MESSAGE Preparing classpath changed notification web-service-sensor-model
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:07.261
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:07.283
+!MESSAGE classpath=84 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:07.298
+!MESSAGE buffering callback sts4.classpath.EgCWCOFu web-service-sensor-model false 84
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:07.307
+!MESSAGE executing callback sts4.classpath.EgCWCOFu 4 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:07.602
+!MESSAGE executing callback sts4.classpath.EgCWCOFu SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:18.158
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.EgCWCOFu
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:18.203
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.EgCWCOFu
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:18.260
+!MESSAGE subsribers = null
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:10:18.273
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.EgCWCOFu => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:11.871
+!MESSAGE Boot LS startup time from start to initialized: 7744ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:11.936
+!MESSAGE Boot LS startup time from start to initialized: 7759ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:11.987
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.wwNnlWZUisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.089
+!MESSAGE subscribing to classpath changes: sts4.classpath.wwNnlWZU isBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.207
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.yDzrxKMUisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.217
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.226
+!MESSAGE subsribers = {sts4.classpath.wwNnlWZU=Send Classpath Notifications(809)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.236
+!MESSAGE Sending initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.247
+!MESSAGE project Decision-Service ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.269
+!MESSAGE Preparing classpath changed notification Decision-Service
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.293
+!MESSAGE project web-service-example ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.312
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.323
+!MESSAGE project web-service-actuator-model ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.333
+!MESSAGE classpath=85 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.345
+!MESSAGE project web-service-sensor-model ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.357
+!MESSAGE buffering callback sts4.classpath.wwNnlWZU Decision-Service false 85
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.366
+!MESSAGE Sending initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.375
+!MESSAGE Preparing classpath changed notification web-service-example
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.384
+!MESSAGE subscribing to classpath changes: sts4.classpath.yDzrxKMU isBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.393
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.wwNnlWZU => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.401
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.412
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.420
+!MESSAGE subsribers = {sts4.classpath.wwNnlWZU=Send Classpath Notifications(809), sts4.classpath.yDzrxKMU=Send Classpath Notifications(811)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.437
+!MESSAGE Sending initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.450
+!MESSAGE project Decision-Service ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.461
+!MESSAGE project web-service-example ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.470
+!MESSAGE classpath=93 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.478
+!MESSAGE project web-service-actuator-model ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.487
+!MESSAGE Preparing classpath changed notification Decision-Service
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.495
+!MESSAGE project web-service-sensor-model ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.507
+!MESSAGE buffering callback sts4.classpath.wwNnlWZU web-service-example false 93
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.516
+!MESSAGE Sending initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.525
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.534
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.yDzrxKMU => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.545
+!MESSAGE Preparing classpath changed notification web-service-actuator-model
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.555
+!MESSAGE classpath=85 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.564
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.574
+!MESSAGE buffering callback sts4.classpath.yDzrxKMU Decision-Service false 85
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.583
+!MESSAGE Preparing classpath changed notification web-service-example
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.592
+!MESSAGE classpath=84 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.607
+!MESSAGE buffering callback sts4.classpath.wwNnlWZU web-service-actuator-model false 84
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.617
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.624
+!MESSAGE Preparing classpath changed notification web-service-sensor-model
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.640
+!MESSAGE classpath=93 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.649
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.657
+!MESSAGE buffering callback sts4.classpath.yDzrxKMU web-service-example false 93
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.666
+!MESSAGE classpath=84 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.676
+!MESSAGE Preparing classpath changed notification web-service-actuator-model
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.686
+!MESSAGE buffering callback sts4.classpath.wwNnlWZU web-service-sensor-model false 84
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.695
+!MESSAGE executing callback sts4.classpath.wwNnlWZU 4 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.718
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.759
+!MESSAGE classpath=84 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.784
+!MESSAGE buffering callback sts4.classpath.yDzrxKMU web-service-actuator-model false 84
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.794
+!MESSAGE Preparing classpath changed notification web-service-sensor-model
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.804
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:12.925
+!MESSAGE executing callback sts4.classpath.wwNnlWZU SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:13.010
+!MESSAGE classpath=84 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:13.069
+!MESSAGE buffering callback sts4.classpath.yDzrxKMU web-service-sensor-model false 84
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:13.088
+!MESSAGE executing callback sts4.classpath.yDzrxKMU 4 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:11:15.109
+!MESSAGE executing callback sts4.classpath.yDzrxKMU FAILED
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 4 0 2019-08-04 22:11:15.126
+!MESSAGE 
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1771)
+	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:1915)
+	at org.springframework.tooling.ls.eclipse.commons.LSP4ECommandExecutor.executeClientCommand(LSP4ECommandExecutor.java:37)
+	at org.springframework.tooling.jdt.ls.commons.classpath.SendClasspathNotificationsJob.flush(SendClasspathNotificationsJob.java:192)
+	at org.springframework.tooling.jdt.ls.commons.classpath.SendClasspathNotificationsJob.run(SendClasspathNotificationsJob.java:164)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.lsp4e 4 0 2019-08-04 22:11:40.987
+!MESSAGE 
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1771)
+	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:1915)
+	at org.eclipse.lsp4e.operations.hover.LSBasedHover.getHoverInfo(LSBasedHover.java:108)
+	at org.springframework.tooling.boot.ls.jdt.SpringBootJavaHoverProvider.getHoverInfo2(SpringBootJavaHoverProvider.java:43)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:167)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:133)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)
+
+!ENTRY org.eclipse.lsp4e 4 0 2019-08-04 22:12:01.849
+!MESSAGE 
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1771)
+	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:1915)
+	at org.eclipse.lsp4e.operations.hover.LSBasedHover.getHoverInfo(LSBasedHover.java:108)
+	at org.springframework.tooling.boot.ls.jdt.SpringBootJavaHoverProvider.getHoverInfo2(SpringBootJavaHoverProvider.java:43)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:167)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:133)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)
+!SESSION 2019-08-04 22:33:25.368 -----------------------------------------------
+eclipse.buildId=4.12.0.I20190605-1800
+java.version=1.8.0_222
+java.vendor=Azul Systems, Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=it_IT
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2019-08-04 22:35:09.271
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.egit.core 1 0 2019-08-04 22:35:26.505
+!MESSAGE Using Apache MINA sshd as ssh client.
+
+!ENTRY org.eclipse.jface 2 0 2019-08-04 22:35:30.238
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-08-04 22:35:30.238
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2a16d4dc,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@75805562,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2019-08-04 22:36:22.885
+!MESSAGE Error changing index details workspace://
+!STACK 0
+java.io.FileNotFoundException: D:\Università\Java\Progetto\Project-NewVilla\.metadata\.plugins\org.eclipse.m2e.core\nexus\830bc118332e77292949ed1e6d2fabe0\_0.cfs (Impossibile trovare il file specificato)
+	at java.io.RandomAccessFile.open0(Native Method)
+	at java.io.RandomAccessFile.open(RandomAccessFile.java:316)
+	at java.io.RandomAccessFile.<init>(RandomAccessFile.java:243)
+	at org.apache.lucene.store.FSDirectory$FSIndexInput$Descriptor.<init>(FSDirectory.java:552)
+	at org.apache.lucene.store.FSDirectory$FSIndexInput.<init>(FSDirectory.java:582)
+	at org.apache.lucene.store.FSDirectory.openInput(FSDirectory.java:488)
+	at org.apache.lucene.index.CompoundFileReader.<init>(CompoundFileReader.java:70)
+	at org.apache.lucene.index.SegmentReader.initialize(SegmentReader.java:321)
+	at org.apache.lucene.index.SegmentReader.get(SegmentReader.java:306)
+	at org.apache.lucene.index.SegmentReader.get(SegmentReader.java:236)
+	at org.apache.lucene.index.DocumentsWriter.applyDeletes(DocumentsWriter.java:915)
+	at org.apache.lucene.index.IndexWriter.applyDeletes(IndexWriter.java:4339)
+	at org.apache.lucene.index.IndexWriter.doFlush(IndexWriter.java:3579)
+	at org.apache.lucene.index.IndexWriter.flush(IndexWriter.java:3450)
+	at org.apache.lucene.index.IndexWriter.closeInternal(IndexWriter.java:1638)
+	at org.apache.lucene.index.IndexWriter.close(IndexWriter.java:1602)
+	at org.apache.lucene.index.IndexWriter.close(IndexWriter.java:1578)
+	at org.apache.maven.index.context.NexusIndexWriter.close(NexusIndexWriter.java:58)
+	at org.apache.maven.index.context.DefaultIndexingContext.prepareCleanIndex(DefaultIndexingContext.java:235)
+	at org.apache.maven.index.context.DefaultIndexingContext.prepareIndex(DefaultIndexingContext.java:205)
+	at org.apache.maven.index.context.DefaultIndexingContext.<init>(DefaultIndexingContext.java:173)
+	at org.apache.maven.index.DefaultNexusIndexer.addIndexingContextForced(DefaultNexusIndexer.java:160)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.createIndexingContext(NexusIndexManager.java:965)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.setIndexDetails(NexusIndexManager.java:932)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.repositoryAdded(NexusIndexManager.java:878)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistry.addRepository(RepositoryRegistry.java:163)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistry.updateRegistry(RepositoryRegistry.java:236)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistryUpdateJob.run(RepositoryRegistryUpdateJob.java:47)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2019-08-04 22:36:22.986
+!MESSAGE Could not add repository index
+!STACK 1
+org.eclipse.core.runtime.CoreException: Could not add repository index
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.setIndexDetails(NexusIndexManager.java:945)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.repositoryAdded(NexusIndexManager.java:878)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistry.addRepository(RepositoryRegistry.java:163)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistry.updateRegistry(RepositoryRegistry.java:236)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistryUpdateJob.run(RepositoryRegistryUpdateJob.java:47)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.io.FileNotFoundException: D:\Università\Java\Progetto\Project-NewVilla\.metadata\.plugins\org.eclipse.m2e.core\nexus\830bc118332e77292949ed1e6d2fabe0\_0.cfs (Impossibile trovare il file specificato)
+	at java.io.RandomAccessFile.open0(Native Method)
+	at java.io.RandomAccessFile.open(RandomAccessFile.java:316)
+	at java.io.RandomAccessFile.<init>(RandomAccessFile.java:243)
+	at org.apache.lucene.store.FSDirectory$FSIndexInput$Descriptor.<init>(FSDirectory.java:552)
+	at org.apache.lucene.store.FSDirectory$FSIndexInput.<init>(FSDirectory.java:582)
+	at org.apache.lucene.store.FSDirectory.openInput(FSDirectory.java:488)
+	at org.apache.lucene.index.CompoundFileReader.<init>(CompoundFileReader.java:70)
+	at org.apache.lucene.index.SegmentReader.initialize(SegmentReader.java:321)
+	at org.apache.lucene.index.SegmentReader.get(SegmentReader.java:306)
+	at org.apache.lucene.index.SegmentReader.get(SegmentReader.java:236)
+	at org.apache.lucene.index.DocumentsWriter.applyDeletes(DocumentsWriter.java:915)
+	at org.apache.lucene.index.IndexWriter.applyDeletes(IndexWriter.java:4339)
+	at org.apache.lucene.index.IndexWriter.doFlush(IndexWriter.java:3579)
+	at org.apache.lucene.index.IndexWriter.flush(IndexWriter.java:3450)
+	at org.apache.lucene.index.IndexWriter.closeInternal(IndexWriter.java:1638)
+	at org.apache.lucene.index.IndexWriter.close(IndexWriter.java:1602)
+	at org.apache.lucene.index.IndexWriter.close(IndexWriter.java:1578)
+	at org.apache.maven.index.context.NexusIndexWriter.close(NexusIndexWriter.java:58)
+	at org.apache.maven.index.context.DefaultIndexingContext.prepareCleanIndex(DefaultIndexingContext.java:235)
+	at org.apache.maven.index.context.DefaultIndexingContext.prepareIndex(DefaultIndexingContext.java:205)
+	at org.apache.maven.index.context.DefaultIndexingContext.<init>(DefaultIndexingContext.java:173)
+	at org.apache.maven.index.DefaultNexusIndexer.addIndexingContextForced(DefaultNexusIndexer.java:160)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.createIndexingContext(NexusIndexManager.java:965)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.setIndexDetails(NexusIndexManager.java:932)
+	... 5 more
+!SUBENTRY 1 org.eclipse.m2e.core 4 -1 2019-08-04 22:36:22.994
+!MESSAGE Could not add repository index
+!STACK 0
+java.io.FileNotFoundException: D:\Università\Java\Progetto\Project-NewVilla\.metadata\.plugins\org.eclipse.m2e.core\nexus\830bc118332e77292949ed1e6d2fabe0\_0.cfs (Impossibile trovare il file specificato)
+	at java.io.RandomAccessFile.open0(Native Method)
+	at java.io.RandomAccessFile.open(RandomAccessFile.java:316)
+	at java.io.RandomAccessFile.<init>(RandomAccessFile.java:243)
+	at org.apache.lucene.store.FSDirectory$FSIndexInput$Descriptor.<init>(FSDirectory.java:552)
+	at org.apache.lucene.store.FSDirectory$FSIndexInput.<init>(FSDirectory.java:582)
+	at org.apache.lucene.store.FSDirectory.openInput(FSDirectory.java:488)
+	at org.apache.lucene.index.CompoundFileReader.<init>(CompoundFileReader.java:70)
+	at org.apache.lucene.index.SegmentReader.initialize(SegmentReader.java:321)
+	at org.apache.lucene.index.SegmentReader.get(SegmentReader.java:306)
+	at org.apache.lucene.index.SegmentReader.get(SegmentReader.java:236)
+	at org.apache.lucene.index.DocumentsWriter.applyDeletes(DocumentsWriter.java:915)
+	at org.apache.lucene.index.IndexWriter.applyDeletes(IndexWriter.java:4339)
+	at org.apache.lucene.index.IndexWriter.doFlush(IndexWriter.java:3579)
+	at org.apache.lucene.index.IndexWriter.flush(IndexWriter.java:3450)
+	at org.apache.lucene.index.IndexWriter.closeInternal(IndexWriter.java:1638)
+	at org.apache.lucene.index.IndexWriter.close(IndexWriter.java:1602)
+	at org.apache.lucene.index.IndexWriter.close(IndexWriter.java:1578)
+	at org.apache.maven.index.context.NexusIndexWriter.close(NexusIndexWriter.java:58)
+	at org.apache.maven.index.context.DefaultIndexingContext.prepareCleanIndex(DefaultIndexingContext.java:235)
+	at org.apache.maven.index.context.DefaultIndexingContext.prepareIndex(DefaultIndexingContext.java:205)
+	at org.apache.maven.index.context.DefaultIndexingContext.<init>(DefaultIndexingContext.java:173)
+	at org.apache.maven.index.DefaultNexusIndexer.addIndexingContextForced(DefaultNexusIndexer.java:160)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.createIndexingContext(NexusIndexManager.java:965)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.setIndexDetails(NexusIndexManager.java:932)
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.repositoryAdded(NexusIndexManager.java:878)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistry.addRepository(RepositoryRegistry.java:163)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistry.updateRegistry(RepositoryRegistry.java:236)
+	at org.eclipse.m2e.core.internal.repository.RepositoryRegistryUpdateJob.run(RepositoryRegistryUpdateJob.java:47)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-08-04 22:36:29.373
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\stopp'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:36:30.803
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:36:30.815
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:36:30.824
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@458dcedd[org.springframework.tooling.boot.ls:1.9.0.201907120625(id=527)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:36:30.843
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@458dcedd[org.springframework.tooling.boot.ls:1.9.0.201907120625(id=527)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:36:30.883
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:36:30.891
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:36:32.567
+!MESSAGE Instantiating ReusableClasspathListenerHandler
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-08-04 22:36:43.941
+!MESSAGE Cannot run program "git" (in directory "\usr\bin"): CreateProcess error=2, Impossibile trovare il file specificato
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:14.407
+!MESSAGE Boot LS startup time from start to initialized: 43473ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:14.452
+!MESSAGE Boot LS startup time from start to initialized: 43429ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:14.690
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.wxElwRCIisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:14.707
+!MESSAGE subscribing to classpath changes: sts4.classpath.wxElwRCI isBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:14.716
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.BRCMFxmkisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:14.727
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:14.739
+!MESSAGE subsribers = {sts4.classpath.wxElwRCI=Send Classpath Notifications(780)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:14.748
+!MESSAGE Sending initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:14.783
+!MESSAGE project web-service-actuator-model ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:14.793
+!MESSAGE project web-service-example ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:14.801
+!MESSAGE Preparing classpath changed notification web-service-actuator-model
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:14.811
+!MESSAGE project Decision-Service ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:14.820
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:14.828
+!MESSAGE project web-service-sensor-model ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:14.842
+!MESSAGE Sending initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:14.854
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.wxElwRCI => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:14.862
+!MESSAGE classpath=84 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:14.870
+!MESSAGE subscribing to classpath changes: sts4.classpath.BRCMFxmk isBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:14.879
+!MESSAGE buffering callback sts4.classpath.wxElwRCI web-service-actuator-model false 84
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:14.888
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:14.898
+!MESSAGE Preparing classpath changed notification web-service-example
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:14.906
+!MESSAGE subsribers = {sts4.classpath.BRCMFxmk=Send Classpath Notifications(782), sts4.classpath.wxElwRCI=Send Classpath Notifications(780)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:14.914
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:14.923
+!MESSAGE Sending initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:14.934
+!MESSAGE project web-service-actuator-model ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:14.946
+!MESSAGE project web-service-example ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:14.956
+!MESSAGE classpath=93 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:14.964
+!MESSAGE project Decision-Service ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:14.972
+!MESSAGE Preparing classpath changed notification web-service-actuator-model
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:14.980
+!MESSAGE project web-service-sensor-model ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:14.989
+!MESSAGE Sending initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:15.007
+!MESSAGE buffering callback sts4.classpath.wxElwRCI web-service-example false 93
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:15.017
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.BRCMFxmk => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:15.029
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:15.038
+!MESSAGE Preparing classpath changed notification Decision-Service
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:15.055
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:15.074
+!MESSAGE classpath=85 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:15.084
+!MESSAGE classpath=84 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:15.117
+!MESSAGE buffering callback sts4.classpath.BRCMFxmk web-service-actuator-model false 84
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:15.127
+!MESSAGE Preparing classpath changed notification web-service-example
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:15.137
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:15.160
+!MESSAGE classpath=93 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:15.176
+!MESSAGE buffering callback sts4.classpath.BRCMFxmk web-service-example false 93
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:15.186
+!MESSAGE buffering callback sts4.classpath.wxElwRCI Decision-Service false 85
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:15.196
+!MESSAGE Preparing classpath changed notification web-service-sensor-model
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:15.206
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:15.226
+!MESSAGE classpath=84 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:15.242
+!MESSAGE buffering callback sts4.classpath.wxElwRCI web-service-sensor-model false 84
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:15.254
+!MESSAGE executing callback sts4.classpath.wxElwRCI 4 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:15.274
+!MESSAGE Preparing classpath changed notification Decision-Service
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:15.402
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:15.506
+!MESSAGE executing callback sts4.classpath.wxElwRCI SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:15.548
+!MESSAGE classpath=85 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:15.603
+!MESSAGE buffering callback sts4.classpath.BRCMFxmk Decision-Service false 85
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:15.663
+!MESSAGE Preparing classpath changed notification web-service-sensor-model
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:15.727
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:15.747
+!MESSAGE classpath=84 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:15.819
+!MESSAGE buffering callback sts4.classpath.BRCMFxmk web-service-sensor-model false 84
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:15.829
+!MESSAGE executing callback sts4.classpath.BRCMFxmk 4 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:37:16.135
+!MESSAGE executing callback sts4.classpath.BRCMFxmk SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:39:11.792
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.wxElwRCI
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:39:11.983
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.wxElwRCI
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:39:12.256
+!MESSAGE subsribers = {sts4.classpath.BRCMFxmk=Send Classpath Notifications(782)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:39:12.328
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.wxElwRCI => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:40:23.950
+!MESSAGE Boot LS startup time from start to initialized: 6742ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:40:24.073
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.YXgQQnfcisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:40:24.105
+!MESSAGE subscribing to classpath changes: sts4.classpath.YXgQQnfc isBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:40:24.116
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:40:24.126
+!MESSAGE subsribers = {sts4.classpath.YXgQQnfc=Send Classpath Notifications(804), sts4.classpath.BRCMFxmk=Send Classpath Notifications(782)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:40:24.136
+!MESSAGE Sending initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:40:24.146
+!MESSAGE project web-service-example ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:40:24.169
+!MESSAGE project Decision-Service ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:40:24.193
+!MESSAGE Preparing classpath changed notification web-service-example
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:40:24.204
+!MESSAGE project web-service-actuator-model ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:40:24.214
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:40:24.224
+!MESSAGE project web-service-sensor-model ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:40:24.235
+!MESSAGE classpath=93 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:40:24.244
+!MESSAGE Sending initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:40:24.259
+!MESSAGE buffering callback sts4.classpath.YXgQQnfc web-service-example false 93
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:40:24.267
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.YXgQQnfc => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:40:24.281
+!MESSAGE Preparing classpath changed notification Decision-Service
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:40:24.295
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:40:24.312
+!MESSAGE classpath=85 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:40:24.327
+!MESSAGE buffering callback sts4.classpath.YXgQQnfc Decision-Service false 85
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:40:24.335
+!MESSAGE Preparing classpath changed notification web-service-actuator-model
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:40:24.344
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:40:24.360
+!MESSAGE classpath=84 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:40:24.378
+!MESSAGE buffering callback sts4.classpath.YXgQQnfc web-service-actuator-model false 84
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:40:24.407
+!MESSAGE Preparing classpath changed notification web-service-sensor-model
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:40:24.416
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:40:24.433
+!MESSAGE classpath=84 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:40:24.447
+!MESSAGE buffering callback sts4.classpath.YXgQQnfc web-service-sensor-model false 84
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:40:24.457
+!MESSAGE executing callback sts4.classpath.YXgQQnfc 4 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 22:40:24.646
+!MESSAGE executing callback sts4.classpath.YXgQQnfc SUCCESS [done]
+
+!ENTRY org.eclipse.lsp4e 4 0 2019-08-04 22:43:27.609
+!MESSAGE 
+!STACK 0
+java.lang.InterruptedException
+	at java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:347)
+	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:1915)
+	at org.eclipse.lsp4e.operations.hover.LSBasedHover.getHoverInfo(LSBasedHover.java:108)
+	at org.springframework.tooling.boot.ls.jdt.SpringBootJavaHoverProvider.getHoverInfo2(SpringBootJavaHoverProvider.java:43)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:167)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:133)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)
+
+!ENTRY org.eclipse.lsp4e 4 0 2019-08-04 22:43:40.108
+!MESSAGE 
+!STACK 0
+java.lang.InterruptedException
+	at java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:347)
+	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:1915)
+	at org.eclipse.lsp4e.operations.hover.LSBasedHover.getHoverInfo(LSBasedHover.java:108)
+	at org.springframework.tooling.boot.ls.jdt.SpringBootJavaHoverProvider.getHoverInfo2(SpringBootJavaHoverProvider.java:43)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:167)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:133)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:04:31.402
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.BRCMFxmk
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:04:31.442
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.BRCMFxmk
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:04:31.454
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.YXgQQnfc
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:04:31.465
+!MESSAGE subsribers = {sts4.classpath.YXgQQnfc=Send Classpath Notifications(804)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:04:31.478
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.BRCMFxmk => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:04:31.508
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.YXgQQnfc
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:04:31.573
+!MESSAGE subsribers = null
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:04:31.583
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.YXgQQnfc => OK
+
+!ENTRY org.eclipse.lsp4e 4 0 2019-08-04 23:05:00.957
+!MESSAGE 
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1771)
+	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:1915)
+	at org.eclipse.lsp4e.LanguageServerWrapper.supportsWorkspaceFolderCapability(LanguageServerWrapper.java:461)
+	at org.eclipse.lsp4e.LanguageServerWrapper.canOperate(LanguageServerWrapper.java:450)
+	at org.eclipse.lsp4e.LanguageServerWrapper.canOperate(LanguageServerWrapper.java:757)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.lambda$6(LanguageServiceAccessor.java:320)
+	at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:174)
+	at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:175)
+	at java.util.HashMap$KeySpliterator.forEachRemaining(HashMap.java:1556)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:482)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:566)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLSWrappers(LanguageServiceAccessor.java:321)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLanguageServers(LanguageServiceAccessor.java:505)
+	at org.eclipse.lsp4e.operations.hover.LSBasedHover.initiateHoverRequest(LSBasedHover.java:229)
+	at org.eclipse.lsp4e.operations.hover.LSBasedHover.getHoverInfo(LSBasedHover.java:105)
+	at org.springframework.tooling.boot.ls.jdt.SpringBootJavaHoverProvider.getHoverInfo2(SpringBootJavaHoverProvider.java:43)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:167)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:133)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)
+
+!ENTRY org.eclipse.lsp4e 4 0 2019-08-04 23:05:02.049
+!MESSAGE 
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1771)
+	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:1915)
+	at org.eclipse.lsp4e.LanguageServerWrapper.supportsWorkspaceFolderCapability(LanguageServerWrapper.java:461)
+	at org.eclipse.lsp4e.LanguageServerWrapper.canOperate(LanguageServerWrapper.java:450)
+	at org.eclipse.lsp4e.LanguageServerWrapper.canOperate(LanguageServerWrapper.java:757)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.lambda$7(LanguageServiceAccessor.java:338)
+	at java.util.stream.MatchOps$1MatchSink.accept(MatchOps.java:90)
+	at java.util.HashMap$KeySpliterator.tryAdvance(HashMap.java:1577)
+	at java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:126)
+	at java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:499)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:486)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472)
+	at java.util.stream.MatchOps$MatchOp.evaluateSequential(MatchOps.java:230)
+	at java.util.stream.MatchOps$MatchOp.evaluateSequential(MatchOps.java:196)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:516)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLSWrappers(LanguageServiceAccessor.java:337)
+	at org.eclipse.lsp4e.LanguageServiceAccessor.getLanguageServers(LanguageServiceAccessor.java:505)
+	at org.eclipse.lsp4e.operations.hover.LSBasedHover.initiateHoverRequest(LSBasedHover.java:229)
+	at org.eclipse.lsp4e.operations.hover.LSBasedHover.getHoverInfo(LSBasedHover.java:105)
+	at org.springframework.tooling.boot.ls.jdt.SpringBootJavaHoverProvider.getHoverInfo2(SpringBootJavaHoverProvider.java:43)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:167)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:133)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)
+
+!ENTRY org.eclipse.lsp4e 4 0 2019-08-04 23:05:02.617
+!MESSAGE 
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1771)
+	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:1915)
+	at org.eclipse.lsp4e.operations.hover.LSBasedHover.getHoverInfo(LSBasedHover.java:108)
+	at org.springframework.tooling.boot.ls.jdt.SpringBootJavaHoverProvider.getHoverInfo2(SpringBootJavaHoverProvider.java:43)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:167)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:133)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:06.504
+!MESSAGE Boot LS startup time from start to initialized: 8293ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:06.562
+!MESSAGE Boot LS startup time from start to initialized: 8351ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:06.616
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.qXcQKallisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:06.705
+!MESSAGE subscribing to classpath changes: sts4.classpath.qXcQKall isBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:06.736
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.hmDCGDTMisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:06.766
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:06.816
+!MESSAGE subsribers = {sts4.classpath.qXcQKall=Send Classpath Notifications(1206)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:06.831
+!MESSAGE Sending initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:06.842
+!MESSAGE project web-service-example ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:06.850
+!MESSAGE project Decision-Service ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:06.865
+!MESSAGE Preparing classpath changed notification web-service-example
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:06.894
+!MESSAGE project web-service-actuator-model ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:06.920
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:06.933
+!MESSAGE project web-service-sensor-model ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:06.951
+!MESSAGE classpath=93 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:06.971
+!MESSAGE Sending initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:06.982
+!MESSAGE buffering callback sts4.classpath.qXcQKall web-service-example false 93
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:06.991
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.qXcQKall => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.001
+!MESSAGE subscribing to classpath changes: sts4.classpath.hmDCGDTM isBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.056
+!MESSAGE Preparing classpath changed notification Decision-Service
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.089
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.107
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.115
+!MESSAGE subsribers = {sts4.classpath.hmDCGDTM=Send Classpath Notifications(1209), sts4.classpath.qXcQKall=Send Classpath Notifications(1206)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.146
+!MESSAGE classpath=85 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.155
+!MESSAGE Sending initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.168
+!MESSAGE buffering callback sts4.classpath.qXcQKall Decision-Service false 85
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.183
+!MESSAGE project web-service-example ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.192
+!MESSAGE Preparing classpath changed notification web-service-actuator-model
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.206
+!MESSAGE Preparing classpath changed notification web-service-example
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.214
+!MESSAGE project Decision-Service ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.223
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.232
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.242
+!MESSAGE classpath=93 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.259
+!MESSAGE project web-service-actuator-model ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.280
+!MESSAGE buffering callback sts4.classpath.hmDCGDTM web-service-example false 93
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.289
+!MESSAGE classpath=84 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.316
+!MESSAGE Preparing classpath changed notification Decision-Service
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.331
+!MESSAGE project web-service-sensor-model ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.354
+!MESSAGE Sending initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.372
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.393
+!MESSAGE buffering callback sts4.classpath.qXcQKall web-service-actuator-model false 84
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.414
+!MESSAGE classpath=85 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.423
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.hmDCGDTM => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.441
+!MESSAGE buffering callback sts4.classpath.hmDCGDTM Decision-Service false 85
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.455
+!MESSAGE Preparing classpath changed notification web-service-sensor-model
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.474
+!MESSAGE Preparing classpath changed notification web-service-actuator-model
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.483
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.496
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.514
+!MESSAGE classpath=84 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.537
+!MESSAGE classpath=84 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.554
+!MESSAGE buffering callback sts4.classpath.qXcQKall web-service-sensor-model false 84
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.572
+!MESSAGE buffering callback sts4.classpath.hmDCGDTM web-service-actuator-model false 84
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.590
+!MESSAGE executing callback sts4.classpath.qXcQKall 4 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.604
+!MESSAGE Preparing classpath changed notification web-service-sensor-model
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.697
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.769
+!MESSAGE classpath=84 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.784
+!MESSAGE buffering callback sts4.classpath.hmDCGDTM web-service-sensor-model false 84
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.872
+!MESSAGE executing callback sts4.classpath.qXcQKall SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:07.884
+!MESSAGE executing callback sts4.classpath.hmDCGDTM 4 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-04 23:05:09.965
+!MESSAGE executing callback sts4.classpath.hmDCGDTM FAILED
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 4 0 2019-08-04 23:05:09.984
+!MESSAGE 
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1771)
+	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:1915)
+	at org.springframework.tooling.ls.eclipse.commons.LSP4ECommandExecutor.executeClientCommand(LSP4ECommandExecutor.java:37)
+	at org.springframework.tooling.jdt.ls.commons.classpath.SendClasspathNotificationsJob.flush(SendClasspathNotificationsJob.java:192)
+	at org.springframework.tooling.jdt.ls.commons.classpath.SendClasspathNotificationsJob.run(SendClasspathNotificationsJob.java:164)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.lsp4e 4 0 2019-08-04 23:06:36.110
+!MESSAGE 
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1771)
+	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:1915)
+	at org.eclipse.lsp4e.operations.hover.LSBasedHover.getHoverInfo(LSBasedHover.java:108)
+	at org.springframework.tooling.boot.ls.jdt.SpringBootJavaHoverProvider.getHoverInfo2(SpringBootJavaHoverProvider.java:43)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:167)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:133)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)

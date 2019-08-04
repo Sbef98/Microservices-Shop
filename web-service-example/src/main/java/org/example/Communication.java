@@ -24,6 +24,18 @@ public class Communication {
 		msg.put("values", values);
 		msg.put("wanted", wanted);
 		msg.put("needed_sensors", needed_sensors);
+		return sendJSONObject(msg,url);		
+	}
+	protected static void close(String url, String groupID) throws UnirestException
+	{
+		JSONObject msg = new JSONObject();
+		msg.put("close", true);
+		msg.put("groupID", groupID);
+		sendJSONObject(msg, url);
+	}
+	
+	private static String sendJSONObject(JSONObject msg, String url)
+	{
 		HttpResponse<String> response = Unirest.put(url) //Gotta understand this first
 	            .header("Accept", "application/json")
 	            .header("Content-Type", "application/json")
