@@ -2,7 +2,6 @@ package com.example.DecisionServiceSte;
 
 import java.util.Date;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class ServiceDetailsRequestModel 
@@ -18,11 +17,25 @@ public class ServiceDetailsRequestModel
 	private JSONObject wanted;
 	private JSONObject needed_sensors;  //Will be empty in case of a sensor
 	private boolean closed = false;
-
-	
 	private Date lastUpdate;
 	
-	
+	public ServiceDetailsRequestModel(String uRI, int port, String type, String get_mapping, String get_putting,
+			String groupID, String description, JSONObject values, JSONObject wanted, JSONObject needed_sensors,
+			boolean closed) 
+	{
+		super();
+		URI = uRI;
+		this.port = port;
+		this.type = type;
+		this.get_mapping = get_mapping;
+		this.get_putting = get_putting;
+		this.groupID = groupID;
+		this.description = description;
+		this.values = values;
+		this.wanted = wanted;
+		this.needed_sensors = needed_sensors;
+		this.closed = closed;
+	}
 	public boolean isClosed() {
 		return closed;
 	}

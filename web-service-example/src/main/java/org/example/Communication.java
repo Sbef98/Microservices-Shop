@@ -5,8 +5,8 @@ import kong.unirest.HttpResponse;
 import kong.unirest.Unirest;
 import kong.unirest.UnirestException;
 /*
- * Communication.put(url, serviceURI, servicePort, type, getGetMapping(), getPutMapping(),
-					 groupID, description, getValues(), getWanted(), getNeeded_sesnors());
+ * response = Communication.put(url, serviceURI, servicePort, type, getGetMapping(), getPutMapping(),
+ * 								groupID, description, getValues(), getWanted(), getNeeded_sensors());
  */
 public class Communication {
 	protected static String put(String url, String serviceURI, int serverPort, String type,
@@ -21,8 +21,8 @@ public class Communication {
 		msg.put("PutMapping", putMapping);
 		msg.put("groupID", groupID);
 		msg.put("description", description);
-		msg.put("values", values);
-		msg.put("wanted", wanted);
+		msg.put("values", values.toString());
+		msg.put("wanted", wanted.toString());
 		msg.put("needed_sensors", needed_sensors);
 		return sendJSONObject(msg,url);		
 	}

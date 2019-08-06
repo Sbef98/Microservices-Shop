@@ -64,7 +64,7 @@ public class BIOS { // basic input output service (nice joke i know)
 	public String updateService(@RequestParam(value = "serviceName") String serviceName, @RequestBody ServiceDetailsRequestModel requestServiceDetails) 
 	{	
 		System.out.println(requestServiceDetails.getServiceData());
-		if(requestServiceDetails.isClosed() == true) {
+		if(requestServiceDetails.isClosed() == true) { //TODO check if using delete mapping may be better
 			try {
 				availableServices.get(requestServiceDetails.getGroupID()).remove(serviceName);
 				if(availableServices.get(requestServiceDetails.getGroupID()).size() == 0) // IF the group is empty
