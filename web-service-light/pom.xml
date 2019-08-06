@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>Service-Example</artifactId>
-	<version>1.0</version>
-	<name>ServiceExample</name>
+	<artifactId>Light-Microservice</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Light-Microservice</name>
 	<description>Ste is trying his best</description>
 
 	<properties>

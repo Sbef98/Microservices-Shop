@@ -5,36 +5,34 @@ import javax.annotation.PreDestroy;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
-
+@EnableScheduling
 public abstract class ServiceController 
 {
 	@Value("${service.connectTo}")
-	private String url; // "http://localhost:8000/put?serviceName=thisServiceName"; //Where is the decision service located
+	protected String url; // "http://localhost:8000/put?serviceName=thisServiceName"; //Where is the decision service located
 	@Value("${server.port}")
-    private int servicePort;
+    protected int servicePort;
 	@Value("${service.groupID}")
-	private String groupID;
+	protected String groupID;
 	@Value("${service.description}")
-	private String description;
+	protected String description;
 	@Value("${service.name}")
-	private String serviceName;
+	protected String serviceName;
 	@Value("${service.URI}")
-	private String serviceURI;
+	protected String serviceURI;
 	@Value("${service.type}")
-	private String type;
+	protected String type;
 	@Value("${service.sleepTime}")
-	private int sleepTime; 
-	
+	protected int sleepTime; 
 	abstract String getGetMapping();
 	abstract String getPutMapping();
 	abstract JSONObject getValues();
 	abstract JSONObject getWanted();
-	abstract JSONObject getNeeded_sesnors();
+	abstract JSONObject getNeeded_sensors();
 	
-	
-	abstract protected JSONObject getData();
 	abstract void elabResponse(String response);
 	@Override
 	abstract public String toString();
@@ -45,20 +43,16 @@ public abstract class ServiceController
 		url = url + serviceName;
 	}
 	
-	@Scheduled() //cool feature
+	@Scheduled(fixedDelay = 1) //cool feature
 	public void update()
 	{
 		String response = new String("Error");
 		try {
 			 response = Communication.put(url, serviceURI, servicePort, type, getGetMapping(), getPutMapping(),
-					 					  groupID, description, getValues(), getWanted(), getNeeded_sesnors());
-		/*} catch (IOException e) {
-			System.out.println("IOException while connecting to " + url);*/
+					 					  groupID, description, getValues(), getWanted(), getNeeded_sensors());
 		} catch (kong.unirest.UnirestException e) {
 			System.out.println("UnirestException while connecting to " + url);
 		}
-		//System.out.println(response.toString());
-		elabResponse(response.toString());
 		elabResponse(response.toString());
 		try {
 			Thread.sleep(sleepTime);
@@ -67,6 +61,7 @@ public abstract class ServiceController
 			e.printStackTrace();
 		}
 	}
+	
 	@PreDestroy
 	public void end()
 	{

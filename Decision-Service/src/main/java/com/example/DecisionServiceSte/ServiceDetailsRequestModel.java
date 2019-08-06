@@ -2,15 +2,16 @@ package com.example.DecisionServiceSte;
 
 import java.util.Date;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class ServiceDetailsRequestModel 
 {
 	private String URI;
-	private String port;
+	private int port;
 	private String type;
-	private String get_mapping = "NULL"; //optional
-	private String get_putting = "NULL"; //optional
+	private String get_mapping = null; //optional
+	private String get_putting = null; //optional
 	private String groupID;
 	private String description;
 	private JSONObject values;
@@ -44,18 +45,21 @@ public class ServiceDetailsRequestModel
 		return values;
 	}
 	public void setValues(JSONObject values) {
+		System.out.println(values);
 		this.values = values;
 	}
 	public JSONObject getWanted() {
 		return wanted;
 	}
-	public void setWanted(JSONObject wanted) {
+	public void setWanted(JSONObject  wanted) {
+		System.out.println(wanted);
 		this.wanted = wanted;
 	}
 	public JSONObject getNeeded_sensors() {
 		return needed_sensors;
 	}
 	public void setNeeded_sensors(JSONObject needed_sensors) {
+		System.out.println(needed_sensors);
 		this.needed_sensors = needed_sensors;
 	}
 	public String getGet_mapping() {
@@ -77,10 +81,10 @@ public class ServiceDetailsRequestModel
 		URI = uRI;
 	}
 	
-	public String getPort() {
+	public int getPort() {
 		return port;
 	}
-	public void setPort(String port) {
+	public void setPort(int port) {
 		this.port = port;
 	}
 	
@@ -103,7 +107,10 @@ public class ServiceDetailsRequestModel
 		returnValue.put("URI", URI);
 		returnValue.put("port", port);
 		returnValue.put("type", type);
+		returnValue.put("GetMapping", getGet_mapping());
+		returnValue.put("PutMapping", getGet_putting());
 		returnValue.put("lastUpdate", lastUpdate);
+		returnValue.put("description", description);
 		returnValue.put("values", values);
 		returnValue.put("wanted", wanted);
 		returnValue.put("needed_sensors", needed_sensors);

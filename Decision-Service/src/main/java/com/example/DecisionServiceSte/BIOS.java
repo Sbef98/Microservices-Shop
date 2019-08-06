@@ -63,13 +63,14 @@ public class BIOS { // basic input output service (nice joke i know)
 	@PutMapping(value = "put", produces = "application/json") // update services data
 	public String updateService(@RequestParam(value = "serviceName") String serviceName, @RequestBody ServiceDetailsRequestModel requestServiceDetails) 
 	{	
+		System.out.println(requestServiceDetails.getServiceData());
 		if(requestServiceDetails.isClosed() == true) {
 			try {
 				availableServices.get(requestServiceDetails.getGroupID()).remove(serviceName);
 				if(availableServices.get(requestServiceDetails.getGroupID()).size() == 0) // IF the group is empty
 					availableServices.remove(requestServiceDetails.getGroupID()); //delete it from the map!
 				return "ok";
-			}catch(NullPointerException e) {
+			} catch(NullPointerException e) {
 				return "error";
 			}
 		}
@@ -78,17 +79,24 @@ public class BIOS { // basic input output service (nice joke i know)
 			groupAvailableServices = availableServices.get(requestServiceDetails.getGroupID());
 			//The group is already available in the services list
 		}catch(NullPointerException e){
+			System.out.print(e);
+			System.out.println(" won't be able to use this service's informations!");
+			return "error";
+		}
+		try {
+			groupAvailableServices.put(serviceName, requestServiceDetails);
+		}catch (NullPointerException e) {
+			//It'd mean there is no hashtable for that groupID
 			groupAvailableServices = new Hashtable<String, ServiceDetailsRequestModel>();
 			//The group is not available in the services list, so we create a new one
 			availableServices.put(requestServiceDetails.getGroupID(), groupAvailableServices);
 			//And add it to the services list!
+			groupAvailableServices.put(serviceName, requestServiceDetails);
 		}
-		groupAvailableServices.put(serviceName, requestServiceDetails);
 		
 		String returnValue = requestServiceDetails.getType().compareToIgnoreCase("sensor") == 0
 				? new String(requestServiceDetails.toString()) // Returning the same string may be used to check that the communcation was correct!
-				: DecisionMaker.takeDecision(requestServiceDetails, groupAvailableServices); // The way decision will be
-																						// hadnled may vary
+				: DecisionMaker.takeDecision(requestServiceDetails, groupAvailableServices); // The way decision will be hadnled may vary
 		// TODO availableServices.get(serviceName); //Write the old ServiceName's value
 		// in the service history.
 		System.out.print("Put request for service status update from: ");
