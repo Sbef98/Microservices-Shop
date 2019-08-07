@@ -50,9 +50,31 @@ public class ValueReferences {
 		}
 	}
 	
+	public String getValueName() {
+		return valueName;
+	}
+
+	public void setValueName(String valueName) {
+		this.valueName = valueName;
+	}
+
+	public Collection<String> getReferences() {
+		return references;
+	}
+
+	public void setReferences(Collection<String> references) {
+		this.references = (LinkedList<String>)references;
+	}
+
 	@Override
 	public String toString()
 	{
 		return getDirections().toString();
+	}
+	public JSONObject toJSONObject()
+	{
+		JSONObject returnValue = new JSONObject();
+		returnValue.put(valueName, new JSONArray(references));
+		return returnValue;
 	}
 }
