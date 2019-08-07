@@ -1,24 +1,29 @@
 package org.example;
 
+import java.util.HashMap;
+
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 public class HowToGetTheRightInfo
-{ //TODO
-	private JSONObject sensorValues;
-	private JSONArray directions;
-	private JSONObject neededValue;
+{
+	private HashMap<String, ValueReferences> neededSensor = new HashMap<String, ValueReferences>();
 	
-	public HowToGetTheRightInfo(String sensorValues, String directions, String neededValue) 
+	public HowToGetTheRightInfo(String neededSensorName, String valueName, String reference)
 	{
-		this.sensorValues = new JSONObject();
-		this.directions = new JSONArray();
-		this.neededValue = new JSONObject();
-		
-		this.directions.put(directions);
-		this.neededValue.put(neededValue, this.directions);
-		this.sensorValues.put(sensorValues, this.neededValue);
+		ValueReferences valueReferences = new ValueReferences(valueName, reference);
+		this.neededSensor.put(neededSensorName, valueReferences);
 	}
 	
+	public void addReference(String neededSensorName, String valueName, String reference)
+	{
+		
+	}
+	
+	public void addNeededSensor(String neededSensorName, String valueName, String reference)
+	{
+		if(neededSensor.get(neededSensorName) != null) {
+			
+		}
+	}
 }
