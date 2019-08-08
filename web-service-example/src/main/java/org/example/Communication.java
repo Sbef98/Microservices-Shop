@@ -22,8 +22,9 @@ public class Communication {
 		msg.put("groupID", groupID);
 		msg.put("description", description);
 		msg.put("values", values.toString());
-		msg.put("wanted", wanted.toString());
-		msg.put("needed_sensors", needed_sensors);
+		if(wanted != null)
+			msg.put("wanted", wanted.toString());
+		msg.put("needed_sensors", needed_sensors.toString());
 		return sendJSONObject(msg,url);		
 	}
 	protected static void close(String url, String groupID) throws UnirestException

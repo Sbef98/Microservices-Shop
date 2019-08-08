@@ -2,11 +2,21 @@ package org.example;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController
 public class LightActuator extends ServiceController
 {
 	private float lightLevel;
 	private float switchLevel = 500; //under 500 the lights are switched on
+	NeededServices needed_services;
+	
+	public LightActuator()
+	{
+		super();
+		needed_services = new NeededServices("lightService", "lighLevel", "*");
+	}
+	
 	@Override
 	String getGetMapping() {
 		// TODO Auto-generated method stub
@@ -35,23 +45,15 @@ public class LightActuator extends ServiceController
 	}
 
 	@Override
-	JSONObject getNeeded_sesnors() {
-		JSONObject needed_sensor1 = new JSONObject();
-		JSONObject neededValue1 = new JSONObject();
-		JSONArray sensorsForValue1 = new JSONArray();
-		return null;
+	JSONObject getNeeded_services() {
+		return needed_services.toJSONObject();
 	}
 
-	@Override
-	protected JSONObject getData() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
-	void elabResponse(String response) {
-		// TODO Auto-generated method stub
-		
+	void elabResponse(String response) 
+	{
+		//System.out.println(response);
 	}
 
 	@Override

@@ -8,24 +8,24 @@ import java.util.Map;
 import org.json.JSONObject;
 import org.json.JSONArray;
 
-public class SensorReferences
+public class ServiceReferences
 {
-	 private String sensorName;
+	 private String serviceName;
 	 private LinkedList<ValueReferences> valueReferences = new LinkedList<ValueReferences>();
 	 
-	 public SensorReferences(String sensorName, String valueName, String reference)
+	 protected ServiceReferences(String serviceName, String valueName, String reference)
 	 {
-		 this.sensorName = sensorName;
+		 this.serviceName = serviceName;
 		 ValueReferences vf = new ValueReferences(valueName, reference);
 		 this.valueReferences.push(vf);
 	 }
-	 public SensorReferences(String sensorName, String valueName, Collection<String> reference)
+	 protected ServiceReferences(String serviceName, String valueName, Collection<String> reference)
 	 {
-		 this.sensorName = sensorName;
+		 this.serviceName = serviceName;
 		 ValueReferences vf = new ValueReferences(valueName, reference);
 		 this.valueReferences.push(vf);
 	 }
-	 public void addReference(String valueName, String reference)
+	 protected void addReference(String valueName, String reference)
 	 {
 		 for(ValueReferences vf : valueReferences) {
 			 if(vf.getValueName().compareTo(valueName) == 0) {
@@ -35,7 +35,7 @@ public class SensorReferences
 		 }
 		 throw new NullPointerException("The valueName " + valueName +" Was not available. The reference was not updated!\n");
 	 }
-	 public void addReferences(String valueName, Collection<String> references)
+	 protected void addReferences(String valueName, Collection<String> references)
 	 {
 		 for(ValueReferences vf : valueReferences) {
 			 if(vf.getValueName().compareTo(valueName) == 0) {
@@ -45,7 +45,7 @@ public class SensorReferences
 		 }
 		 throw new NullPointerException("The valueName " + valueName +" Was not available. The reference was not updated!\n");
 	}
-	public void addValueName(String valueName)
+	protected void addValueName(String valueName)
 	{
 		for(ValueReferences vf : valueReferences) {
 			 if(vf.getValueName().compareTo(valueName) == 0) {
@@ -53,39 +53,47 @@ public class SensorReferences
 			 }
 		 }
 		ValueReferences rf = new ValueReferences(valueName, "*"); 
-		//It referes to all sensors in the group
+		//It referes to all services in the group
+		valueReferences.push(rf);
 	}
-	public String getSensorName() 
+	protected String getServiceName() 
 	{
-		return sensorName;
+		return serviceName;
 	}
-	public void setSensorName(String sensorName) 
+	protected void setServiceName(String serviceName) 
 	{
-		this.sensorName = sensorName;
+		this.serviceName = serviceName;
 	}
-	public LinkedList<ValueReferences> getValueReferences() 
+	protected LinkedList<ValueReferences> getValueReferences() 
 	{
 		return valueReferences;
 	}
-	public void setValueReferences(LinkedList<ValueReferences> valueReferences) 
+	protected void setValueReferences(LinkedList<ValueReferences> valueReferences) 
 	{
 		this.valueReferences = valueReferences;
 	}
-	public Map<String, Collection<String>> getMapOfValueReferences() 
+	protected Map<String, Collection<String>> getMapOfValueReferences() 
 	{
 		HashMap<String, Collection<String>> returnValue = new HashMap<String, Collection<String>>();
 		for(ValueReferences vf : valueReferences)
 			returnValue.put(vf.getValueName(), vf.getReferences());
 		return returnValue;
 	}
-	public JSONObject toJSONObject()
+	protected JSONObject getJSONObjectOfReferences()
+	{
+		JSONObject returnValue = new JSONObject();
+		for(ValueReferences vf : valueReferences)
+			returnValue.put(vf.getValueName(), vf.getReferences());
+		return returnValue;
+	}
+	protected JSONObject toJSONObject()
 	{
 		JSONObject returnValue = new JSONObject();
 		JSONObject valueReferencesReturn = new JSONObject();
 		
 		for(ValueReferences vf : valueReferences)
 			valueReferencesReturn.put(vf.getValueName(), new JSONArray(vf.getReferences()));
-		returnValue.put(sensorName, valueReferencesReturn);
+		returnValue.put(serviceName, valueReferencesReturn);
 		return returnValue;
 	}
 }
