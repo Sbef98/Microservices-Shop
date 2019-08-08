@@ -79,7 +79,7 @@ public class DecisionMaker {
 		for (Object reference : references) {
 			JSONObject wanted;
 			try {
-				wanted = groupAvailableServices.get((String) reference).getWanted();
+				wanted = groupAvailableServices.get((String) reference).getWanted(); //	TODO QUI ERRORE
 			}catch(NullPointerException e) {
 				System.out.println("The needed sensor" + (String) reference + " is missing!");
 				continue;
@@ -129,7 +129,7 @@ public class DecisionMaker {
 		while (it.hasNext()) {
 			String needed_value = it.next(); // We can use the key to retrieve the right sensor measured value from
 			float measuredValue;
-			if(sensorData.getValues() == null)
+			if(sensorData.getValues() != null)
 				measuredValue = getMeasuredSensorData(needed_value, sensorData.getValues()); // This is the value measured by this sensor
 			else {
 				System.out.println("Missing measured field in sensor " + neededSensorName);
@@ -181,10 +181,7 @@ public class DecisionMaker {
 		JSONObject returnValue = new JSONObject();
 		Iterator<String> it = applicantInfo.getNeeded_sensors().keys();
 		while (it.hasNext()) {
-			// Map.Entry pair = (Map.Entry) it.next();
 			String neededSensorName = it.next();
-			// String key = (String) pair.getKey();
-			// JSONObject value = (JSONObject) pair.getValue();
 
 			if (neededSensorName.compareToIgnoreCase("*") != 0) {
 				returnValue.put(neededSensorName, ComputeAnswer(neededSensorName, applicantInfo.getNeeded_sensors().getJSONObject(neededSensorName), groupAvailableServices, applicantInfo));

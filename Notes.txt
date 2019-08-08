@@ -38,3 +38,8 @@ Attuatore:
 For the other_sensor_direction we could actually just use the groupid. The actuators will use the directions give by all the services in their own groupid!
 
 Given the similarities between Senors and actuators, i think we should implement a class Service, which specializes into Sensor and Actuator
+
+DecisionService's answer: 
+    {
+	sensor_name : { valueName : { delta between wanted value and active value }, ... } , ...
+    }
