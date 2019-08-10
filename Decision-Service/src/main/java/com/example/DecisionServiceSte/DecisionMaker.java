@@ -45,9 +45,8 @@ public class DecisionMaker {
 		 */
 		float returnValue = 0;
 		int i = 0;
-		Iterator<String> it = measuredValues.keys();// entrySet().iterator();
+		Iterator<String> it = measuredValues.keys();
 		while (it.hasNext()) {
-			// Map.Entry pair = (Map.Entry) it.next();
 			String key = it.next();
 			// I need to check if this is the value i was looking for
 			if (valueName.compareToIgnoreCase(key) == 0) {
@@ -79,7 +78,7 @@ public class DecisionMaker {
 		for (Object reference : references) {
 			JSONObject wanted;
 			try {
-				wanted = groupAvailableServices.get((String) reference).getWanted(); //	TODO QUI ERRORE
+				wanted = groupAvailableServices.get((String) reference).getWanted();
 			}catch(NullPointerException e) {
 				System.out.println("The needed sensor" + (String) reference + " is missing!");
 				continue;
@@ -105,15 +104,8 @@ public class DecisionMaker {
 	private static float computeCorrection(String valueName, float measuredValue, float wantedValue,
 			JSONObject activeValues) {
 		float activeValue;
-		try {
-			activeValue = activeValues.getFloat(valueName);
-			// This will tell us of how much we should increment the activeValue
-		} catch (RuntimeException e) {
-			// This means the value may be a boolean, so it would see a string like "true"
-			// or "false"
-			return (wantedValue + (wantedValue - measuredValue));
-			// So we just return the value we'd like to set.
-		}
+		activeValue =  getMeasuredSensorData(valueName, activeValues);
+		// This will tell us of how much we should increment the activeValue
 		return ((wantedValue + (wantedValue - measuredValue)) - activeValue);
 	}
 

@@ -1,20 +1,22 @@
 package org.example;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class LightActuator extends ServiceController
 {
-	private float lightLevel;
+	private float lightLevel = 501;
 	private float switchLevel = 500; //under 500 the lights are switched on
+	private boolean lightSwitch = false;
 	NeededServices needed_services;
 	
 	public LightActuator()
 	{
 		super();
-		needed_services = new NeededServices("lightService", "lighLevel", "*");
+		needed_services = new NeededServices("lightService", "lightLevel", "*");
 	}
 	
 	@Override
@@ -35,6 +37,10 @@ public class LightActuator extends ServiceController
 		JSONArray values = new JSONArray();
 		values.put(lightLevel);
 		returnValue.put("lightLevel", values);
+		
+		values = new JSONArray();
+		values.put(lightSwitch);
+		returnValue.put("SwitchOn", values);
 		return returnValue;
 	}
 
@@ -53,7 +59,25 @@ public class LightActuator extends ServiceController
 	@Override
 	void elabResponse(String response) 
 	{
-		//System.out.println(response);
+		JSONObject responseValue = new JSONObject(response);
+		JSONObject lightServiceValue;
+		try {
+			lightServiceValue = responseValue.getJSONObject("lightService");
+		}catch(JSONException e)
+		{
+			System.out.println(e);
+			return;
+		}
+		try {
+			lightLevel += lightServiceValue.getInt("lightLevel");
+		}catch(JSONException e) {
+			System.out.println(e);
+			return;
+		}
+		if(lightLevel > 500)
+			lightSwitch = true;
+		if(lightLevel < 500)
+			lightSwitch = false;
 	}
 
 	@Override
