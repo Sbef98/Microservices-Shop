@@ -1,2 +1,6 @@
 org\example\ServiceController.class
+org\example\ValueReferences.class
+org\example\MainApp.class
+org\example\NeededServices.class
+org\example\ServiceReferences.class
 org\example\Communication.class
