@@ -14,11 +14,11 @@ import org.json.JSONObject;
  */
 public class ValueReferences {
 	/**
-	 * Name of the data measured: like "temperature"
+	 * Type of the data to retrieve: like "temperature"
 	 */
 	private String valueName;
 	/**
-	 * Value of the data referenced
+	 * Sensor/sensors name from which get valueName data
 	 */
 	private LinkedList<String> references = new LinkedList<String>(); //never using random access within the list
 	
@@ -27,7 +27,7 @@ public class ValueReferences {
 	 * want the data from only one sensor
 	 * 
 	 * @param valueName name of the data measured: like "temperature"
-	 * @param reference sensors from which retrieve data
+	 * @param reference sensor from which retrieve data
 	 */
 	protected ValueReferences(String valueName, String reference) {
 		super();
@@ -75,7 +75,7 @@ public class ValueReferences {
 	 * Add a list of sensor into references list from which retrieve
 	 * valueName data
 	 * 
-	 * @param references collections of references to add into a ValueReferences object
+	 * @param references collections of sensors to add into a ValueReferences object
 	 */
 	protected void addMultipleReferences(Collection<String> references)
 	{
@@ -115,7 +115,7 @@ public class ValueReferences {
 	}
 
 	/**
-	 * Change references collections with a new collection
+	 * Set references collections with a new collection
 	 * of sensors from which retrieve the valueName data
 	 * 
 	 * @param references Collections of sensors from which retrieve the valueName data
