@@ -10,22 +10,23 @@ import org.json.JSONArray;
 
 /**
  *Implements an object that describes for one service identified by "serviceName"
- *which data from which services are needed. 
+ *which data from from that service must be compared with comparator/s sensor/s. 
  *JSON obtained {"serviceName" : "valueReferences" }
  */
 public class ServiceReferences
 {
 	 /**
-	 * The service which need data from other services
+	 * The service from which retrieve data;
 	 */
 	private String serviceName;
 	 /**
-	 * A list of ValueReference objects that describe which data are needed and from which services
+	 * A list of object that describes the type of data to compare and the comparator service/s used like models
 	 */
 	private LinkedList<ValueReferences> valueReferences = new LinkedList<ValueReferences>();
 	 
 	 /**
-	  * Constructor to create a ServiceReferences object with only one service referenced
+	  * Constructor to create a ServiceReferences object with only one comparator service
+	  * 
 	 * @param serviceName The service which need data from other services
 	 * @param valueName Type of data to retrieve: like temperature
 	 * @param reference Sensor name from which get valueName data
@@ -38,7 +39,7 @@ public class ServiceReferences
 	 }
 	
 	 /**
-	  * Constructor to create a ServiceReferences object with a collection of service referenced
+	  * Constructor to create a ServiceReferences object with a collection of comparator services
 	  * 
 	 * @param serviceName The service which need data from other services
 	 * @param valueName Type of data to retrieve: like temperature
@@ -53,10 +54,10 @@ public class ServiceReferences
 	
 	/**
 	 * Add a ValueReference object into valueReferences list of this instance of ServiceReferences, 
-	 * add into valueReferences list a type of data to obtain from one single sensor
+	 * add into valueReferences list a type of data to compare from another comparator sensor
 	 * 
-	 * @param valueName Type of data to retrieve: like temperature
-	 * @param reference Sensor name from which get valueName data
+	 * @param valueName Type of data to compare: like temperature
+	 * @param reference Sensor name with which compare serviceName data
 	 */
 	protected void addReference(String valueName, String reference)
 	 {
@@ -70,11 +71,11 @@ public class ServiceReferences
 	 }
 	
 	/**
-	 * Add a list of ValueReference objects into valueReferences list of this instance of ServiceReferences, 
-	 * add into valueReferences list a valueName type of data to obtain from a collection of services
+	 * Add a ValueReference object into valueReferences list of this instance of ServiceReferences, 
+	 * add into valueReferences list a type of data to compare from another list of comparator sensors
 	 * 
-	 * @param valueName Type of data to retrieve: like temperature
-	 * @param references Collection of sensors names from which get valueName data
+	 * @param valueName Type of data to compare: like temperature
+	 * @param references Sensor name with which compare serviceName data
 	 */
 	protected void addReferences(String valueName, Collection<String> references)
 	 {
@@ -87,6 +88,12 @@ public class ServiceReferences
 		 throw new NullPointerException("The valueName " + valueName +" Was not available. The reference was not updated!\n");
 	}
 	 
+	/**
+	 * Add a ValueReference object into valueReferences list of this instance of ServiceReferences, 
+	 * add into valueReferences list a type of data to compare from all the comparator sensors of the same serviceName group
+	 * 
+	 * @param valueName Type of data to compare
+	 */
 	protected void addValueName(String valueName)
 	{
 		for(ValueReferences vf : valueReferences) {
@@ -95,40 +102,31 @@ public class ServiceReferences
 			 }
 		 }
 		ValueReferences rf = new ValueReferences(valueName, "*"); 
-		//It referes to all services in the group
+		//It refers to all services in the group
 		valueReferences.push(rf);
 	}
 	
-	/**
-	 * @return The service which need data from other services, the service which wants this references
-	 */
+	
 	protected String getServiceName() 
 	{
 		return serviceName;
 	}
-	/**
-	 * @param serviceName The service which need data from other services, the service which wants this references 
-	 */
 	protected void setServiceName(String serviceName) 
 	{
 		this.serviceName = serviceName;
 	}
-	/**
-	 * @return valueReferences list of all the references from this service
-	 */
+	
 	protected LinkedList<ValueReferences> getValueReferences() 
 	{
 		return valueReferences;
 	}
-	/** 
-	 * @param valueReferences new list to set in this ServiceReferences instance
-	 */
+	
 	protected void setValueReferences(LinkedList<ValueReferences> valueReferences) 
 	{
 		this.valueReferences = valueReferences;
 	}
 	/**
-	 * @return Map of all the references required by the serviceName
+	 * @return Map of all the comparator sensors from each data type of the serviceName service
 	 */
 	protected Map<String, Collection<String>> getMapOfValueReferences() 
 	{
@@ -148,7 +146,7 @@ public class ServiceReferences
 		return returnValue;
 	}
 	/**
-	 * @return JSONobject with the map of all the references required by the serviceName encapsulated in a serviceName's references set  
+	 * @return JSONobject with the Map of all the comparator sensors from each data type of the serviceName service encapsulated in a serviceName's comparator set  
 	 */
 	protected JSONObject toJSONObject()
 	{

@@ -7,24 +7,25 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 /**
- * Class to describe a measurement request. Create an object with a 
- * key that is the name of the data measured requested and a Collection
- * of sensor from which retrieve that data.
- * JSON obtained {"valueName" : "references" }
+ * Class to describe a data request for comparison.
+ * Create an object with a key that is the name of the data requested and a Collection
+ * of sensor/s to obtain that data for comparison.
+ * 
+ * JSON obtained {"valueName" : ["comparator"] }
  */
 public class ValueReferences {
 	/**
-	 * Type of the data to retrieve: like "temperature"
+	 * Comparison data type to retrieve: like "temperature"
 	 */
 	private String valueName;
 	/**
-	 * Sensor/sensors name from which get valueName data
+	 * "comparator" sensor/sensors name used like models to compare valueName type of data
 	 */
 	private LinkedList<String> references = new LinkedList<String>(); //never using random access within the list
 	
 	/**
 	 * Constructor to create a ValueReferences object that
-	 * want the data from only one sensor
+	 * want the data to compare from only one comparator sensor
 	 * 
 	 * @param valueName name of the data measured: like "temperature"
 	 * @param reference sensor from which retrieve data
@@ -34,13 +35,12 @@ public class ValueReferences {
 		this.valueName = valueName;
 		this.references.push(reference);
 	}
-	
 	/**
 	 * Constructor to create a ValueReferences object that wants
-	 * the data from a collection of sensors
+	 * the data to compare from a collection of comparator sensors
 	 * 
-	 * @param valueName name of the data measured: like "temperature"
-	 * @param references sensors from which retrieve data
+	 * @param valueName type of the data to compare: like "temperature"
+	 * @param references comparator sensors
 	 */
 	protected ValueReferences(String valueName, Collection<String> references) {
 		super();
@@ -48,20 +48,11 @@ public class ValueReferences {
 		this.references = new LinkedList<String>(references);
 	}
 	
-	//Questa funzione SthefSthef è identica a toJSONObject, è necessaria?
-	protected JSONObject getDirections() 
-	{
-		JSONObject returnValue = new JSONObject();
-		JSONArray referencesArray = new JSONArray(references);
-		returnValue.put(valueName, referencesArray);
-		return returnValue;
-	}
-	
 	/**
-	 * Add a sensor into references list from which retrieve
-	 * valueName data
+	 * Add a comparator sensor into references list from which retrieve
+	 * valueName data for comparison
 	 * 
-	 * @param reference sensor to add into references list
+	 * @param reference comparator sensor to add into references list
 	 */
 	protected void addReference(String reference)
 	{
@@ -72,10 +63,10 @@ public class ValueReferences {
 		references.push(reference);
 	}
 	/**
-	 * Add a list of sensor into references list from which retrieve
-	 * valueName data
+	 * Add a list of comparator sensors into references list from which retrieve
+	 * valueName data for comparison
 	 * 
-	 * @param references collections of sensors to add into a ValueReferences object
+	 * @param references collections of comparator sensors to add into a ValueReferences object
 	 */
 	protected void addMultipleReferences(Collection<String> references)
 	{
@@ -89,31 +80,16 @@ public class ValueReferences {
 		}
 	}
 	
-	/**
-	 * Get name of the data retrieved
-	 * 
-	 * @return key name of the data measured: like temperature
-	 */
+	
 	protected String getValueName() {
 		return valueName;
 	}
-
-	/**
-	 * Set name of type of data to retrieve
-	 * 
-	 * @param valueName name of the data measured to retrieve
-	 */
 	protected void setValueName(String valueName) {
 		this.valueName = valueName;
 	}
-
-	/**
-	 * @return Collection of sensors from which retrieve "valueName" data
-	 */
 	protected Collection<String> getReferences() {
 		return references;
 	}
-
 	/**
 	 * Set references collections with a new collection
 	 * of sensors from which retrieve the valueName data
@@ -127,9 +103,8 @@ public class ValueReferences {
 	@Override
 	public String toString()
 	{
-		return getDirections().toString();
+		return toJSONObject().toString();
 	}
-	
 	/**
 	 * Generates a JSONObject with a field "valueName" containing "references"
 	 * 
