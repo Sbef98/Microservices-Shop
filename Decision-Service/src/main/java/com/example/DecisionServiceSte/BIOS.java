@@ -21,7 +21,7 @@ public class BIOS { // basic input output service (nice joke i know)
 	Hashtable<String, Hashtable<String, ServiceDetailsRequestModel>> availableServices = new Hashtable<String, Hashtable<String, ServiceDetailsRequestModel>>();
 	/*
 	 * Using HASHTABLES for thread safety
-	 * This hastable uses the groupid of each service as key. The vlues is itself an hastable composed of every sensor
+	 * This hastable uses the groupid of each service as key. The values is itself an hastable composed of every service
 	 * that is part of the group. Its key will be the services' name and its value the ServiceDetailsRequestModel 
 	 */
 
@@ -60,6 +60,22 @@ public class BIOS { // basic input output service (nice joke i know)
 		return returnValue.toString();
 	}
 
+	@GetMapping(value = "get-active-connections", produces = "application/json")
+	public JSONObject getActiveConnections()
+	{
+		JSONObject returnValue = new JSONObject();
+		for(String key : availableServices.keySet()) {
+			Hashtable<String, ServiceDetailsRequestModel> groupAvailableServices = availableServices.get(key); 
+			for(String key2 : groupAvailableServices.keySet()) {
+				returnValue.
+				thisGroupValue.put(key2, groupAvailableServices.get(key2).getServiceData());
+			}
+				//Key2 is the service name
+			//key is the groupID
+		}
+		return returnValue;
+	}
+	/*TODO another getMapping for the database. Just incase*/
 	@PutMapping(value = "put", produces = "application/json") // update services data
 	public String updateService(@RequestParam(value = "serviceName") String serviceName, @RequestBody ServiceDetailsRequestModel requestServiceDetails) 
 	{	
@@ -94,7 +110,7 @@ public class BIOS { // basic input output service (nice joke i know)
 			groupAvailableServices.put(serviceName, requestServiceDetails);
 		}
 		
-		String returnValue = requestServiceDetails.getType().compareToIgnoreCase("sensor") == 0
+		String returnValue = requestServiceDetails.getNeeded_services() == null //If it's null it means it just wants to update the data on the decision service
 				? new String(requestServiceDetails.toString()) // Returning the same string may be used to check that the communcation was correct!
 				: DecisionMaker.takeDecision(requestServiceDetails, groupAvailableServices); // The way decision will be hadnled may vary
 		// TODO availableServices.get(serviceName); //Write the old ServiceName's value

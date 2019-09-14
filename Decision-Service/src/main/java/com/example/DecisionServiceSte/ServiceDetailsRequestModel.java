@@ -8,32 +8,30 @@ public class ServiceDetailsRequestModel
 {
 	private String URI;
 	private int port;
-	private String type;
 	private String get_mapping = null; //optional
 	private String get_putting = null; //optional
 	private String groupID;
 	private String description;
 	private JSONObject values;
 	private JSONObject wanted;
-	private JSONObject needed_sensors;  //Will be empty in case of a sensor
+	private JSONObject needed_services;  //Will be empty in case of a sensor
 	private boolean closed = false;
 	private Date lastUpdate;
 	
-	public ServiceDetailsRequestModel(String uRI, int port, String type, String get_mapping, String get_putting,
-			String groupID, String description, JSONObject values, JSONObject wanted, JSONObject needed_sensors,
+	public ServiceDetailsRequestModel(String uRI, int port, String get_mapping, String get_putting,
+			String groupID, String description, JSONObject values, JSONObject wanted, JSONObject needed_services,
 			boolean closed) 
 	{
 		super();
 		URI = uRI;
 		this.port = port;
-		this.type = type;
 		this.get_mapping = get_mapping;
 		this.get_putting = get_putting;
 		this.groupID = groupID;
 		this.description = description;
 		this.values = values;
 		this.wanted = wanted;
-		this.needed_sensors = needed_sensors;
+		this.needed_services = needed_services;
 		this.closed = closed;
 	}
 	public boolean isClosed() {
@@ -68,12 +66,12 @@ public class ServiceDetailsRequestModel
 		System.out.println(wanted);
 		this.wanted = wanted;
 	}
-	public JSONObject getNeeded_sensors() {
-		return needed_sensors;
+	public JSONObject getNeeded_services() {
+		return needed_services;
 	}
-	public void setNeeded_sensors(JSONObject needed_sensors) {
-		System.out.println(needed_sensors);
-		this.needed_sensors = needed_sensors;
+	public void setNeeded_services(JSONObject needed_services) {
+		System.out.println(needed_services);
+		this.needed_services = needed_services;
 	}
 	public String getGet_mapping() {
 		return get_mapping;
@@ -100,16 +98,6 @@ public class ServiceDetailsRequestModel
 	public void setPort(int port) {
 		this.port = port;
 	}
-	
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		if(type.compareToIgnoreCase("actuator") != 0 && type.compareToIgnoreCase("sensor") != 0) {
-			throw new RuntimeException("Available types of services are either sensor or actuator!");
-		}
-		this.type = type;  //"actuator" or "sensor"
-	}	
 
 	public Date getLastUpdateDate() {
 		return lastUpdate;
@@ -119,14 +107,13 @@ public class ServiceDetailsRequestModel
 		JSONObject returnValue = new JSONObject();
 		returnValue.put("URI", URI);
 		returnValue.put("port", port);
-		returnValue.put("type", type);
 		returnValue.put("GetMapping", getGet_mapping());
 		returnValue.put("PutMapping", getGet_putting());
 		returnValue.put("lastUpdate", lastUpdate);
 		returnValue.put("description", description);
 		returnValue.put("values", values);
 		returnValue.put("wanted", wanted);
-		returnValue.put("needed_sensors", needed_sensors);
+		returnValue.put("needed_services", needed_services);
 		return returnValue;
 	}
 	@Override

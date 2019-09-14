@@ -10,7 +10,7 @@ import org.json.JSONArray;
 
 /**
  *Implements an object that describes for one service identified by "serviceName"
- *which data from from that service must be compared with comparator/s sensor/s. 
+ *which data from from that service must be compared with comparator/s service/s. 
  *JSON obtained {"serviceName" : "valueReferences" }
  */
 public class ServiceReferences
@@ -29,7 +29,7 @@ public class ServiceReferences
 	  * 
 	 * @param serviceName The service which need data from other services
 	 * @param valueName Type of data to retrieve: like temperature
-	 * @param reference Sensor name from which get valueName data
+	 * @param reference Service name from which get valueName data
 	 */
 	protected ServiceReferences(String serviceName, String valueName, String reference)
 	 {
@@ -43,7 +43,7 @@ public class ServiceReferences
 	  * 
 	 * @param serviceName The service which need data from other services
 	 * @param valueName Type of data to retrieve: like temperature
-	 * @param reference Collection of Sensors names from which get valueName data
+	 * @param reference Collection of Services names from which get valueName data
 	 */
 	protected ServiceReferences(String serviceName, String valueName, Collection<String> reference)
 	 {
@@ -54,10 +54,10 @@ public class ServiceReferences
 	
 	/**
 	 * Add a ValueReference object into valueReferences list of this instance of ServiceReferences, 
-	 * add into valueReferences list a type of data to compare from another comparator sensor
+	 * add into valueReferences list a type of data to compare from another comparator services
 	 * 
 	 * @param valueName Type of data to compare: like temperature
-	 * @param reference Sensor name with which compare serviceName data
+	 * @param reference Services name with which compare serviceName data
 	 */
 	protected void addReference(String valueName, String reference)
 	 {
@@ -72,10 +72,10 @@ public class ServiceReferences
 	
 	/**
 	 * Add a ValueReference object into valueReferences list of this instance of ServiceReferences, 
-	 * add into valueReferences list a type of data to compare from another list of comparator sensors
+	 * add into valueReferences list a type of data to compare from another list of comparator services
 	 * 
 	 * @param valueName Type of data to compare: like temperature
-	 * @param references Sensor name with which compare serviceName data
+	 * @param references Services name with which compare serviceName data
 	 */
 	protected void addReferences(String valueName, Collection<String> references)
 	 {
@@ -90,7 +90,7 @@ public class ServiceReferences
 	 
 	/**
 	 * Add a ValueReference object into valueReferences list of this instance of ServiceReferences, 
-	 * add into valueReferences list a type of data to compare from all the comparator sensors of the same serviceName group
+	 * add into valueReferences list a type of data to compare from all the comparator services of the same serviceName group
 	 * 
 	 * @param valueName Type of data to compare
 	 */
@@ -126,7 +126,7 @@ public class ServiceReferences
 		this.valueReferences = valueReferences;
 	}
 	/**
-	 * @return Map of all the comparator sensors from each data type of the serviceName service
+	 * @return Map of all the comparator services from each data type of the serviceName service
 	 */
 	protected Map<String, Collection<String>> getMapOfValueReferences() 
 	{
@@ -146,7 +146,7 @@ public class ServiceReferences
 		return returnValue;
 	}
 	/**
-	 * @return JSONobject with the Map of all the comparator sensors from each data type of the serviceName service encapsulated in a serviceName's comparator set  
+	 * @return JSONobject with the Map of all the comparator services from each data type of the serviceName service encapsulated in a serviceName's comparator set  
 	 */
 	protected JSONObject toJSONObject()
 	{

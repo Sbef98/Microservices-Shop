@@ -27,17 +27,17 @@ public class DecisionMaker {
 		return maxValue;
 	}
 
-	private static LinkedList<String> getAllSensorsNames(Hashtable<String, ServiceDetailsRequestModel> groupAvailableServices) {
+	private static LinkedList<String> getAllServicesNames(Hashtable<String, ServiceDetailsRequestModel> groupAvailableServices) {
 		LinkedList<String> names_list = new LinkedList<String>();
 		for(String key : groupAvailableServices.keySet()) {
-			if (groupAvailableServices.get(key).getType().compareToIgnoreCase("sensor") == 0) {
+			/*if (groupAvailableServices.get(key).getType().compareToIgnoreCase("sensor") == 0) {*/
 				names_list.add(key);
-			}
+			/*}*/
 		}
 		return names_list;
 	}
 
-	private static float getMeasuredSensorData(String valueName, JSONObject measuredValues) {
+	private static float getMeasuredServiceData(String valueName, JSONObject measuredValues) {
 		/*
 		 * valueName is the name of the measured value i am looking for while measured
 		 * values are ALL the measured values by the sensor in the form valueName :
@@ -66,7 +66,7 @@ public class DecisionMaker {
 		return returnValue;
 	}
 
-	private static float getWantedSensorValue(String valueName, JSONArray references, JSONObject suggestedValues, Hashtable<String, ServiceDetailsRequestModel> groupAvailableServices) 
+	private static float getWantedServiceValue(String valueName, JSONArray references, JSONObject suggestedValues, Hashtable<String, ServiceDetailsRequestModel> groupAvailableServices) 
 	{
 		/*
 		 * Will be using modal value. This is because finding an average value may not
@@ -80,7 +80,7 @@ public class DecisionMaker {
 			try {
 				wanted = groupAvailableServices.get((String) reference).getWanted();
 			}catch(NullPointerException e) {
-				System.out.println("The needed sensor" + (String) reference + " is missing!");
+				System.out.println("The needed service" + (String) reference + " is missing!");
 				continue;
 			}
 			try {
@@ -104,27 +104,27 @@ public class DecisionMaker {
 	private static float computeCorrection(String valueName, float measuredValue, float wantedValue,
 			JSONObject activeValues) {
 		float activeValue;
-		activeValue =  getMeasuredSensorData(valueName, activeValues);
+		activeValue =  getMeasuredServiceData(valueName, activeValues);
 		// This will tell us of how much we should increment the activeValue
 		return ((wantedValue + (wantedValue - measuredValue)) - activeValue);
 	}
 
-	private static JSONObject ComputeAnswer(String neededSensorName, JSONObject evaluationDataNeeded, Hashtable<String, ServiceDetailsRequestModel> groupAvailableServices, ServiceDetailsRequestModel applicantInfo) 
+	private static JSONObject ComputeAnswer(String neededServiceName, JSONObject evaluationDataNeeded, Hashtable<String, ServiceDetailsRequestModel> groupAvailableServices, ServiceDetailsRequestModel applicantInfo) 
 	{
 		/*
 		 * evaluationDataNeeded is {needed_value : [references,...], ...}
 		 */
 		JSONObject returnValue = new JSONObject();
-		ServiceDetailsRequestModel sensorData = groupAvailableServices.get(neededSensorName);
+		ServiceDetailsRequestModel serviceData = groupAvailableServices.get(neededServiceName);
 		
 		Iterator<String> it = evaluationDataNeeded.keys();
 		while (it.hasNext()) {
-			String needed_value = it.next(); // We can use the key to retrieve the right sensor measured value from
+			String needed_value = it.next(); // We can use the key to retrieve the right service measured value from
 			float measuredValue;
-			if(sensorData.getValues() != null)
-				measuredValue = getMeasuredSensorData(needed_value, sensorData.getValues()); // This is the value measured by this sensor
+			if(serviceData.getValues() != null)
+				measuredValue = getMeasuredServiceData(needed_value, serviceData.getValues()); // This is the value measured by this service
 			else {
-				System.out.println("Missing measured field in sensor " + neededSensorName);
+				System.out.println("Missing measured field in service" + neededServiceName);
 				continue;
 			}
 			JSONArray references = evaluationDataNeeded.getJSONArray(needed_value);
@@ -134,16 +134,16 @@ public class DecisionMaker {
 					break;
 				//else: no break, does the same as the case 0
 			case 0:
-				references = new JSONArray(getAllSensorsNames(groupAvailableServices));
+				references = new JSONArray(getAllServicesNames(groupAvailableServices));
 				/*
-				 * In cese the references are not specified or in case the special character * is used, it will be compared to all the sensors in its group
+				 * In cese the references are not specified or in case the special character * is used, it will be compared to all the services in its group
 				 */
 				break;
 
 			default:
 				break;
 			}
-			float wantedValue = getWantedSensorValue(needed_value, references, applicantInfo.getWanted(), groupAvailableServices);
+			float wantedValue = getWantedServiceValue(needed_value, references, applicantInfo.getWanted(), groupAvailableServices);
 			/* 
 			 * I am passing the ValueName i am evaluating, from which services i should get
 			 * the suggested values, the suggested vlues from this
@@ -171,17 +171,17 @@ public class DecisionMaker {
 			Hashtable<String, ServiceDetailsRequestModel> groupAvailableServices) {
 
 		JSONObject returnValue = new JSONObject();
-		Iterator<String> it = applicantInfo.getNeeded_sensors().keys();
+		Iterator<String> it = applicantInfo.getNeeded_services().keys();
 		while (it.hasNext()) {
-			String neededSensorName = it.next();
+			String neededServiceName = it.next();
 
-			if (neededSensorName.compareToIgnoreCase("*") != 0) {
-				returnValue.put(neededSensorName, ComputeAnswer(neededSensorName, applicantInfo.getNeeded_sensors().getJSONObject(neededSensorName), groupAvailableServices, applicantInfo));
-				//JSONObject ComputeAnswer(String neededSensorName, JSONObject evaluationDataNeeded, Hashtable<String, ServiceDetailsRequestModel> groupAvailableServices, ServiceDetailsRequestModel applicantInfo)
+			if (neededServiceName.compareToIgnoreCase("*") != 0) {
+				returnValue.put(neededServiceName, ComputeAnswer(neededServiceName, applicantInfo.getNeeded_services().getJSONObject(neededServiceName), groupAvailableServices, applicantInfo));
+				//JSONObject ComputeAnswer(String neededServiceName, JSONObject evaluationDataNeeded, Hashtable<String, ServiceDetailsRequestModel> groupAvailableServices, ServiceDetailsRequestModel applicantInfo)
 			} 
 			else {
-				for (String key : getAllSensorsNames(groupAvailableServices)) 
-					returnValue.put(key, ComputeAnswer(key, applicantInfo.getNeeded_sensors().getJSONObject(key), groupAvailableServices, applicantInfo));
+				for (String key : getAllServicesNames(groupAvailableServices)) 
+					returnValue.put(key, ComputeAnswer(key, applicantInfo.getNeeded_services().getJSONObject(key), groupAvailableServices, applicantInfo));
 			}
 
 		}

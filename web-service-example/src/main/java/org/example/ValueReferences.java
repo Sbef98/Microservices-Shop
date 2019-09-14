@@ -9,7 +9,7 @@ import org.json.JSONObject;
 /**
  * Class to describe a data request for comparison.
  * Create an object with a key that is the name of the data requested and a Collection
- * of sensor/s to obtain that data for comparison.
+ * of service/s to obtain that data for comparison.
  * 
  * JSON obtained {"valueName" : ["comparator"] }
  */
@@ -19,16 +19,16 @@ public class ValueReferences {
 	 */
 	private String valueName;
 	/**
-	 * "comparator" sensor/sensors name used like models to compare valueName type of data
+	 * "comparator" service/services name used like models to compare valueName type of data
 	 */
 	private LinkedList<String> references = new LinkedList<String>(); //never using random access within the list
 	
 	/**
 	 * Constructor to create a ValueReferences object that
-	 * want the data to compare from only one comparator sensor
+	 * want the data to compare from only one comparator service
 	 * 
 	 * @param valueName name of the data measured: like "temperature"
-	 * @param reference sensor from which retrieve data
+	 * @param reference service from which retrieve data
 	 */
 	protected ValueReferences(String valueName, String reference) {
 		super();
@@ -37,10 +37,10 @@ public class ValueReferences {
 	}
 	/**
 	 * Constructor to create a ValueReferences object that wants
-	 * the data to compare from a collection of comparator sensors
+	 * the data to compare from a collection of comparator services
 	 * 
 	 * @param valueName type of the data to compare: like "temperature"
-	 * @param references comparator sensors
+	 * @param references comparator services
 	 */
 	protected ValueReferences(String valueName, Collection<String> references) {
 		super();
@@ -49,10 +49,10 @@ public class ValueReferences {
 	}
 	
 	/**
-	 * Add a comparator sensor into references list from which retrieve
+	 * Add a comparator service into references list from which retrieve
 	 * valueName data for comparison
 	 * 
-	 * @param reference comparator sensor to add into references list
+	 * @param reference comparator service to add into references list
 	 */
 	protected void addReference(String reference)
 	{
@@ -63,10 +63,10 @@ public class ValueReferences {
 		references.push(reference);
 	}
 	/**
-	 * Add a list of comparator sensors into references list from which retrieve
+	 * Add a list of comparator services into references list from which retrieve
 	 * valueName data for comparison
 	 * 
-	 * @param references collections of comparator sensors to add into a ValueReferences object
+	 * @param references collections of comparator services to add into a ValueReferences object
 	 */
 	protected void addMultipleReferences(Collection<String> references)
 	{
@@ -92,9 +92,9 @@ public class ValueReferences {
 	}
 	/**
 	 * Set references collections with a new collection
-	 * of sensors from which retrieve the valueName data
+	 * of services from which retrieve the valueName data
 	 * 
-	 * @param references Collections of sensors from which retrieve the valueName data
+	 * @param references Collections of services from which retrieve the valueName data
 	 */
 	protected void setReferences(Collection<String> references) {
 		this.references = (LinkedList<String>)references;

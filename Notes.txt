@@ -53,3 +53,7 @@ ROBA DA FARE:
 - Gestione collisioni nel decisore;
 
 -- Funzione di ovverride per l'algoritmo decisionale sul decisore;
+
+COSE PER DB:
+- Dato un oggetto ServiceDetailsRequestModel lo salvinel database (Nota: i values sono array)
+- Eseguire una queary (se vuota ritorna l'intero database) -> metti ogni record dentro un ServiceRequestModel

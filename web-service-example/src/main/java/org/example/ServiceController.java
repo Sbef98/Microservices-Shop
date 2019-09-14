@@ -23,8 +23,6 @@ public abstract class ServiceController
 	protected String serviceName;
 	@Value("${service.URI}")
 	protected String serviceURI;
-	@Value("${service.type}")
-	protected String type;
 	@Value("${service.sleepTime}")
 	protected int sleepTime; 
 	abstract String getGetMapping();
@@ -48,7 +46,7 @@ public abstract class ServiceController
 	{
 		String response = new String("Error");
 		try {
-			 response = Communication.put(url, serviceURI, servicePort, type, getGetMapping(), getPutMapping(),
+			 response = Communication.put(url, serviceURI, servicePort, getGetMapping(), getPutMapping(),
 					 					  groupID, description, getValues(), getWanted(), getNeeded_services());
 		} catch (kong.unirest.UnirestException e) {
 			System.out.println("UnirestException while connecting to " + url);
