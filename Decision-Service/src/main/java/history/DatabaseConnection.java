@@ -66,10 +66,16 @@ public class DatabaseConnection {
 
 	public static Integer AssignID() {
 		// TODO Auto-generated method stub
-		ResultSet res = DatabaseConnection.ExecQuery("SELECT MAX(ServiceId) AS Index FROM Services");
+		ResultSet res = DatabaseConnection.ExecQuery("SELECT MAX(ServiceId) AS ServiceId FROM Services");
+		try {
+			res.next();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		Integer currentIndex = 0;
 		try {
-			currentIndex = res.getInt("Index");
+			currentIndex = res.getInt("ServiceId");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
