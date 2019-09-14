@@ -17,11 +17,10 @@ public class ServiceDetailsRequestModel
 	private JSONObject needed_services;  //Will be empty in case of a sensor
 	private boolean closed = false;
 	private Date lastUpdate;
-	
-	public ServiceDetailsRequestModel(String uRI, int port, String get_mapping, String get_putting,
-			String groupID, String description, JSONObject values, JSONObject wanted, JSONObject needed_services,
-			boolean closed) 
-	{
+	private String name;
+
+	public ServiceDetailsRequestModel(String uRI, int port, String get_mapping, String get_putting, String groupID,
+			String description, JSONObject values, JSONObject wanted, JSONObject needed_services, boolean closed, String name) {
 		super();
 		URI = uRI;
 		this.port = port;
@@ -33,6 +32,14 @@ public class ServiceDetailsRequestModel
 		this.wanted = wanted;
 		this.needed_services = needed_services;
 		this.closed = closed;
+		this.lastUpdate = new Date();
+		this.name = name;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public boolean isClosed() {
 		return closed;

@@ -60,7 +60,7 @@ public class BIOS { // basic input output service (nice joke i know)
 		return returnValue.toString();
 	}
 
-	@GetMapping(value = "get-active-connections", produces = "application/json")
+	/*@GetMapping(value = "get-active-connections", produces = "application/json")
 	public JSONObject getActiveConnections()
 	{
 		JSONObject returnValue = new JSONObject();
@@ -74,7 +74,7 @@ public class BIOS { // basic input output service (nice joke i know)
 			//key is the groupID
 		}
 		return returnValue;
-	}
+	}*/
 	/*TODO another getMapping for the database. Just incase*/
 	@PutMapping(value = "put", produces = "application/json") // update services data
 	public String updateService(@RequestParam(value = "serviceName") String serviceName, @RequestBody ServiceDetailsRequestModel requestServiceDetails) 
