@@ -11,7 +11,7 @@
 	<groupId>com.example</groupId>
 	<artifactId>Service-Weather</artifactId>
 	<version>1.0</version>
-	<name>ServiceTemperature</name>
+	<name>ServiceWeather</name>
 	<description>Leo is trying his best</description>
 
 	<properties>
