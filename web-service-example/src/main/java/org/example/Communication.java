@@ -29,14 +29,13 @@ public class Communication {
 	 * @return TO SENSORS: resends the received message, TO ACTUATOR: return a JSONObject with values' delta
 	 * @throws UnirestException
 	 */
-	protected static String put(String url, String serviceURI, int serverPort, String type,
+	protected static String put(String url, String serviceURI, int serverPort,
 								String getMapping, String putMapping, String groupID, String description,
 								JSONObject values, JSONObject wanted, JSONObject needed_sensors) throws UnirestException
 	{
 		JSONObject msg = new JSONObject();
 		msg.put("URI", serviceURI);
 		msg.put("port", serverPort);
-		msg.put("type",type);
 		msg.put("GetMapping", getMapping);
 		msg.put("PutMapping", putMapping);
 		msg.put("groupID", groupID);

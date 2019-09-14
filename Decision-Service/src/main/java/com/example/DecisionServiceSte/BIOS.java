@@ -21,7 +21,7 @@ public class BIOS { // basic input output service (nice joke i know)
 	Hashtable<String, Hashtable<String, ServiceDetailsRequestModel>> availableServices = new Hashtable<String, Hashtable<String, ServiceDetailsRequestModel>>();
 	/*
 	 * Using HASHTABLES for thread safety
-	 * This hastable uses the groupid of each service as key. The vlues is itself an hastable composed of every sensor
+	 * This hastable uses the groupid of each service as key. The values is itself an hastable composed of every service
 	 * that is part of the group. Its key will be the services' name and its value the ServiceDetailsRequestModel 
 	 */
 
@@ -94,7 +94,7 @@ public class BIOS { // basic input output service (nice joke i know)
 			groupAvailableServices.put(serviceName, requestServiceDetails);
 		}
 		
-		String returnValue = requestServiceDetails.getType().compareToIgnoreCase("sensor") == 0
+		String returnValue = requestServiceDetails.getNeeded_services() == null //If it's null it means it just wants to update the data on the decision service
 				? new String(requestServiceDetails.toString()) // Returning the same string may be used to check that the communcation was correct!
 				: DecisionMaker.takeDecision(requestServiceDetails, groupAvailableServices); // The way decision will be hadnled may vary
 		// TODO availableServices.get(serviceName); //Write the old ServiceName's value
