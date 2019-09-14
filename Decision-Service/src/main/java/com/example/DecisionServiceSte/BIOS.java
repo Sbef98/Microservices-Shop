@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import history.HistoryTracker;
 
 /**
  * @author Stefano Lugli;
@@ -114,7 +115,7 @@ public class BIOS { // basic input output service (nice joke i know)
 		ServiceDetailsRequestModel oldServiceDetails = groupAvailableServices.get(serviceID.toString());
 		if(oldServiceDetails != null) {
 			/*if it were null it'd mean there is no such service listed yet.*/
-			
+			HistoryTracker.storeProcedure(oldServiceDetails, serviceID.toString());
 		}
 		try {
 			groupAvailableServices.put(serviceID.toString(), requestServiceDetails);

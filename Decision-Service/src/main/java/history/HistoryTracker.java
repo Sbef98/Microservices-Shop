@@ -20,14 +20,15 @@ public class HistoryTracker {
 	dbConn.PrintResult(res, DBTablesModels.Services);
 	}
 	
-	public boolean StoreProcedure(ServiceDetailsRequestModel service, Integer serviceId) {
+	public static boolean storeProcedure(ServiceDetailsRequestModel service, String serviceId) {
 		String sql = "INSERT INTO Service VALUES (" + service.getURI() + ", " 
 													+ service.getPort() + ", "
+													+ service.getName() + ", "
 													+ service.getGroupID() + ", "
 													+ service.getDescription() + ", "
 													+ service.getGet_mapping() + ", "
 													+ service.getGet_putting() + ", "
-													+ serviceId.toString() + 
+													+ serviceId + 
 													" );";
 		try{
 			DatabaseConnection.ExecQuery(sql);
