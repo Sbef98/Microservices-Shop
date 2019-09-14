@@ -20,6 +20,21 @@ public class ServiceDetailsRequestModel
 	private String name;
 
 	public ServiceDetailsRequestModel(String uRI, int port, String get_mapping, String get_putting, String groupID,
+			String description, JSONObject values, JSONObject wanted, JSONObject needed_services, boolean closed) {
+		super();
+		URI = uRI;
+		this.port = port;
+		this.get_mapping = get_mapping;
+		this.get_putting = get_putting;
+		this.groupID = groupID;
+		this.description = description;
+		this.values = values;
+		this.wanted = wanted;
+		this.needed_services = needed_services;
+		this.closed = closed;
+		this.lastUpdate = new Date();
+	}
+	public ServiceDetailsRequestModel(String uRI, int port, String get_mapping, String get_putting, String groupID,
 			String description, JSONObject values, JSONObject wanted, JSONObject needed_services, boolean closed, String name) {
 		super();
 		URI = uRI;
@@ -112,6 +127,7 @@ public class ServiceDetailsRequestModel
 	public JSONObject getServiceData()
 	{
 		JSONObject returnValue = new JSONObject();
+		returnValue.put("Name:", name);
 		returnValue.put("URI", URI);
 		returnValue.put("port", port);
 		returnValue.put("GetMapping", getGet_mapping());

@@ -46,14 +46,17 @@ DecisionService's answer:
 
 ROBA DA FARE:
 - Ottimizzazione JSON e incapsulamento;
-- Eliminare la differenza tra attuatore e sensore --> Diventano tutti servizi;
-- Other_sensor_directions diventano "comparator_services";
+- Eliminare la differenza tra attuatore e sensore --> Diventano tutti servizi; FATTO
+- Other_sensor_directions diventano "comparator_services"; FATTO
 - Esportare dal decisore le connessioni disponibili --> Richiesta diretta dati sensore;
 - Generare uno storico dei vari sensori;
-- Gestione collisioni nel decisore;
+- Gestione collisioni nel decisore; FATTO
+- Aggiungere crazione tipo di dato in we-service-example(communication);
 
 -- Funzione di ovverride per l'algoritmo decisionale sul decisore;
 
 COSE PER DB:
 - Dato un oggetto ServiceDetailsRequestModel lo salvinel database (Nota: i values sono array)
 - Eseguire una queary (se vuota ritorna l'intero database) -> metti ogni record dentro un ServiceRequestModel
+- Aggiungere cancellazione 
+- Aggiungere utente con soli permessi di lettura

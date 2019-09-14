@@ -45,7 +45,6 @@ public class BIOS { // basic input output service (nice joke i know)
 	public String getConnectionsInfo() 
 	{	
 		JSONObject returnValue = new JSONObject();
-		
 		for(String key : availableServices.keySet()) {
 			//Iterate through all the groups
 			JSONObject thisGroupValue = new JSONObject();
@@ -79,6 +78,7 @@ public class BIOS { // basic input output service (nice joke i know)
 	@PutMapping(value = "put", produces = "application/json") // update services data
 	public String updateService(@RequestParam(value = "serviceName") String serviceName, @RequestBody ServiceDetailsRequestModel requestServiceDetails) 
 	{	
+		requestServiceDetails.setName(serviceName);
 		System.out.println(requestServiceDetails.getServiceData());
 		if(requestServiceDetails.isClosed() == true) { //TODO check if using delete mapping may be better
 			try {
@@ -90,6 +90,8 @@ public class BIOS { // basic input output service (nice joke i know)
 				return "error";
 			}
 		}
+		//I make a service ID using the used URI and the port, so that i get a unique id to use in the map.
+		Integer serviceID = new String(requestServiceDetails.getURI() + requestServiceDetails.getPort() + serviceName).hashCode();
 		Hashtable<String, ServiceDetailsRequestModel> groupAvailableServices;
 		try{
 			groupAvailableServices = availableServices.get(requestServiceDetails.getGroupID());
@@ -99,8 +101,23 @@ public class BIOS { // basic input output service (nice joke i know)
 			System.out.println(" won't be able to use this service's informations!");
 			return "error";
 		}
+		/*
+		 * The key previously was the service name. That prevented any user to use the same name for multiple 
+		 * services inside the same group. It should have not been a problem, but since humans made mistakes
+		 * we choosed to use an id based on the URI+PORT+SERVICENAME combination hash. There could not be more than one 
+		 * service using the same uri and port! 
+		 */
+		
+		/*First of all i check if there is already a service with the same service id. In that case, i save
+		 * it in the history and add the  new values!
+		 */
+		ServiceDetailsRequestModel oldServiceDetails = groupAvailableServices.get(serviceID.toString());
+		if(oldServiceDetails != null) {
+			/*if it were null it'd mean there is no such service listed yet.*/
+			
+		}
 		try {
-			groupAvailableServices.put(serviceName, requestServiceDetails);
+			groupAvailableServices.put(serviceID.toString(), requestServiceDetails);
 		}catch (NullPointerException e) {
 			//It'd mean there is no hashtable for that groupID
 			groupAvailableServices = new Hashtable<String, ServiceDetailsRequestModel>();
@@ -113,8 +130,7 @@ public class BIOS { // basic input output service (nice joke i know)
 		String returnValue = requestServiceDetails.getNeeded_services() == null //If it's null it means it just wants to update the data on the decision service
 				? new String(requestServiceDetails.toString()) // Returning the same string may be used to check that the communcation was correct!
 				: DecisionMaker.takeDecision(requestServiceDetails, groupAvailableServices); // The way decision will be hadnled may vary
-		// TODO availableServices.get(serviceName); //Write the old ServiceName's value
-		// in the service history.
+
 		System.out.print("Put request for service status update from: ");
 		System.out.println(serviceName);
 		System.out.println("Answer: " + returnValue);
