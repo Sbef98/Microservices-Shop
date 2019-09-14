@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Light extends ServiceController
 {
-	private float lightLevel;
-	private final float wantedLightLevel = 500;
+	private Float lightLevel = (float) 0;
+	private final Float wantedLightLevel = (float) 500;
 
 	@GetMapping(value = "/get", produces = "application/json")
 	public String get()
@@ -32,7 +32,7 @@ public class Light extends ServiceController
 	JSONObject getValues() {
 		JSONObject returnValue = new JSONObject();
 		JSONArray values = new JSONArray();
-		values.put(getNewLightLevel());
+		values.put(getNewLightLevel().toString());
 		returnValue.put("lightLevel", values);
 		return returnValue;
 	}
@@ -63,10 +63,10 @@ public class Light extends ServiceController
 		return returnValue.toString();
 	}
 	
-	private float getNewLightLevel()
+	private Float getNewLightLevel()
 	{
 		if(lightLevel > 1000)
-			lightLevel = 0;
+			lightLevel = (float) 0;
 		else {
 			lightLevel += 19;
 		}

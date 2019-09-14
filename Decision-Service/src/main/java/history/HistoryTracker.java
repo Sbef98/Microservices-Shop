@@ -21,17 +21,17 @@ public class HistoryTracker {
 	}
 	
 	public static boolean storeProcedure(ServiceDetailsRequestModel service, String serviceId) {
-		String sql = "INSERT INTO Service VALUES (" + service.getURI() + ", " 
-													+ service.getPort() + ", "
-													+ service.getName() + ", "
-													+ service.getGroupID() + ", "
-													+ service.getDescription() + ", "
-													+ service.getGet_mapping() + ", "
-													+ service.getGet_putting() + ", "
-													+ serviceId + 
+		String sql = "INSERT INTO Services VALUES (" + "'" + service.getURI() + "'" + ", " 
+													+ "'" + service.getPort() + "'" + ", "
+													+ "'" + service.getName() + "'" + ", "
+													+ "'" + service.getGroupID() + "'" + ", "
+													+ "'" + service.getDescription() + "'" + ", "
+													+ "'" + service.getGet_mapping() + "'" + ", "
+													+ "'" + service.getPut_mapping() + "'" + ", "
+													+ "'" + serviceId + "'" + 
 													" );";
 		try{
-			DatabaseConnection.ExecQuery(sql);
+			Integer x = DatabaseConnection.ExecUpdate(sql);
 		} catch (Exception e) {
 			return false;
 		}
@@ -42,14 +42,14 @@ public class HistoryTracker {
 			String dataType = it.next();
 			JSONArray values = (JSONArray) service.getValues().get(dataType);
 			for (Object val : values) {
-				String sql2 = ("INSERT INTO ServicesValues VALUES (" 	+ (String)val + ", " 
-																	+ dataType + ", "
-																	+ timestamp + ", "
-																	+ serviceId.toString()
+				String sql2 = new String("INSERT INTO ServicesValues VALUES ( " + "'"+ (String)val + "'" + ", " 
+																	+ "'" + dataType + "'" + ", "
+																	+ "'" + timestamp + "'" + ", "
+																	+ "'" + serviceId.toString() + "'"
 																	+ ");"
 																	);
 				try{
-					DatabaseConnection.ExecQuery(sql2);
+					DatabaseConnection.ExecUpdate(sql2);
 				} catch (Exception e) {
 					return false;
 				}

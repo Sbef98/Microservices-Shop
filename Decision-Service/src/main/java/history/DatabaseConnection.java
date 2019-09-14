@@ -34,7 +34,7 @@ public class DatabaseConnection {
 	public static ResultSet ExecQuery(String query) {
 	// Creiamo un oggetto Statement per poter interrogare il db;
 		try {
-			cmd = conn.createStatement ();
+			cmd = conn.createStatement();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -52,6 +52,28 @@ public class DatabaseConnection {
 		}
 		return res;
 	}
+	
+	public static Integer ExecUpdate(String query) {
+		// Creiamo un oggetto Statement per poter interrogare il db;
+			try {
+				cmd = conn.createStatement();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				System.out.println("Impossibile creare lo statement per la query");
+			}
+		 // Eseguiamo una query e immagazziniamone i risultati;
+		 // in un oggetto ResultSet;
+			Integer res = null;
+			try {
+				res = cmd.executeUpdate(query);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				System.out.println("Errore nell'esecuzione della query");
+			}
+			return res;
+		}
 	
 	public void PrintResult(ResultSet res, LinkedList<String> columnName) throws SQLException{
 		while (res.next()) {

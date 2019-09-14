@@ -14,16 +14,15 @@ public class Communication {
 								JSONObject values, JSONObject wanted, JSONObject needed_sensors) throws UnirestException
 	{
 		JSONObject msg = new JSONObject();
-		msg.put("URI", serviceURI);
+		msg.put("uri", serviceURI);
 		msg.put("port", serverPort);
-		msg.put("type",type);
-		msg.put("GetMapping", getMapping);
-		msg.put("PutMapping", putMapping);
+		msg.put("get_mapping", getMapping);
+		msg.put("put_mapping", putMapping);
 		msg.put("groupID", groupID);
 		msg.put("description", description);
 		msg.put("values", values.toString());
 		msg.put("wanted", wanted.toString());
-		msg.put("needed_sensors", needed_sensors);
+		msg.put("needed_services", needed_sensors);
 		return sendJSONObject(msg,url);		
 	}
 	protected static void close(String url, String groupID) throws UnirestException

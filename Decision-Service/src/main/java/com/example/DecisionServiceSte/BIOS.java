@@ -1,5 +1,6 @@
 package com.example.DecisionServiceSte;
 
+import java.util.Date;
 import java.util.Hashtable;
 
 import javax.annotation.PostConstruct;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import history.DatabaseConnection;
 import history.HistoryTracker;
 
 /**
@@ -37,9 +40,7 @@ public class BIOS { // basic input output service (nice joke i know)
 	@PostConstruct
 	public void init() 
 	{
-		// possible TODO The surveillance thread used to check the correct services
-		// updates will be starting from here
-		// Not sure if i actually do need this
+		DatabaseConnection.DBConnection();
 	}
 
 	@GetMapping(value = "get-available-services", produces = "application/json")
@@ -80,6 +81,7 @@ public class BIOS { // basic input output service (nice joke i know)
 	public String updateService(@RequestParam(value = "serviceName") String serviceName, @RequestBody ServiceDetailsRequestModel requestServiceDetails) 
 	{	
 		requestServiceDetails.setName(serviceName);
+		requestServiceDetails.setLastUpdate(new Date());
 		System.out.println(requestServiceDetails.getServiceData());
 		if(requestServiceDetails.isClosed() == true) { //TODO check if using delete mapping may be better
 			try {
@@ -112,12 +114,12 @@ public class BIOS { // basic input output service (nice joke i know)
 		/*First of all i check if there is already a service with the same service id. In that case, i save
 		 * it in the history and add the  new values!
 		 */
-		ServiceDetailsRequestModel oldServiceDetails = groupAvailableServices.get(serviceID.toString());
-		if(oldServiceDetails != null) {
-			/*if it were null it'd mean there is no such service listed yet.*/
-			HistoryTracker.storeProcedure(oldServiceDetails, serviceID.toString());
-		}
 		try {
+			ServiceDetailsRequestModel oldServiceDetails = groupAvailableServices.get(serviceID.toString());
+			if(oldServiceDetails != null) {
+				/*if it were null it'd mean there is no such service listed yet.*/
+				HistoryTracker.storeProcedure(oldServiceDetails, serviceID.toString());
+			}
 			groupAvailableServices.put(serviceID.toString(), requestServiceDetails);
 		}catch (NullPointerException e) {
 			//It'd mean there is no hashtable for that groupID

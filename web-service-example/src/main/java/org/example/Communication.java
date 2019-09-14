@@ -25,25 +25,24 @@ public class Communication {
 	 * @param description general info
 	 * @param values Actual measured values
 	 * @param wanted Ideal target values suggested
-	 * @param needed_sensors USED ONLY FOR ACTUATORS: model to describe the comparison beetwen which services are needed to execute actions   
+	 * @param needed_services USED ONLY FOR ACTUATORS: model to describe the comparison beetwen which services are needed to execute actions   
 	 * @return TO SENSORS: resends the received message, TO ACTUATOR: return a JSONObject with values' delta
 	 * @throws UnirestException
 	 */
 	protected static String put(String url, String serviceURI, int serverPort,
 								String getMapping, String putMapping, String groupID, String description,
-								JSONObject values, JSONObject wanted, JSONObject needed_sensors) throws UnirestException
+								JSONObject values, JSONObject wanted, JSONObject needed_services) throws UnirestException
 	{
 		JSONObject msg = new JSONObject();
-		msg.put("URI", serviceURI);
+		msg.put("uri", serviceURI);
 		msg.put("port", serverPort);
-		msg.put("GetMapping", getMapping);
-		msg.put("PutMapping", putMapping);
+		msg.put("get_mapping", getMapping);
+		msg.put("put_mapping", putMapping);
 		msg.put("groupID", groupID);
 		msg.put("description", description);
 		msg.put("values", values.toString());
-		if(wanted != null)
-			msg.put("wanted", wanted.toString());
-		msg.put("needed_sensors", needed_sensors.toString());
+		msg.put("wanted", wanted.toString());
+		msg.put("needed_services", needed_services);
 		return sendJSONObject(msg,url);		
 	}
 	

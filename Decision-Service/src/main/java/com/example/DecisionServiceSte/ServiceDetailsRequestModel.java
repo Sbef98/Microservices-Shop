@@ -6,10 +6,11 @@ import org.json.JSONObject;
 
 public class ServiceDetailsRequestModel 
 {
-	private String URI;
+	
 	private int port;
+	private String uri;
 	private String get_mapping = null; //optional
-	private String get_putting = null; //optional
+	private String put_mapping = null; //optional
 	private String groupID;
 	private String description;
 	private JSONObject values;
@@ -19,36 +20,8 @@ public class ServiceDetailsRequestModel
 	private Date lastUpdate;
 	private String name;
 
-	public ServiceDetailsRequestModel(String uRI, int port, String get_mapping, String get_putting, String groupID,
-			String description, JSONObject values, JSONObject wanted, JSONObject needed_services, boolean closed) {
-		super();
-		URI = uRI;
-		this.port = port;
-		this.get_mapping = get_mapping;
-		this.get_putting = get_putting;
-		this.groupID = groupID;
-		this.description = description;
-		this.values = values;
-		this.wanted = wanted;
-		this.needed_services = needed_services;
-		this.closed = closed;
-		this.lastUpdate = new Date();
-	}
-	public ServiceDetailsRequestModel(String uRI, int port, String get_mapping, String get_putting, String groupID,
-			String description, JSONObject values, JSONObject wanted, JSONObject needed_services, boolean closed, String name) {
-		super();
-		URI = uRI;
-		this.port = port;
-		this.get_mapping = get_mapping;
-		this.get_putting = get_putting;
-		this.groupID = groupID;
-		this.description = description;
-		this.values = values;
-		this.wanted = wanted;
-		this.needed_services = needed_services;
-		this.closed = closed;
-		this.lastUpdate = new Date();
-		this.name = name;
+	public void setLastUpdate(Date lastUpdate) {
+		this.lastUpdate = lastUpdate;
 	}
 	public String getName() {
 		return name;
@@ -78,21 +51,18 @@ public class ServiceDetailsRequestModel
 		return values;
 	}
 	public void setValues(JSONObject values) {
-		System.out.println(values);
 		this.values = values;
 	}
 	public JSONObject getWanted() {
 		return wanted;
 	}
 	public void setWanted(JSONObject  wanted) {
-		System.out.println(wanted);
 		this.wanted = wanted;
 	}
 	public JSONObject getNeeded_services() {
 		return needed_services;
 	}
 	public void setNeeded_services(JSONObject needed_services) {
-		System.out.println(needed_services);
 		this.needed_services = needed_services;
 	}
 	public String getGet_mapping() {
@@ -101,17 +71,17 @@ public class ServiceDetailsRequestModel
 	public void setGet_mapping(String get_mapping) {
 		this.get_mapping = get_mapping;
 	}
-	public String getGet_putting() {
-		return get_putting;
+	public String getPut_mapping() {
+		return put_mapping;
 	}
-	public void setGet_putting(String get_putting) {
-		this.get_putting = get_putting;
+	public void setPut_mapping(String get_putting) {
+		this.put_mapping = get_putting;
 	}
 	public String getURI() {
-		return URI;
+		return uri;
 	}
-	public void setURI(String uRI) { //Self generated. I don't know why the u is lower case
-		URI = uRI;
+	public void setURI(String uri) { //Self generated. I don't know why the u is lower case
+		this.uri = uri;
 	}
 	
 	public int getPort() {
@@ -128,10 +98,10 @@ public class ServiceDetailsRequestModel
 	{
 		JSONObject returnValue = new JSONObject();
 		returnValue.put("Name:", name);
-		returnValue.put("URI", URI);
+		returnValue.put("uri", uri);
 		returnValue.put("port", port);
 		returnValue.put("GetMapping", getGet_mapping());
-		returnValue.put("PutMapping", getGet_putting());
+		returnValue.put("PutMapping", getPut_mapping());
 		returnValue.put("lastUpdate", lastUpdate);
 		returnValue.put("description", description);
 		returnValue.put("values", values);
