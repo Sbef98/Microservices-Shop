@@ -14,10 +14,10 @@ import java.util.LinkedList;
  * Manage connection to RDBMS;
  */
 public class DatabaseConnection {
-	protected Connection conn = null;
-	Statement cmd = null;
+	protected static Connection conn = null;
+	static Statement cmd = null;
 
-	public Connection DBConnection() {
+	public static Connection DBConnection() {
 		// Creiamo la stringa di connessione
 		String url = "jdbc:mysql://212.237.20.175:3306/DB_Bicocco?serverTimezone=GMT";
 		// Otteniamo una connessione con username e password
@@ -31,7 +31,7 @@ public class DatabaseConnection {
 		return conn;
 	}
 	
-	public ResultSet ExecQuery(Connection conn, String query) {
+	public static ResultSet ExecQuery(String query) {
 	// Creiamo un oggetto Statement per poter interrogare il db;
 		try {
 			cmd = conn.createStatement ();
@@ -62,5 +62,18 @@ public class DatabaseConnection {
 		res.close();
 		cmd.close();
 		conn.close();
+	}
+
+	public static Integer AssignID() {
+		// TODO Auto-generated method stub
+		ResultSet res = DatabaseConnection.ExecQuery("SELECT MAX(ServiceId) AS Index FROM Services");
+		Integer currentIndex = 0;
+		try {
+			currentIndex = res.getInt("Index");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return currentIndex + 1;
 	}
 }
