@@ -1,5 +1,9 @@
 package com.example.DecisionServiceSte;
 
+
+import history.DatabaseConnection;
+import history.HistoryTracker;
+
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.Hashtable;
@@ -9,7 +13,6 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 import org.json.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,9 +20,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import history.DatabaseConnection;
-import history.HistoryTracker;
 
 /**
  * @author Stefano Lugli;
@@ -58,20 +58,31 @@ public class BIOS { // basic input output service (nice joke i know)
 		return returnValue.toString();
 	}
 
-	@GetMapping(value = "get-active-connections", produces = "application/json")
-	public JSONObject getActiveConnections()
+	@GetMapping(value = "get-available-connections", produces = "application/json")
+	public String getActiveConnections()
+	/*
+	 * This function returns all the available services with their informations.
+	 * It may be used by other services who need a direct connection or just to
+	 * have a quick look at the overall situation without needing the whole values report!
+	 */
 	{
 		JSONObject returnValue = new JSONObject();
-		for(String key : availableServices.keySet()) {
-			Hashtable<String, ServiceDetailsRequestModel> groupAvailableServices = availableServices.get(key); 
-			for(String key2 : groupAvailableServices.keySet()) {
-				returnValue.
-				thisGroupValue.put(key2, groupAvailableServices.get(key2).getServiceData());
+		/*Let's go through all the groups*/
+		for(String groupID : availableServices.keySet()) {
+			/*And now through all the services in a group*/
+			for(String serviceID : availableServices.get(groupID).keySet()) {
+				JSONObject serviceValues = new JSONObject();
+				serviceValues.put("groupID", availableServices.get(groupID).get(serviceID).getGroupID());
+				serviceValues.put("URI", availableServices.get(groupID).get(serviceID).getURI());
+				serviceValues.put("Port", availableServices.get(groupID).get(serviceID).getPort());
+				serviceValues.put("Name", availableServices.get(groupID).get(serviceID).getName());
+				serviceValues.put("get_mapping", availableServices.get(groupID).get(serviceID).getGet_mapping());
+				serviceValues.put("put_mapping", availableServices.get(groupID).get(serviceID).getPut_mapping());
+				serviceValues.put("Description:", availableServices.get(groupID).get(serviceID).getDescription());
+				returnValue.put(serviceID, serviceValues);
 			}
-				//Key2 is the service name
-			//key is the groupID
 		}
-		return returnValue;
+		return returnValue.toString();
 	}
 	
 	@PutMapping(value = "register-new-data-type", produces = "application/json")
@@ -173,6 +184,7 @@ public class BIOS { // basic input output service (nice joke i know)
 	public void garbageCollector(){
 		/*
 		 * This function autocloses the services inside of available services in case they do not update for more than 1 hour
+		 * and cleans the database deleting the records after a set amount of time
 		 */
 		Set<String> groupIDS = availableServices.keySet();
 	    for(String groupID : groupIDS) { 
@@ -191,6 +203,9 @@ public class BIOS { // basic input output service (nice joke i know)
 	    	   }
 	       }
 	    }
+	    
+	    /* Now i call the function from the package history that will take care of deleting the old records*/
+	    DatabaseConnection.garbage();
 	}
 	
 	@PreDestroy
