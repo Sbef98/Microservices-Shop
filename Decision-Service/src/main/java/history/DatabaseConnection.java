@@ -104,4 +104,14 @@ public class DatabaseConnection {
 		}
 		return currentIndex + 1;
 	}
+	
+	public static boolean checkDataType(String dataName) throws SQLException {
+		ResultSet chk = ExecQuery("SELECT * FROM DataType WHERE (DataName = '" + dataName + "');");
+		while (chk.next()) {
+			return true;
+		}
+		return false;
+	}
 }
+
+

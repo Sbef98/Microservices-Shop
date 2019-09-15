@@ -13,6 +13,7 @@ public class HistoryTracker {
 	public static void main(String[] args) throws SQLException {
 	DatabaseConnection dbConn = new DatabaseConnection();
 	DatabaseConnection.DBConnection();
+	boolean chk = DatabaseConnection.checkDataType("hudimity");
 	DatabaseConnection.AssignID();
 	ResultSet res = DatabaseConnection.ExecQuery("SELECT * FROM Services");
 	System.out.print(res.toString());
