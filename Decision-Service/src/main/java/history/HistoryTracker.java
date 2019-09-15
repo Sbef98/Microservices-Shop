@@ -16,6 +16,12 @@ public class HistoryTracker {
 	boolean chk = DatabaseConnection.checkDataType("hudimity");
 	boolean ins = DatabaseConnection.insertDataType("humidity");
 	ins = DatabaseConnection.insertDataType("person");
+	ResultSet services = DatabaseConnection.ExecQuery("SELECT * FROM Services;");
+	JSONArray servicesJson = DatabaseConnection.convert(services);
+	System.out.println(servicesJson.toString());
+	ResultSet allData = DatabaseConnection.ExecQuery();
+	JSONArray allDataJson = DatabaseConnection.convert(allData);
+	System.out.println(allDataJson.toString());
 	DatabaseConnection.AssignID();
 	ResultSet res = DatabaseConnection.ExecQuery("SELECT * FROM Services");
 	System.out.print(res.toString());
