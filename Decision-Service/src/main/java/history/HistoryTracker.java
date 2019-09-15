@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.Iterator;
 import org.json.JSONArray;
+import org.json.JSONException;
 
 import com.example.DecisionServiceSte.ServiceDetailsRequestModel;
 
@@ -13,9 +14,9 @@ public class HistoryTracker {
 	public static void main(String[] args) throws SQLException {
 	DatabaseConnection dbConn = new DatabaseConnection();
 	DatabaseConnection.DBConnection();
-	boolean chk = DatabaseConnection.checkDataType("hudimity");
-	boolean ins = DatabaseConnection.insertDataType("humidity");
-	ins = DatabaseConnection.insertDataType("person");
+	boolean chk = checkDataType("hudimity");
+	boolean ins = insertDataType("humidity");
+	ins = insertDataType("person");
 	ResultSet services = DatabaseConnection.ExecQuery("SELECT * FROM Services;");
 	JSONArray servicesJson = DatabaseConnection.convert(services);
 	System.out.println(servicesJson.toString());
@@ -39,10 +40,10 @@ public class HistoryTracker {
 													+ "'" + service.getPut_mapping() + "'" + ", "
 													+ "'" + serviceId + "'" + 
 													" );";
-		try{
-			Integer x = DatabaseConnection.ExecUpdate(sql);
-		} catch (Exception e) {
-			return false;
+		try {
+			DatabaseConnection.ExecUpdate(sql);
+		} catch (SQLException e1) {
+			;
 		}
 		Date date = new Date();
 		Object timestamp = new Timestamp(date.getTime());
@@ -66,4 +67,59 @@ public class HistoryTracker {
 		}		
 		return true;
 	}
+	
+	public static boolean checkDataType(String dataName) 
+	{
+		try {
+			ResultSet chk = DatabaseConnection.ExecQuery("SELECT * FROM DataType WHERE (DataName = '" + dataName + "');");
+			while (chk.next()) {
+				return true;
+			}
+		}catch (SQLException e) {
+			/*It means it was unbale to do the queary*/
+			System.out.println("Unable to execute the query in checkDataType!!");
+			return false;
+		}
+		return false;
+	}
+	
+	public static boolean insertDataType(String dataName) {
+		Integer x = null;
+		try {
+			x = DatabaseConnection.ExecUpdate("INSERT INTO DataType VALUES	('" + dataName + "');");
+		} catch (SQLException e) {
+			System.out.println("This DataType already existing");
+		}
+		if (x != null)
+			return true;
+		return false;
+	}
+	
+	public static JSONArray query(String query) {
+		ResultSet res = null;
+		try {
+			res = DatabaseConnection.ExecQuery(query);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		try {
+			return DatabaseConnection.convert(res);
+		} catch (JSONException | SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	 }
+	
+	 public static void garbage() {
+		 String query1 = "DELETE FROM ServicesValues WHERE Timestamp > DATE_SUB(NOW(), INTERVAL 2 DAY);";
+		 String query2 = "DELETE FROM Services WHERE ServiceId NOT IN SELECT DISTINCT SensorOrigin FROM ServicesValues);";
+		 
+		 try {
+			DatabaseConnection.ExecUpdate(query1);
+			DatabaseConnection.ExecUpdate(query2);
+		} catch (SQLException e) {
+			System.out.println("Something goes wrong, maybe there are problems with DB connection!");
+		}
+	 }
 }
