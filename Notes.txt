@@ -45,19 +45,12 @@ DecisionService's answer:
     }
 
 ROBA DA FARE:
-- Ottimizzazione JSON e incapsulamento;
-- Eliminare la differenza tra attuatore e sensore --> Diventano tutti servizi;
-- Other_sensor_directions diventano "comparator_services"; FATTO
-- Esportare dal decisore le connessioni disponibili --> Richiesta diretta dati sensore;
-- Generare uno storico dei vari sensori; DA CONTROLLARE di averlo inserito ovunque
-- Gestione collisioni nel decisore; FATTO
-- Aggiungere crazione tipo di dato dappertutto (Per da string ad altro);
-
--- Funzione di ovverride per l'algoritmo decisionale sul decisore;
+- Inserire nel decision service la funzione per richiamare "JSONArray query(String)": usare throws SQLExeption
+- Ottimizzazione JSON e incapsulamento; IN LAVORAZIONE
+- Aggiungere crazione tipo di dato dappertutto (Per da string ad altro); BHO
+- Modificare needed_sensor in workspaces; IN LAVORAZIONE
+- Generare servizi per musica colore temperatura e luci;
+- Controllare funzionamento Pre-Destroy; ALLA FINE
 
 COSE PER DB:
-- Dato un oggetto ServiceDetailsRequestModel lo salvinel database (Nota: i values sono array) FATTO
-- Eseguire una queary (se vuota ritorna l'intero database) -> metti ogni record dentro un ServiceRequestModel
-- Aggiungere cancellazione 
-- Aggiungere utente con soli permessi di lettura
-- Duplicate entry '8003-http://localhost-1-lightService' for key 'PRIMARY' 
+- Inserire screenshot aggiornato nel README;
