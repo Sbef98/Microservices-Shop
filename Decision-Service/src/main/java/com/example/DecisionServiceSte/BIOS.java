@@ -90,12 +90,8 @@ public class BIOS { // basic input output service (nice joke i know)
 	{
 			System.out.println("Registering new type: " + type);
 			JSONObject returnValue = new JSONObject();
-			try {
-				DatabaseConnection.insertDataType(type);
-				returnValue.put("response", "ok");
-			} catch(SQLException e) {
-				returnValue.put("response", "Database error");
-			}
+			HistoryTracker.insertDataType(type);
+			returnValue.put("response", "ok");
 			return returnValue.toString();
 	}
 	
@@ -107,7 +103,7 @@ public class BIOS { // basic input output service (nice joke i know)
 		/*First of all i check the datatypes if the datatypes passed are valid.*/
 		for(String value : requestServiceDetails.getValues().keySet()) {
 			/*The key of each value is its DataType*/
-			if(DatabaseConnection.checkDataType(value) == false) {
+			if(HistoryTracker.checkDataType(value) == false) {
 				System.out.println("Tried to insert unknown data type!");
 				return new String("Error, unknown data type:  " + value );
 			}
