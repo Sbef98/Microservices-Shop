@@ -1,5 +1,6 @@
 package org.example;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 import kong.unirest.HttpResponse;
 import kong.unirest.Unirest;
@@ -31,7 +32,7 @@ public class Communication {
 	 */
 	protected static String put(String url, String serviceName, String serviceURI, int serverPort,
 								String getMapping, String putMapping, String groupID, String description,
-								JSONObject values, JSONObject wanted, JSONObject needed_services) throws UnirestException
+								JSONObject values, JSONObject wanted, JSONArray workspaces) throws UnirestException
 	{
 		JSONObject msg = new JSONObject();
 		msg.put("uri", serviceURI);
@@ -42,7 +43,7 @@ public class Communication {
 		msg.put("description", description);
 		msg.put("values", values.toString());
 		msg.put("wanted", wanted.toString());
-		msg.put("needed_services", needed_services);
+		msg.put("workspaces", workspaces);
 		return sendJSONObject(msg,url + "put?serviceName=" + serviceName);		
 	}
 	

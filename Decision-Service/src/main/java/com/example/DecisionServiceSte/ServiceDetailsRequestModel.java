@@ -2,6 +2,7 @@ package com.example.DecisionServiceSte;
 
 import java.util.Date;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class ServiceDetailsRequestModel 
@@ -15,7 +16,7 @@ public class ServiceDetailsRequestModel
 	private String description;
 	private JSONObject values;
 	private JSONObject wanted;
-	private JSONObject needed_services;  //Will be empty in case of a sensor
+	private JSONArray workspaces;  //Will be empty in case of a sensor
 	private boolean closed = false;
 	private Date lastUpdate;
 	private String name;
@@ -59,11 +60,12 @@ public class ServiceDetailsRequestModel
 	public void setWanted(JSONObject  wanted) {
 		this.wanted = wanted;
 	}
-	public JSONObject getNeeded_services() {
-		return needed_services;
+	
+	public JSONArray getWorkspaces() {
+		return workspaces;
 	}
-	public void setNeeded_services(JSONObject needed_services) {
-		this.needed_services = needed_services;
+	public void setWorkspaces(JSONArray workspaces) {
+		this.workspaces = workspaces;
 	}
 	public String getGet_mapping() {
 		return get_mapping;
@@ -106,7 +108,7 @@ public class ServiceDetailsRequestModel
 		returnValue.put("description", description);
 		returnValue.put("values", values);
 		returnValue.put("wanted", wanted);
-		returnValue.put("needed_services", needed_services);
+		returnValue.put("workspaces", workspaces);
 		return returnValue;
 	}
 	@Override

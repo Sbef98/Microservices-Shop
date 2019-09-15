@@ -114,8 +114,8 @@ public class BIOS { // basic input output service (nice joke i know)
 		System.out.println("I received: ");
 		System.out.println(requestServiceDetails.getServiceData());
 		
-		//I make a service ID using the used URI and the port, so that i get a unique id to use in the map.
-		String serviceID = ((Integer) new String(requestServiceDetails.getURI() + requestServiceDetails.getPort() + serviceName).hashCode()).toString();
+		//I make a service ID using the used URI, group_id, serviceName and the port, so that i get a unique id to use in the map.
+		String serviceID = ((Integer) new String(requestServiceDetails.getURI() + requestServiceDetails.getPort()+ requestServiceDetails.getGroupID() + serviceName).hashCode()).toString();
 		
 		//First of all i check if the service is closing. In that case, i delete it from the available services list.
 		if(requestServiceDetails.isClosed() == true) {
@@ -165,7 +165,7 @@ public class BIOS { // basic input output service (nice joke i know)
 			groupAvailableServices.put(serviceID, requestServiceDetails);
 		}
 		
-		String returnValue = requestServiceDetails.getNeeded_services() == null //If it's null it means it just wants to update the data on the decision service
+		String returnValue = requestServiceDetails.getWorkspaces() == null //If it's null it means it just wants to update the data on the decision service
 				? new String(requestServiceDetails.toString()) // Returning the same string may be used to check that the communcation was correct!
 				: DecisionMaker.takeDecision(requestServiceDetails, groupAvailableServices); // The way decision will be hadnled may vary
 
@@ -201,7 +201,7 @@ public class BIOS { // basic input output service (nice joke i know)
 	    }
 	    
 	    /* Now i call the function from the package history that will take care of deleting the old records*/
-	    DatabaseConnection.garbage();
+	    HistoryTracker.garbage();
 	}
 	
 	@PreDestroy
