@@ -220,7 +220,11 @@ public class DatabaseConnection {
 			  }
 	 
 	 public static void garbage() {
-		 String query;
+		 String query1 = "DELETE FROM ServicesValues WHERE Timestamp > DATE_SUB(NOW(), INTERVAL 1 DAY);";
+		 String query2 = "DELETE FROM Services WHERE ServiceId NOT IN SELECT DISTINCT SensorOrigin FROM ServicesValues);";
+		 
+		 ExecUpdate(query1);
+		 ExecUpdate(query2);
 	 }
 }
 
