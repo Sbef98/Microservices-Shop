@@ -29,7 +29,7 @@ public class Communication {
 	 * @return TO serviceS: resends the received message, TO ACTUATOR: return a JSONObject with values' delta
 	 * @throws UnirestException
 	 */
-	protected static String put(String url, String serviceURI, int serverPort,
+	protected static String put(String url, String serviceName, String serviceURI, int serverPort,
 								String getMapping, String putMapping, String groupID, String description,
 								JSONObject values, JSONObject wanted, JSONObject needed_services) throws UnirestException
 	{
@@ -43,7 +43,7 @@ public class Communication {
 		msg.put("values", values.toString());
 		msg.put("wanted", wanted.toString());
 		msg.put("needed_services", needed_services);
-		return sendJSONObject(msg,url);		
+		return sendJSONObject(msg,url + "put?serviceName=" + serviceName);		
 	}
 	
 	/**
@@ -61,6 +61,11 @@ public class Communication {
 		sendJSONObject(msg, url);
 	}
 	
+	protected static String registerNewType(String type, String url) {
+		return sendJSONObject(new JSONObject(), url + "register-new-data-type?data-type=" + type);
+		/*Sends an empty JSONObject*/
+	}
+	
 	/**
 	 * Internal service function to execute a HTTP PUT request on a target URL
 	 * 
@@ -70,7 +75,7 @@ public class Communication {
 	 */
 	private static String sendJSONObject(JSONObject msg, String url)
 	{
-		HttpResponse<String> response = Unirest.put(url) //Gotta understand this first
+		HttpResponse<String> response = Unirest.put(url)
 	            .header("Accept", "application/json")
 	            .header("Content-Type", "application/json")
 	            .body(msg.toString())   //"{\"port\":\"" + serverPort + "\", \"type\" :\"actuator\", \"data\":"+ new Light(id,description,value).toString() +", \"body\":\"This is the body\"}")
