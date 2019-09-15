@@ -201,7 +201,7 @@ public class BIOS { // basic input output service (nice joke i know)
 	    }
 	    
 	    /* Now i call the function from the package history that will take care of deleting the old records*/
-	    DatabaseConnection.garbage();
+	    HistoryTracker.garbage();
 	}
 	
 	@PreDestroy
