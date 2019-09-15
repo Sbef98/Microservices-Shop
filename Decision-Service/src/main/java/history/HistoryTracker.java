@@ -14,6 +14,8 @@ public class HistoryTracker {
 	DatabaseConnection dbConn = new DatabaseConnection();
 	DatabaseConnection.DBConnection();
 	boolean chk = DatabaseConnection.checkDataType("hudimity");
+	boolean ins = DatabaseConnection.insertDataType("humidity");
+	ins = DatabaseConnection.insertDataType("person");
 	DatabaseConnection.AssignID();
 	ResultSet res = DatabaseConnection.ExecQuery("SELECT * FROM Services");
 	System.out.print(res.toString());

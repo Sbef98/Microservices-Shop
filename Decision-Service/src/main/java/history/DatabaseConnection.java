@@ -112,6 +112,14 @@ public class DatabaseConnection {
 		}
 		return false;
 	}
+	
+	public static boolean insertDataType(String dataName) {
+		Integer x = null;
+		x = ExecUpdate("INSERT INTO DataType VALUES	('" + dataName + "');");
+		if (x != null)
+			return true;
+		return false;
+	}
 }
 
 
