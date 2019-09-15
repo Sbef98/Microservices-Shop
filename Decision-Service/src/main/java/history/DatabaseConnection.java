@@ -133,15 +133,22 @@ public class DatabaseConnection {
 		return currentIndex + 1;
 	}
 	
-	public static boolean checkDataType(String dataName) throws SQLException {
-		ResultSet chk = ExecQuery("SELECT * FROM DataType WHERE (DataName = '" + dataName + "');");
-		while (chk.next()) {
-			return true;
+	public static boolean checkDataType(String dataName) 
+	{
+		try {
+			ResultSet chk = ExecQuery("SELECT * FROM DataType WHERE (DataName = '" + dataName + "');");
+			while (chk.next()) {
+				return true;
+			}
+		}catch (SQLException e) {
+			/*It means it was unbale to do the queary*/
+			System.out.println("Unable to execute the query in checkDataType!!");
+			return false;
 		}
 		return false;
 	}
 	
-	public static boolean insertDataType(String dataName) {
+	public static boolean insertDataType(String dataName) throws SQLException{
 		Integer x = null;
 		x = ExecUpdate("INSERT INTO DataType VALUES	('" + dataName + "');");
 		if (x != null)

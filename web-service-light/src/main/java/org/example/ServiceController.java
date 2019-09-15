@@ -35,18 +35,12 @@ public abstract class ServiceController
 	@Override
 	abstract public String toString();
 	
-	@PostConstruct
-	public void init()
-	{
-		url = url + serviceName;
-	}
-	
 	@Scheduled(fixedDelay = 1) //cool feature
 	public void update()
 	{
 		String response = new String("Error");
 		try {
-			 response = Communication.put(url, serviceURI, servicePort, getGetMapping(), getPutMapping(),
+			 response = Communication.put(url, serviceName, serviceURI, servicePort, getGetMapping(), getPutMapping(),
 					 					  groupID, description, getValues(), getWanted(), getNeeded_services());
 		} catch (kong.unirest.UnirestException e) {
 			System.out.println("UnirestException while connecting to " + url);
@@ -55,8 +49,8 @@ public abstract class ServiceController
 		try {
 			Thread.sleep(sleepTime);
 		} catch (InterruptedException e) {
-			System.out.println("Sleep interrupted.");
-			//It will be most probably happen when the processs exits, so it should be fine
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	

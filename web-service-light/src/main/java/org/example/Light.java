@@ -1,5 +1,7 @@
 package org.example;
 
+import javax.annotation.PostConstruct;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +13,11 @@ public class Light extends ServiceController
 	private Float lightLevel = (float) 0;
 	private final Float wantedLightLevel = (float) 500;
 
+	@PostConstruct
+	public void addDatatType() {
+		System.out.println("Registering type at " + url);
+		Communication.registerNewType("light", url);
+	}
 	@GetMapping(value = "/get", produces = "application/json")
 	public String get()
 	{
@@ -33,14 +40,14 @@ public class Light extends ServiceController
 		JSONObject returnValue = new JSONObject();
 		JSONArray values = new JSONArray();
 		values.put(getNewLightLevel().toString());
-		returnValue.put("lightLevel", values);
+		returnValue.put("light", values);
 		return returnValue;
 	}
 
 	@Override
 	JSONObject getWanted() {
 		JSONObject returnValue = new JSONObject();
-		returnValue.put("lightLevel", wantedLightLevel);
+		returnValue.put("light", wantedLightLevel);
 		return returnValue;
 	}
 

@@ -1,5 +1,6 @@
 package com.example.DecisionServiceSte;
 
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.Hashtable;
 import java.util.Set;
@@ -33,14 +34,6 @@ public class BIOS { // basic input output service (nice joke i know)
 	 * that is part of the group. Its key will be the services' name and its value the ServiceDetailsRequestModel 
 	 */
 
-	@Autowired
-	public BIOS() 
-	{
-		// TODO servicesHistory = new File("servicesHistory.JSON"); //Used just for
-		// personal Info
-		// or maybe a tiny data base
-	}
-
 	@PostConstruct
 	public void init() 
 	{
@@ -65,7 +58,7 @@ public class BIOS { // basic input output service (nice joke i know)
 		return returnValue.toString();
 	}
 
-	/*@GetMapping(value = "get-active-connections", produces = "application/json")
+	@GetMapping(value = "get-active-connections", produces = "application/json")
 	public JSONObject getActiveConnections()
 	{
 		JSONObject returnValue = new JSONObject();
@@ -79,18 +72,41 @@ public class BIOS { // basic input output service (nice joke i know)
 			//key is the groupID
 		}
 		return returnValue;
-	}*/
+	}
+	
+	@PutMapping(value = "register-new-data-type", produces = "application/json")
+	public String registerDataType(@RequestParam(value = "data-type") String type)
+	{
+			System.out.println("Registering new type: " + type);
+			JSONObject returnValue = new JSONObject();
+			try {
+				DatabaseConnection.insertDataType(type);
+				returnValue.put("response", "ok");
+			} catch(SQLException e) {
+				returnValue.put("response", "Database error");
+			}
+			return returnValue.toString();
+	}
+	
 	/*TODO another getMapping for the database. Just incase*/
+	
 	@PutMapping(value = "put", produces = "application/json") // update services data
 	public String updateService(@RequestParam(value = "serviceName") String serviceName, @RequestBody ServiceDetailsRequestModel requestServiceDetails) 
 	{	
 		/*First of all i check the datatypes if the datatypes passed are valid.*/
-		if(checkDataType)
+		for(String value : requestServiceDetails.getValues().keySet()) {
+			/*The key of each value is its DataType*/
+			if(DatabaseConnection.checkDataType(value) == false) {
+				System.out.println("Tried to insert unknown data type!");
+				return new String("Error, unknown data type:  " + value );
+			}
+		}
 		
 		requestServiceDetails.setName(serviceName);
 		requestServiceDetails.setLastUpdate(new Date());
-		System.out.println("Ho ricevuto: ");
+		System.out.println("I received: ");
 		System.out.println(requestServiceDetails.getServiceData());
+		
 		//I make a service ID using the used URI and the port, so that i get a unique id to use in the map.
 		String serviceID = ((Integer) new String(requestServiceDetails.getURI() + requestServiceDetails.getPort() + serviceName).hashCode()).toString();
 		
@@ -151,12 +167,9 @@ public class BIOS { // basic input output service (nice joke i know)
 		System.out.println("Answer: " + returnValue);
 		return returnValue;
 	}
-
-	// @GetMapping("get-history") TODO -> will return the services requests history
-	// since a given date
-	// The get mapping may be used by any kind of service or by the GUI
 	
-	@Scheduled(fixedDelay = 60000)
+	@Scheduled(fixedDelay = 600000)
+	/*Everyten minutes*/
 	public void garbageCollector(){
 		/*
 		 * This function autocloses the services inside of available services in case they do not update for more than 1 hour
@@ -168,8 +181,8 @@ public class BIOS { // basic input output service (nice joke i know)
 	       Set<String> serviceIDS = availableServices.get(groupID).keySet();
 	       for(String serviceID : serviceIDS) {
 	    	   /*Going through all the services inside of a group*/
-	    	   if(availableServices.get(groupID).get(serviceID).getLastUpdateDate().getTime() - (new Date()).getTime() == (24*60*60*1000) ) {
-	    		   /*If the last update was more than 24 hours ago i delete it ...*/
+	    	   if(availableServices.get(groupID).get(serviceID).getLastUpdateDate().getTime() - (new Date()).getTime() >= (60*60*1000) ) {
+	    		   /*If the last update was more than 1 hours ago i delete it ...*/
 	    		   HistoryTracker.storeProcedure(availableServices.get(groupID).get(serviceID), serviceID);
 	    		   availableServices.get(groupID).remove(serviceID);
 	    		   /*Last but not least, i check if the group is empty or not. In case it were empty, i delete the group too!*/
