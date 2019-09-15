@@ -23,8 +23,6 @@ public abstract class ServiceController
 	protected String serviceName;
 	@Value("${service.URI}")
 	protected String serviceURI;
-	@Value("${service.type}")
-	protected String type;
 	@Value("${service.sleepTime}")
 	protected int sleepTime; 
 	abstract String getGetMapping();

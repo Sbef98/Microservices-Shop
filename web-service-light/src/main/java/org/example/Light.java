@@ -45,11 +45,6 @@ public class Light extends ServiceController
 	}
 
 	@Override
-	JSONObject getNeeded_sensors() {
-		return null;
-	}
-
-	@Override
 	void elabResponse(String response) {
 		// TODO Auto-generated method stub
 	}
@@ -71,6 +66,12 @@ public class Light extends ServiceController
 			lightLevel += 19;
 		}
 		return lightLevel;
+	}
+
+	@Override
+	JSONObject getNeeded_services() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

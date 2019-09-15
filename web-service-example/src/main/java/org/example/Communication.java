@@ -6,7 +6,7 @@ import kong.unirest.Unirest;
 import kong.unirest.UnirestException;
 /*
  * response = Communication.put(url, serviceURI, servicePort, type, getGetMapping(), getPutMapping(),
- * 								groupID, description, getValues(), getWanted(), getNeeded_sensors());
+ * 								groupID, description, getValues(), getWanted(), getNeeded_services());
  */
 /**
  *Class to describe HTTP communication model between services of the system.
@@ -18,7 +18,7 @@ public class Communication {
 	 * @param url Decision service's url: the target of PUT message
 	 * @param serviceURI address of the actual service
 	 * @param serverPort port listening at "serviceURI" address
-	 * @param type type of service: sensor or actuator
+	 * @param type type of service: service or actuator
 	 * @param getMapping GET functions list to use with this service to execute a data request. Optional
 	 * @param putMapping PUT functions list of this service. Optional
 	 * @param groupID service belonging group
@@ -26,7 +26,7 @@ public class Communication {
 	 * @param values Actual measured values
 	 * @param wanted Ideal target values suggested
 	 * @param needed_services USED ONLY FOR ACTUATORS: model to describe the comparison beetwen which services are needed to execute actions   
-	 * @return TO SENSORS: resends the received message, TO ACTUATOR: return a JSONObject with values' delta
+	 * @return TO serviceS: resends the received message, TO ACTUATOR: return a JSONObject with values' delta
 	 * @throws UnirestException
 	 */
 	protected static String put(String url, String serviceURI, int serverPort,

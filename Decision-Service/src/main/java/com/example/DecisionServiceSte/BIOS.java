@@ -2,12 +2,15 @@ package com.example.DecisionServiceSte;
 
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Set;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,6 +24,7 @@ import history.HistoryTracker;
  * @author Stefano Lugli;
  */
 @RestController
+@EnableScheduling
 public class BIOS { // basic input output service (nice joke i know)
 	Hashtable<String, Hashtable<String, ServiceDetailsRequestModel>> availableServices = new Hashtable<String, Hashtable<String, ServiceDetailsRequestModel>>();
 	/*
@@ -80,12 +84,21 @@ public class BIOS { // basic input output service (nice joke i know)
 	@PutMapping(value = "put", produces = "application/json") // update services data
 	public String updateService(@RequestParam(value = "serviceName") String serviceName, @RequestBody ServiceDetailsRequestModel requestServiceDetails) 
 	{	
+		/*First of all i check the datatypes if the datatypes passed are valid.*/
+		if(checkDataType)
+		
 		requestServiceDetails.setName(serviceName);
 		requestServiceDetails.setLastUpdate(new Date());
+		System.out.println("Ho ricevuto: ");
 		System.out.println(requestServiceDetails.getServiceData());
-		if(requestServiceDetails.isClosed() == true) { //TODO check if using delete mapping may be better
+		//I make a service ID using the used URI and the port, so that i get a unique id to use in the map.
+		String serviceID = ((Integer) new String(requestServiceDetails.getURI() + requestServiceDetails.getPort() + serviceName).hashCode()).toString();
+		
+		//First of all i check if the service is closing. In that case, i delete it from the available services list.
+		if(requestServiceDetails.isClosed() == true) {
 			try {
-				availableServices.get(requestServiceDetails.getGroupID()).remove(serviceName);
+				HistoryTracker.storeProcedure(availableServices.get(requestServiceDetails.getGroupID()).get(serviceID), serviceID);
+				availableServices.get(requestServiceDetails.getGroupID()).remove(serviceID);
 				if(availableServices.get(requestServiceDetails.getGroupID()).size() == 0) // IF the group is empty
 					availableServices.remove(requestServiceDetails.getGroupID()); //delete it from the map!
 				return "ok";
@@ -93,8 +106,7 @@ public class BIOS { // basic input output service (nice joke i know)
 				return "error";
 			}
 		}
-		//I make a service ID using the used URI and the port, so that i get a unique id to use in the map.
-		Integer serviceID = new String(requestServiceDetails.getURI() + requestServiceDetails.getPort() + serviceName).hashCode();
+		
 		Hashtable<String, ServiceDetailsRequestModel> groupAvailableServices;
 		try{
 			groupAvailableServices = availableServices.get(requestServiceDetails.getGroupID());
@@ -115,19 +127,19 @@ public class BIOS { // basic input output service (nice joke i know)
 		 * it in the history and add the  new values!
 		 */
 		try {
-			ServiceDetailsRequestModel oldServiceDetails = groupAvailableServices.get(serviceID.toString());
+			ServiceDetailsRequestModel oldServiceDetails = groupAvailableServices.get(serviceID);
 			if(oldServiceDetails != null) {
 				/*if it were null it'd mean there is no such service listed yet.*/
 				HistoryTracker.storeProcedure(oldServiceDetails, serviceID.toString());
 			}
-			groupAvailableServices.put(serviceID.toString(), requestServiceDetails);
+			groupAvailableServices.put(serviceID, requestServiceDetails);
 		}catch (NullPointerException e) {
 			//It'd mean there is no hashtable for that groupID
 			groupAvailableServices = new Hashtable<String, ServiceDetailsRequestModel>();
 			//The group is not available in the services list, so we create a new one
 			availableServices.put(requestServiceDetails.getGroupID(), groupAvailableServices);
 			//And add it to the services list!
-			groupAvailableServices.put(serviceName, requestServiceDetails);
+			groupAvailableServices.put(serviceID, requestServiceDetails);
 		}
 		
 		String returnValue = requestServiceDetails.getNeeded_services() == null //If it's null it means it just wants to update the data on the decision service
@@ -135,7 +147,7 @@ public class BIOS { // basic input output service (nice joke i know)
 				: DecisionMaker.takeDecision(requestServiceDetails, groupAvailableServices); // The way decision will be hadnled may vary
 
 		System.out.print("Put request for service status update from: ");
-		System.out.println(serviceName);
+		System.out.println(serviceID);
 		System.out.println("Answer: " + returnValue);
 		return returnValue;
 	}
@@ -143,10 +155,39 @@ public class BIOS { // basic input output service (nice joke i know)
 	// @GetMapping("get-history") TODO -> will return the services requests history
 	// since a given date
 	// The get mapping may be used by any kind of service or by the GUI
+	
+	@Scheduled(fixedDelay = 60000)
+	public void garbageCollector(){
+		/*
+		 * This function autocloses the services inside of available services in case they do not update for more than 1 hour
+		 */
+		Set<String> groupIDS = availableServices.keySet();
+	    for(String groupID : groupIDS) { 
+	    	/*Going through all the groups
+	    	 */
+	       Set<String> serviceIDS = availableServices.get(groupID).keySet();
+	       for(String serviceID : serviceIDS) {
+	    	   /*Going through all the services inside of a group*/
+	    	   if(availableServices.get(groupID).get(serviceID).getLastUpdateDate().getTime() - (new Date()).getTime() == (24*60*60*1000) ) {
+	    		   /*If the last update was more than 24 hours ago i delete it ...*/
+	    		   HistoryTracker.storeProcedure(availableServices.get(groupID).get(serviceID), serviceID);
+	    		   availableServices.get(groupID).remove(serviceID);
+	    		   /*Last but not least, i check if the group is empty or not. In case it were empty, i delete the group too!*/
+	    		   if(availableServices.get(groupID).size() == 0)
+	    			   availableServices.remove(groupID);
+	    	   }
+	       }
+	    }
+	}
+	
 	@PreDestroy
 	public void destroy() {
-		// servicesHistory.close(); files do not close... ?
-		// surveillance_thread.join(); (or kill it brutally who cares)
-		// TODO close all the services
+		//In the predestroy i need to save in the history all the available service
+		Set<String> groupIDS = availableServices.keySet();
+	    for(String groupID : groupIDS) { 
+	       Set<String> serviceIDS = availableServices.get(groupID).keySet();
+	       for(String serviceID : serviceIDS)
+	    	   HistoryTracker.storeProcedure(availableServices.get(groupID).get(serviceID), serviceID);
+	    } 
 	}
 }
