@@ -28,15 +28,15 @@ public class HistoryTracker {
 	}
 	
 	public static boolean storeProcedure(ServiceDetailsRequestModel service, String serviceId) {
-		String sql = "INSERT INTO Services VALUES (" + "'" + service.getURI() + "'" + ", " 
+		String sql = "INSERT INTO Services VALUES ('" + serviceId + "'" + ", " 
+													+ "'" + service.getURI() + "'" + ", " 
 													+ "'" + service.getPort() + "'" + ", "
 													+ "'" + service.getName() + "'" + ", "
 													+ "'" + service.getGroupID() + "'" + ", "
 													+ "'" + service.getDescription() + "'" + ", "
 													+ "'" + service.getGet_mapping() + "'" + ", "
 													+ "'" + service.getPut_mapping() + "'" + ", "
-													+ "'" + serviceId + "'" + 
-													" );";
+													+ "'" + service.isSensor() + "' );";
 		try {
 			DatabaseConnection.ExecUpdate(sql);
 		} catch (SQLException e1) {
@@ -52,7 +52,7 @@ public class HistoryTracker {
 				String sql2 = new String("INSERT INTO ServicesValues VALUES ( " + "'"+ val.toString() + "'" + ", " 
 																	+ "'" + dataType + "'" + ", "
 																	+ "'" + timestamp + "'" + ", "
-																	+ "'" + serviceId.toString() + "'"
+																	+ "'" + serviceId.toString() + "'" +", "
 																	+ ");"
 																	);
 				try{
@@ -113,13 +113,13 @@ public class HistoryTracker {
 	
 	 public static void garbage() {
 		 String query1 = "DELETE FROM ServicesValues WHERE Timestamp > DATE_SUB(NOW(), INTERVAL 2 DAY);";
-		 String query2 = "DELETE FROM Services WHERE ServiceId NOT IN SELECT DISTINCT SensorOrigin FROM ServicesValues);";
+		 String query2 = "DELETE FROM Services WHERE ServiceId NOT IN ( SELECT DISTINCT SensorOrigin FROM ServicesValues );";
 		 
 		 try {
 			DatabaseConnection.ExecUpdate(query1);
 			DatabaseConnection.ExecUpdate(query2);
 		} catch (SQLException e) {
-			System.out.println("Something goes wrong, maybe there are problems with DB connection!");
+			;
 		}
 	 }
 }

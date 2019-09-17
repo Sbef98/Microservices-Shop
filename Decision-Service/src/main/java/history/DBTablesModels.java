@@ -21,6 +21,7 @@ public class DBTablesModels {
 		Services.add("GetMapping");
 		Services.add("PutMapping");
 		Services.add("ServiceId");
+		Services.add("IsSensor");
 		return Services;
 	}
 	
