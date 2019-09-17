@@ -23,13 +23,10 @@ public class DatabaseConnection {
 	static Statement cmd = null;
 
 	public static Connection DBConnection() {
-		// Creiamo la stringa di connessione
 		String url = "jdbc:mysql://212.237.20.175:3306/DB_Bicocco?serverTimezone=GMT";
-		// Otteniamo una connessione con username e password
 		try {
 			conn = DriverManager.getConnection (url, "Leo", "LeoMirots15");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			System.out.println("Errore nella connessione al DB");
 		}
