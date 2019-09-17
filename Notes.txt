@@ -45,7 +45,7 @@ DecisionService's answer:
     }
 
 ROBA DA FARE:
-- Generare servizi per musica colore temperatura e luci; DA FARE
+- Generare servizi per musica colore; DA FARE
 - Controllare calcoli decision maker;
 - Controllare funzionamento Pre-Destroy; ALLA FINE
 

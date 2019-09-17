@@ -1,0 +1,5 @@
+org\example\ServiceController.class
+org\example\MicroserviceController.class
+org\example\MainApp.class
+org\example\Color.class
+org\example\Communication.class
