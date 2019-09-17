@@ -14,7 +14,7 @@ public interface MicroserviceController
 {	
 	
 	 @PostConstruct
-	 public void addDatatType();
+	 public void addDataType();
 	 
 	 public String getGetMapping();
 	 
@@ -27,16 +27,9 @@ public interface MicroserviceController
 	 public JSONArray getWorkspaces();
 	 
 	 public boolean isSensor();
-	 
-	 @Bean
-	 public String getCronValue();
-	 
-	 @Async 
-	 @Scheduled(cron="#{@getCronValue}")
+
 	 public void update();
-	 
-	 public void elabResponse(String response);
-	 
+	 	 
 	 public String toString();
 	 
 	 @PreDestroy

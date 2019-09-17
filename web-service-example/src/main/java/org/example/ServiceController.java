@@ -1,5 +1,6 @@
 package org.example;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 import org.json.JSONArray;
@@ -13,6 +14,10 @@ import org.springframework.scheduling.annotation.Scheduled;
 @EnableScheduling
 public abstract class ServiceController implements MicroserviceController
 {
+	
+	@PostConstruct
+	public abstract void addDataType();
+	
 	@Value("${service.connectTo}")
 	protected String url; // "http://localhost:8000/put?serviceName=thisServiceName"; //Where is the decision service located
 	@Value("${server.port}")
@@ -35,13 +40,13 @@ public abstract class ServiceController implements MicroserviceController
 	public abstract JSONArray getWorkspaces();
 	public abstract boolean isSensor();
 	
-	public abstract void elabResponse(String response);
+	protected abstract void elabResponse(String response);
 	@Override
 	abstract public String toString();
 	
 	
 	@Bean
-	public String getCronValue()
+	private String getCronValue()
 	{
 		return  sleepTime;
 	}
