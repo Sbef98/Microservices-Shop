@@ -103,9 +103,9 @@ public class DecisionMaker
 		Double activeValue = serviceMeasuredMean(applicantInfo.getValues().getJSONArray(workspace));
 		/*The mean setting should be more than enough.*/
 		Double newActiveValue = wanted + (wanted - actual);
-		if(wanted - actual > wanted/10) {
+		/*if(wanted - actual > wanted/10) {
 			newActiveValue += activeValue/8;
-		}
+		}*/
 		return newActiveValue;
 	}
 	

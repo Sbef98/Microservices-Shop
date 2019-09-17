@@ -115,6 +115,7 @@ public class ServiceDetailsRequestModel
 		returnValue.put("values", values);
 		returnValue.put("wanted", wanted);
 		returnValue.put("workspaces", workspaces);
+		returnValue.put("isSensor", isSensor());
 		return returnValue;
 	}
 	@Override
