@@ -118,7 +118,7 @@ public class HistoryTracker {
 	 }
 	
 	 public static void garbage() {
-		 String query1 = "DELETE FROM ServicesValues WHERE Timestamp > DATE_SUB(NOW(), INTERVAL 2 DAY);";
+		 String query1 = "DELETE FROM ServicesValues WHERE Timestamp < DATE_SUB(NOW(), INTERVAL 2 DAY);";
 		 String query2 = "DELETE FROM Services WHERE ServiceId NOT IN ( SELECT DISTINCT SensorOrigin FROM ServicesValues );";
 		 
 		 try {
