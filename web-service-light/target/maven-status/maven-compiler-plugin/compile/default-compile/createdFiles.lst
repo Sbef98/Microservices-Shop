@@ -1,4 +1,4 @@
-org/example/Communication.class
-org/example/Light.class
-org/example/MainApp.class
-org/example/ServiceController.class
+org\example\ServiceController.class
+org\example\Light.class
+org\example\Communication.class
+org\example\MainApp.class

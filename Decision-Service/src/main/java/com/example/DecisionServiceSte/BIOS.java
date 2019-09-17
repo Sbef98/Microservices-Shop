@@ -188,7 +188,6 @@ public class BIOS { // basic input output service (nice joke i know)
 		 * This function autocloses the services inside of available services in case they do not update for more than 1 hour
 		 * and cleans the database deleting the records after a set amount of time
 		 */
-		System.out.println("Garbagin around");
 		Set<String> groupIDS = availableServices.keySet();
 	    for(String groupID : groupIDS) { 
 	    	/*Going through all the groups
