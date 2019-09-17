@@ -68,21 +68,23 @@ public class HistoryTracker {
 				}
 			}
 			
-		}	
-		for (String key : service.getWanted().keySet()) {
-			String sql3 = new String("INSERT INTO ServicesWanted VALUES ( " + "'"+  service.getWanted().get(key).toString() + "'" + ", "
-																+ "'" + key + "'" + ", "
-																+ "'" + timestamp + "'" + ", "
-																+ "'" + serviceId.toString() + "'"
-																+ ");"
-																);
-			try{
-				DatabaseConnection.ExecUpdate(sql3);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
 		}
-		return true;
+		if(service.getWanted() == null) {
+			for (String key : service.getWanted().keySet()) {
+				String sql3 = new String("INSERT INTO ServicesWanted VALUES ( " + "'"+  service.getWanted().get(key).toString() + "'" + ", "
+																	+ "'" + key + "'" + ", "
+																	+ "'" + timestamp + "'" + ", "
+																	+ "'" + serviceId.toString() + "'"
+																	+ ");"
+																	);
+				try{
+					DatabaseConnection.ExecUpdate(sql3);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			return true;
+		}
 	}
 	
 	public static boolean checkDataType(String dataName) 
