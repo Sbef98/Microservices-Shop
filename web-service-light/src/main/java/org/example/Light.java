@@ -74,9 +74,8 @@ public class Light extends ServiceController
 		}
 		return lightLevel;
 	}
-
 	@Override
-	JSONObject getNeeded_services() {
+	JSONArray getWorkspaces() {
 		// TODO Auto-generated method stub
 		return null;
 	}

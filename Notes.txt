@@ -51,6 +51,7 @@ ROBA DA FARE:
 - Modificare needed_sensor in workspaces; IN LAVORAZIONE
 - Generare servizi per musica colore temperatura e luci;
 - Controllare funzionamento Pre-Destroy; ALLA FINE
+- CRON EXPRESSIONS
 
 COSE PER DB:
 - Inserire screenshot aggiornato nel README;

@@ -11,13 +11,6 @@ public class LightActuator extends ServiceController
 	private float lightLevel = 501;
 	private float switchLevel = 500; //under 500 the lights are switched on
 	private boolean lightSwitch = false;
-	NeededServices needed_services;
-	
-	public LightActuator()
-	{
-		super();
-		needed_services = new NeededServices("lightService", "lightLevel", "*");
-	}
 	
 	@Override
 	String getGetMapping() {
@@ -36,7 +29,7 @@ public class LightActuator extends ServiceController
 		JSONObject returnValue = new JSONObject();
 		JSONArray values = new JSONArray();
 		values.put(lightLevel);
-		returnValue.put("lightLevel", values);
+		returnValue.put("light", values);
 		
 		values = new JSONArray();
 		values.put(lightSwitch);
@@ -51,15 +44,16 @@ public class LightActuator extends ServiceController
 	}
 
 	@Override
-	JSONObject getNeeded_services() {
-		return needed_services.toJSONObject();
-	}
-
-
-	@Override
 	void elabResponse(String response) 
 	{
-		JSONObject responseValue = new JSONObject(response);
+		JSONObject responseValue;
+		try{
+			responseValue = new JSONObject(response);
+		}catch(JSONException e) {
+			System.out.println(e);
+			System.out.println(response);
+			return;
+		}
 		JSONObject lightServiceValue;
 		try {
 			lightServiceValue = responseValue.getJSONObject("lightService");
@@ -84,6 +78,13 @@ public class LightActuator extends ServiceController
 	public String toString() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	JSONArray getWorkspaces() {
+		JSONArray returnValue = new JSONArray();
+		returnValue.put("light");
+		return returnValue;
 	}
 
 }

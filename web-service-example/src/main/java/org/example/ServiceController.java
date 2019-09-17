@@ -5,6 +5,8 @@ import javax.annotation.PreDestroy;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
@@ -24,7 +26,7 @@ public abstract class ServiceController
 	@Value("${service.URI}")
 	protected String serviceURI;
 	@Value("${service.sleepTime}")
-	protected int sleepTime; 
+	protected String sleepTime; //MUST BE A CRON EXpression
 	abstract String getGetMapping();
 	abstract String getPutMapping();
 	abstract JSONObject getValues();
@@ -35,7 +37,15 @@ public abstract class ServiceController
 	@Override
 	abstract public String toString();
 	
-	@Scheduled(fixedDelay = 1) //cool feature
+	
+	@Bean
+	public String getCronValue()
+	{
+		return  sleepTime;
+	}
+	
+	@Async //Async means that the scheduled function will run again after the given time even if the previous one was not finished
+	@Scheduled(cron="#{@getCronValue}") //cool feature
 	public void update()
 	{
 		String response = new String("Error");
@@ -46,12 +56,12 @@ public abstract class ServiceController
 			System.out.println("UnirestException while connecting to " + url);
 		}
 		elabResponse(response.toString());
-		try {
+		/*try {
 			Thread.sleep(sleepTime);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 	}
 	
 	@PreDestroy
