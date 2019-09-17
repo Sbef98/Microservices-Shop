@@ -127,11 +127,13 @@ public class BIOS { // basic input output service (nice joke i know)
 			}
 		}
 		/*Then i check that the datatype used for the wanted values is correct too*/
-		for(String wanted : requestServiceDetails.getWanted().keySet()) {
-			/*The key of each value is its DataType*/
-			if(HistoryTracker.checkDataType(wanted) == false) {
-				System.out.println("Tried to insert unknown data type!");
-				return new String("Error, unknown data type:  " + wanted );
+		if(requestServiceDetails.getWanted() != null) {
+			for(String wanted : requestServiceDetails.getWanted().keySet()) {
+				/*The key of each value is its DataType*/
+				if(HistoryTracker.checkDataType(wanted) == false) {
+					System.out.println("Tried to insert unknown data type!");
+					return new String("Error, unknown data type:  " + wanted );
+				}
 			}
 		}
 		

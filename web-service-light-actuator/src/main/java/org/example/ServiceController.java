@@ -27,6 +27,7 @@ public abstract class ServiceController
 	protected String serviceURI;
 	@Value("${service.sleepTime}")
 	protected String sleepTime; //MUST BE A CRON EXpression
+	
 	abstract String getGetMapping();
 	abstract String getPutMapping();
 	abstract JSONObject getValues();

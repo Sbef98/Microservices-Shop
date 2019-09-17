@@ -25,17 +25,20 @@ public class Light extends ServiceController
 	}
 	
 	@Override
+	public
 	String getGetMapping() {
 		return "/get";
 	}
 
 	@Override
+	public
 	String getPutMapping() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
+	public
 	JSONObject getValues() {
 		JSONObject returnValue = new JSONObject();
 		JSONArray values = new JSONArray();
@@ -45,6 +48,7 @@ public class Light extends ServiceController
 	}
 
 	@Override
+	public
 	JSONObject getWanted() {
 		JSONObject returnValue = new JSONObject();
 		returnValue.put("light", wantedLightLevel);
@@ -52,6 +56,7 @@ public class Light extends ServiceController
 	}
 
 	@Override
+	public
 	void elabResponse(String response) {
 		// TODO Auto-generated method stub
 	}
@@ -75,11 +80,13 @@ public class Light extends ServiceController
 		return lightLevel;
 	}
 	@Override
+	public
 	JSONArray getWorkspaces() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	@Override
+	public
 	boolean isSensor() {
 		return true;
 	}

@@ -15,7 +15,8 @@ public class LightActuator extends ServiceController
 	private char lightSwitch = 0;
 	
 	@PostConstruct
-	public void addDatatType() {
+	public void addDatatType() 
+	{
 		System.out.println("Registering SwitchOn type at " + url);
 		Communication.registerNewType("SwitchOn", url);
 

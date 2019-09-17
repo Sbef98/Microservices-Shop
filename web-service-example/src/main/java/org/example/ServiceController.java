@@ -11,7 +11,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
 @EnableScheduling
-public abstract class ServiceController 
+public abstract class ServiceController implements MicroserviceController
 {
 	@Value("${service.connectTo}")
 	protected String url; // "http://localhost:8000/put?serviceName=thisServiceName"; //Where is the decision service located
@@ -27,14 +27,15 @@ public abstract class ServiceController
 	protected String serviceURI;
 	@Value("${service.sleepTime}")
 	protected String sleepTime; //MUST BE A CRON EXpression
-	abstract String getGetMapping();
-	abstract String getPutMapping();
-	abstract JSONObject getValues();
-	abstract JSONObject getWanted();
-	abstract JSONArray getWorkspaces();
-	abstract boolean isSensor();
 	
-	abstract void elabResponse(String response);
+	public abstract String getGetMapping();
+	public abstract String getPutMapping();
+	public abstract JSONObject getValues();
+	public abstract JSONObject getWanted();
+	public abstract JSONArray getWorkspaces();
+	public abstract boolean isSensor();
+	
+	public abstract void elabResponse(String response);
 	@Override
 	abstract public String toString();
 	
@@ -56,13 +57,7 @@ public abstract class ServiceController
 		} catch (kong.unirest.UnirestException e) {
 			System.out.println("UnirestException while connecting to " + url);
 		}
-		elabResponse(response.toString());
-		/*try {
-			Thread.sleep(sleepTime);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
+		elabResponse(response);
 	}
 	
 	@PreDestroy
