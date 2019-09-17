@@ -64,12 +64,12 @@ public class HistoryTracker {
 				try{
 					DatabaseConnection.ExecUpdate(sql2);
 				} catch (Exception e) {
-					e.printStackTrace();
+					;
 				}
 			}
 			
 		}
-		if(service.getWanted() == null) {
+		if(service.getWanted() != null) {
 			for (String key : service.getWanted().keySet()) {
 				String sql3 = new String("INSERT INTO ServicesWanted VALUES ( " + "'"+  service.getWanted().get(key).toString() + "'" + ", "
 																	+ "'" + key + "'" + ", "
@@ -80,7 +80,7 @@ public class HistoryTracker {
 				try{
 					DatabaseConnection.ExecUpdate(sql3);
 				} catch (Exception e) {
-					e.printStackTrace();
+					;
 				}
 			}
 		}
@@ -117,7 +117,7 @@ public class HistoryTracker {
 	public static JSONArray query(String query) {
 		ResultSet res = null;
 		if(query == null) {
-			query = "SELECT * FROM ServicesValues SV JOIN Services S ON SV.SensorOrigin = S.ServiceId;";	
+			query = "SELECT * FROM ServicesValues SV JOIN Services S ON SV.SensorOrigin = S.ServiceId JOIN ServicesWanted SW ON S.ServiceID = SW.SensorOrigin AND SV.Timestamp = SW.Timestamp ORDER BY SV.Timestamp;";	
 		}
 		try {
 			res = DatabaseConnection.ExecQuery(query);
