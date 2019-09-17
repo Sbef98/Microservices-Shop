@@ -45,13 +45,9 @@ DecisionService's answer:
     }
 
 ROBA DA FARE:
-- Inserire nel decision service la funzione per richiamare "JSONArray query(String)": usare throws SQLExeption
-- Ottimizzazione JSON e incapsulamento; IN LAVORAZIONE
-- Aggiungere crazione tipo di dato dappertutto (Per da string ad altro); BHO
-- Modificare needed_sensor in workspaces; IN LAVORAZIONE
-- Generare servizi per musica colore temperatura e luci;
+- Generare servizi per musica colore temperatura e luci; DA FARE
+- Controllare calcoli decision maker;
 - Controllare funzionamento Pre-Destroy; ALLA FINE
-- CRON EXPRESSIONS
 
 COSE PER DB:
-- Inserire screenshot aggiornato nel README;
+- Inserire screenshot aggiornato nel README; ALLA FINE

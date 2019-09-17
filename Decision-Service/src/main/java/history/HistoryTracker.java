@@ -23,12 +23,18 @@ public class HistoryTracker {
 	DatabaseConnection.AssignID();
 	ResultSet res = DatabaseConnection.ExecQuery("SELECT * FROM Services");
 	System.out.print(res.toString());
+	}
 	
-	dbConn.PrintResult(res, DBTablesModels.Services);
+	private static int isSensorDB(boolean isSensor) {
+		if (isSensor = true) {
+			return 1;
+		}
+		else return 0;
 	}
 	
 	public static boolean storeProcedure(ServiceDetailsRequestModel service, String serviceId) {
-		String sql = "INSERT INTO Services VALUES ('" + serviceId + "'" + ", " 
+		int isSensor = isSensorDB(service.isSensor());
+		String sql = "INSERT INTO Services VALUES ( '" + serviceId + "'" + ", " 
 													+ "'" + service.getURI() + "'" + ", " 
 													+ "'" + service.getPort() + "'" + ", "
 													+ "'" + service.getName() + "'" + ", "
@@ -36,7 +42,7 @@ public class HistoryTracker {
 													+ "'" + service.getDescription() + "'" + ", "
 													+ "'" + service.getGet_mapping() + "'" + ", "
 													+ "'" + service.getPut_mapping() + "'" + ", "
-													+ "'" + service.isSensor() + "' );";
+													+ "'" + isSensor + "' );";
 		try {
 			DatabaseConnection.ExecUpdate(sql);
 		} catch (SQLException e1) {
@@ -52,13 +58,13 @@ public class HistoryTracker {
 				String sql2 = new String("INSERT INTO ServicesValues VALUES ( " + "'"+ val.toString() + "'" + ", " 
 																	+ "'" + dataType + "'" + ", "
 																	+ "'" + timestamp + "'" + ", "
-																	+ "'" + serviceId.toString() + "'" +", "
+																	+ "'" + serviceId.toString() + "'"
 																	+ ");"
 																	);
 				try{
 					DatabaseConnection.ExecUpdate(sql2);
 				} catch (Exception e) {
-					return false;
+					e.printStackTrace();
 				}
 			}
 		}		
