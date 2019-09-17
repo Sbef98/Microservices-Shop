@@ -12,10 +12,12 @@ import java.util.Set;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -55,6 +57,22 @@ public class BIOS { // basic input output service (nice joke i know)
 			returnValue.put(key, thisGroupValue);
 			//key is the groupID
 		}
+		return returnValue.toString();
+	}
+	
+	@GetMapping(value = "query", produces = "application/json")
+	public String query()
+	{	
+		JSONArray returnValue = new JSONArray();
+		returnValue = HistoryTracker.query(null);
+		return returnValue.toString();
+	}
+	
+	@GetMapping(value = "query/{query}", produces = "application/json")
+	public String query(@PathVariable String query)
+	{	
+		JSONArray returnValue = new JSONArray();
+		returnValue = HistoryTracker.query(query);
 		return returnValue.toString();
 	}
 

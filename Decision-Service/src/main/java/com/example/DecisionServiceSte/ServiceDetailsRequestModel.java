@@ -20,7 +20,7 @@ public class ServiceDetailsRequestModel
 	private boolean closed = false;
 	private Date lastUpdate;
 	private String name;
-	private boolean sensor;
+	private boolean sensor = true;
 
 	public void setLastUpdate(Date lastUpdate) {
 		this.lastUpdate = lastUpdate;

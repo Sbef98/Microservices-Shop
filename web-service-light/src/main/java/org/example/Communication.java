@@ -47,7 +47,8 @@ public class Communication {
 			msg.put("wanted", wanted.toString());
 		if(workspaces != null)
 			msg.put("workspaces", workspaces.toString());
-		msg.put("isSensor", isSensor);
+		msg.put("sensor", false);
+		msg.put("closed", "false");
 		return sendJSONObject(msg,url + "put?serviceName=" + serviceName);		
 	}
 	

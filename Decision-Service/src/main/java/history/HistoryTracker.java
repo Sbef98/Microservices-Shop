@@ -20,9 +20,6 @@ public class HistoryTracker {
 	ResultSet services = DatabaseConnection.ExecQuery("SELECT * FROM Services;");
 	JSONArray servicesJson = DatabaseConnection.convert(services);
 	System.out.println(servicesJson.toString());
-	ResultSet allData = DatabaseConnection.ExecQuery();
-	JSONArray allDataJson = DatabaseConnection.convert(allData);
-	System.out.println(allDataJson.toString());
 	DatabaseConnection.AssignID();
 	ResultSet res = DatabaseConnection.ExecQuery("SELECT * FROM Services");
 	System.out.print(res.toString());
@@ -97,6 +94,9 @@ public class HistoryTracker {
 	
 	public static JSONArray query(String query) {
 		ResultSet res = null;
+		if(query == null) {
+			query = "SELECT * FROM ServicesValues SV JOIN Services S ON SV.SensorOrigin = S.ServiceId;";	
+		}
 		try {
 			res = DatabaseConnection.ExecQuery(query);
 		} catch (SQLException e) {

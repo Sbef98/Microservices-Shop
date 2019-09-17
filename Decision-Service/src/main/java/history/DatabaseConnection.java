@@ -36,14 +36,6 @@ public class DatabaseConnection {
 		return conn;
 	}
 	
-	public static ResultSet ExecQuery() throws SQLException {
-		String query = "SELECT * FROM ServicesValues SV JOIN Services S ON SV.SensorOrigin = S.ServiceId;";	
-		cmd = conn.createStatement();
-		ResultSet res = null;
-		res = cmd.executeQuery(query);
-		return res;
-		}
-	
 	public static ResultSet ExecQuery(String query) throws SQLException {
 		cmd = conn.createStatement();
 		ResultSet res = null;
