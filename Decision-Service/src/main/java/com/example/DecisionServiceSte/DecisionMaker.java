@@ -32,7 +32,7 @@ public class DecisionMaker
 		LinkedList<Double> numbers = new LinkedList<Double>();
 		
 		for(String serviceID : groupAvailableServices.keySet()) {
-			if(groupAvailableServices.get(serviceID).isSensor() == true) {
+			//if(groupAvailableServices.get(serviceID).isSensor() == true) {
 				
 				if(groupAvailableServices.get(serviceID).getWanted() == null)
 					continue;
@@ -48,7 +48,7 @@ public class DecisionMaker
 							numbers.add(Double.parseDouble(wantedVal.toString()));
 						}
 					}
-				}
+				//}
 			}
 		}
 		return mode(numbers);
@@ -95,6 +95,8 @@ public class DecisionMaker
 				}
 			}
 		}
+		if(cont == 0)
+			return null;
 		return mean/cont;
 	}
 	
@@ -127,6 +129,10 @@ public class DecisionMaker
 				return e + ": one or more of the values was not measured using a number!";
 			}
 			try {
+				if(averageMeasuredValue == null) {
+					returnValue.put(modeWantedValue).toString();
+					continue;
+				}
 				returnValue.put(getDecision(modeWantedValue, averageMeasuredValue, applicantInfo, (String)workspace));
 			}catch(NumberFormatException e) {
 				return e + ": " + (String) workspace + " in " + applicantInfo.getName() + " is not a number!";
