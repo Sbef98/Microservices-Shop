@@ -15,12 +15,12 @@ public class ServiceDetailsRequestModel
 	private String groupID;
 	private String description;
 	private JSONObject values;
+	private String isSensor;
 	private JSONObject wanted;
 	private JSONArray workspaces;  //Will be empty in case of a sensor
 	private boolean closed = false;
 	private Date lastUpdate;
 	private String name;
-	private boolean sensor = true;
 
 	public void setLastUpdate(Date lastUpdate) {
 		this.lastUpdate = lastUpdate;
@@ -98,8 +98,13 @@ public class ServiceDetailsRequestModel
 		return lastUpdate;
 	}
 	
+	public void setIsSensor(String isSensor) {
+		this.isSensor = isSensor;
+	}
 	public boolean isSensor() {
-		return sensor;
+		if(isSensor.compareTo("c") == 0)
+			return false;
+		return true;
 	}
 	
 	public JSONObject getServiceData()

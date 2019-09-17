@@ -183,7 +183,8 @@ public class BIOS { // basic input output service (nice joke i know)
 			groupAvailableServices.put(serviceID, requestServiceDetails);
 		}
 		
-		String returnValue = requestServiceDetails.getWorkspaces() == null //If it's null it means it just wants to update the data on the decision service
+		String returnValue = requestServiceDetails.isSensor() == true
+							&& requestServiceDetails.getWorkspaces() == null //If it's null it means it just wants to update the data on the decision service
 				? new String(requestServiceDetails.toString()) // Returning the same string may be used to check that the communcation was correct!
 				: DecisionMaker.takeDecision(requestServiceDetails, groupAvailableServices); // The way decision will be hadnled may vary
 
