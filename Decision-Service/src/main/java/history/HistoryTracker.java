@@ -55,7 +55,7 @@ public class HistoryTracker {
 			String dataType = it.next();
 			JSONArray values = (JSONArray) service.getValues().get(dataType);
 			for (Object val : values) {
-				String sql2 = new String("INSERT INTO ServicesValues VALUES ( " + "'"+ val.toString() + "'" + ", " 
+				String sql2 = new String("INSERT INTO ServicesValues VALUES ( " + "'"+ val.toString() + "'" + ", "
 																	+ "'" + dataType + "'" + ", "
 																	+ "'" + timestamp + "'" + ", "
 																	+ "'" + serviceId.toString() + "'"
@@ -67,7 +67,21 @@ public class HistoryTracker {
 					e.printStackTrace();
 				}
 			}
-		}		
+			
+		}	
+		for (String key : service.getWanted().keySet()) {
+			String sql3 = new String("INSERT INTO ServicesWanted VALUES ( " + "'"+  service.getWanted().get(key).toString() + "'" + ", "
+																+ "'" + key + "'" + ", "
+																+ "'" + timestamp + "'" + ", "
+																+ "'" + serviceId.toString() + "'"
+																+ ");"
+																);
+			try{
+				DatabaseConnection.ExecUpdate(sql3);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		return true;
 	}
 	

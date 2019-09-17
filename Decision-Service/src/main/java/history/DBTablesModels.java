@@ -27,6 +27,7 @@ public class DBTablesModels {
 	
 	public static LinkedList<String> ServicesValuesTableModel(){
 		ServicesValues.add("Values");
+		ServicesValues.add("Wanted");
 		ServicesValues.add("DataType");
 		ServicesValues.add("Timestamp");
 		ServicesValues.add("SensorOrigin");
