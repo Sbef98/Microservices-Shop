@@ -11,19 +11,6 @@ import org.json.JSONException;
 import com.example.DecisionServiceSte.ServiceDetailsRequestModel;
 
 public class HistoryTracker {
-	public static void main(String[] args) throws SQLException {
-	DatabaseConnection dbConn = new DatabaseConnection();
-	DatabaseConnection.DBConnection();
-	boolean chk = checkDataType("hudimity");
-	boolean ins = insertDataType("humidity");
-	ins = insertDataType("person");
-	ResultSet services = DatabaseConnection.ExecQuery("SELECT * FROM Services;");
-	JSONArray servicesJson = DatabaseConnection.convert(services);
-	System.out.println(servicesJson.toString());
-	DatabaseConnection.AssignID();
-	ResultSet res = DatabaseConnection.ExecQuery("SELECT * FROM Services");
-	System.out.print(res.toString());
-	}
 	
 	private static int isSensorDB(boolean isSensor) {
 		if (isSensor = true) {
