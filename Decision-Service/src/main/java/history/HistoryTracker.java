@@ -83,8 +83,8 @@ public class HistoryTracker {
 					e.printStackTrace();
 				}
 			}
-			return true;
 		}
+		return true;
 	}
 	
 	public static boolean checkDataType(String dataName) 
