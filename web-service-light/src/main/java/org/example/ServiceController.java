@@ -68,12 +68,6 @@ public abstract class ServiceController
 	@PreDestroy
 	public void end()
 	{
-		//close(String url, String serviceURI, int serverPort, String groupID, String description)
-		try {
-			Communication.close(url, serviceURI, servicePort, groupID, description);
-		} catch (kong.unirest.UnirestException e) {
-			System.out.println("UnirestException while connecting to " + url);
-		}
 		System.out.println("Uscita da " + serviceName);
 	}
 }

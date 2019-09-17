@@ -18,7 +18,6 @@ public class ServiceDetailsRequestModel
 	private String isSensor;
 	private JSONObject wanted;
 	private JSONArray workspaces;  //Will be empty in case of a sensor
-	private boolean closed = false;
 	private Date lastUpdate;
 	private String name;
 
@@ -30,12 +29,6 @@ public class ServiceDetailsRequestModel
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	public boolean isClosed() {
-		return closed;
-	}
-	public void setClosed(boolean closed) {
-		this.closed = closed;
 	}
 	public String getGroupID() {
 		return groupID;

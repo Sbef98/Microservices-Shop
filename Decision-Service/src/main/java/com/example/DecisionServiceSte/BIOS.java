@@ -135,19 +135,6 @@ public class BIOS { // basic input output service (nice joke i know)
 		//I make a service ID using the used URI, group_id, serviceName and the port, so that i get a unique id to use in the map.
 		String serviceID = ((Integer) new String(requestServiceDetails.getURI() + requestServiceDetails.getPort()+ requestServiceDetails.getGroupID() + serviceName).hashCode()).toString();
 		
-		//First of all i check if the service is closing. In that case, i delete it from the available services list.
-		if(requestServiceDetails.isClosed() == true) {
-			try {
-				HistoryTracker.storeProcedure(availableServices.get(requestServiceDetails.getGroupID()).get(serviceID), serviceID);
-				availableServices.get(requestServiceDetails.getGroupID()).remove(serviceID);
-				if(availableServices.get(requestServiceDetails.getGroupID()).size() == 0) // IF the group is empty
-					availableServices.remove(requestServiceDetails.getGroupID()); //delete it from the map!
-				return "ok";
-			} catch(NullPointerException e) {
-				return "error";
-			}
-		}
-		
 		Hashtable<String, ServiceDetailsRequestModel> groupAvailableServices;
 		try{
 			groupAvailableServices = availableServices.get(requestServiceDetails.getGroupID());
@@ -201,6 +188,7 @@ public class BIOS { // basic input output service (nice joke i know)
 		 * This function autocloses the services inside of available services in case they do not update for more than 1 hour
 		 * and cleans the database deleting the records after a set amount of time
 		 */
+		System.out.println("Garbagin around");
 		Set<String> groupIDS = availableServices.keySet();
 	    for(String groupID : groupIDS) { 
 	    	/*Going through all the groups
@@ -208,7 +196,7 @@ public class BIOS { // basic input output service (nice joke i know)
 	       Set<String> serviceIDS = availableServices.get(groupID).keySet();
 	       for(String serviceID : serviceIDS) {
 	    	   /*Going through all the services inside of a group*/
-	    	   if(availableServices.get(groupID).get(serviceID).getLastUpdateDate().getTime() - (new Date()).getTime() >= (60*60*1000) ) {
+	    	   if((new Date()).getTime() - availableServices.get(groupID).get(serviceID).getLastUpdateDate().getTime() >= (60*60*1000) ) {
 	    		   /*If the last update was more than 1 hours ago i delete it ...*/
 	    		   HistoryTracker.storeProcedure(availableServices.get(groupID).get(serviceID), serviceID);
 	    		   availableServices.get(groupID).remove(serviceID);

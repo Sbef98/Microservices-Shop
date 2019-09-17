@@ -32,20 +32,20 @@ public class DecisionMaker
 		LinkedList<Double> numbers = new LinkedList<Double>();
 		
 		for(String serviceID : groupAvailableServices.keySet()) {
-			if(groupAvailableServices.get(serviceID).getWorkspaces() != null) {
+			if(groupAvailableServices.get(serviceID).isSensor() == true) {
 				
 				if(groupAvailableServices.get(serviceID).getWanted() == null)
 					continue;
 				
 				for(Object wanted : groupAvailableServices.get(serviceID).getWanted().keySet()) {
-					if(workspace.compareToIgnoreCase((String) wanted) == 0) {
+					if(workspace.compareToIgnoreCase(wanted.toString()) == 0) {
 						
-						String wantedVal = groupAvailableServices.get(serviceID).getWanted().getString((String) wanted);
+						Object wantedVal = groupAvailableServices.get(serviceID).getWanted().get(wanted.toString());
 						
 						try {
-							numbers.add((double) ((Integer)Integer.parseInt(wantedVal)));
+							numbers.add((double) ((Integer)Integer.parseInt(wantedVal.toString())));
 						}catch(NumberFormatException e) {
-							numbers.add(Double.parseDouble(wantedVal));
+							numbers.add(Double.parseDouble(wantedVal.toString()));
 						}
 					}
 				}
@@ -117,12 +117,12 @@ public class DecisionMaker
 			Double modeWantedValue;
 			Double averageMeasuredValue;			
 			try {
-				modeWantedValue = wantedValue((String)workspace, groupAvailableServices);
+				modeWantedValue = wantedValue(workspace.toString(), groupAvailableServices);
 			}catch(NumberFormatException e) {
 				return e + ": one or more of the wanted values was not measured with a number!"; 
 			}
 			try {
-				averageMeasuredValue = averageMeasuredValue((String)workspace, groupAvailableServices);
+				averageMeasuredValue = averageMeasuredValue(workspace.toString(), groupAvailableServices);
 			}catch(NumberFormatException e) {
 				return e + ": one or more of the values was not measured using a number!";
 			}

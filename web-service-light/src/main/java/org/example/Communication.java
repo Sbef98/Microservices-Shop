@@ -51,27 +51,11 @@ public class Communication {
 			msg.put("isSensor", "c");
 		else
 			msg.put("isSensor", "s");
+		msg.put("closed", "f");
 		
 		return sendJSONObject(msg,url + "put?serviceName=" + serviceName);		
 	}
 	
-	/**
-	 * Function to tell to the decision service that this service will be shut down
-	 * 
-	 * @param url target address of message: Decision service URL
-	 * @param groupID service belonging group
-	 * @throws UnirestException
-	 */
-	protected static void close(String url, String serviceURI, int serverPort, String groupID, String description) throws UnirestException
-	{
-		JSONObject msg = new JSONObject();
-		msg.put("close", true);
-		msg.put("uri", serviceURI);
-		msg.put("port", serverPort);
-		msg.put("groupID", groupID);
-		msg.put("description", description);
-		sendJSONObject(msg, url);
-	}
 	
 	protected static String registerNewType(String type, String url) {
 		return sendJSONObject(new JSONObject(), url + "register-new-data-type?data-type=" + type);
