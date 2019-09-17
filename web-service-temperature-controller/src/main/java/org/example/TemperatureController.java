@@ -64,6 +64,8 @@ public class TemperatureController extends ServiceController{
 
 	@Override
 	protected void elabResponse(String response) {
+		/*Basically it's the same answer that would be given to an actuator, but since it's all simulated this will
+		 * act like the actuator itself too*/
 		JSONArray responseValue;
 		try{
 			responseValue = new JSONArray(response);

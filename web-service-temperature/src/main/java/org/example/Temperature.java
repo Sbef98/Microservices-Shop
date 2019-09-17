@@ -3,6 +3,7 @@ package org.example;
 import javax.annotation.PostConstruct;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,6 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Temperature extends ServiceController{
 
+	private Double active_value = 19.0;
+	private Double active_value_2 = 19.0;
+	private Double wanted_value = 21.0;
+	
 	@Override
 	@PostConstruct
 	public void addDataType() {
@@ -39,7 +44,7 @@ public class Temperature extends ServiceController{
 	
 	@Override
 	public String getGetMapping() {
-		
+		return "/temp";
 	}
 
 	@Override
@@ -50,32 +55,52 @@ public class Temperature extends ServiceController{
 
 	@Override
 	public JSONObject getValues() {
-		// TODO Auto-generated method stub
-		return null;
+		JSONArray values = new JSONArray().put(active_value);
+		values.put(active_value_2);
+		return new JSONObject().put("temperature", values);
 	}
 
 	@Override
 	public JSONObject getWanted() {
-		// TODO Auto-generated method stub
-		return null;
+		return new JSONObject().put("temperature", wanted_value); 
 	}
 
 	@Override
 	public JSONArray getWorkspaces() {
-		// TODO Auto-generated method stub
-		return null;
+		return new JSONArray().put("temperature");
 	}
 
 	@Override
 	public boolean isSensor() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	protected void elabResponse(String response) {
-		// TODO Auto-generated method stub
-		
+		/*Will simulate the temperature change due to the set value in the actuator!*/
+		JSONArray responseValue;
+		Double w;
+		try{
+			responseValue = new JSONArray(response);
+		}catch(JSONException e) {
+			System.out.println(e);
+			System.out.println(response);
+			return;
+		}
+		try {
+			w = responseValue.getDouble(0);
+		}catch(JSONException e) {
+			System.out.println(e);
+			return;
+		}
+		if(w > active_value) {
+			active_value += w/100;
+			active_value_2 = active_value;
+		}
+		else {
+			active_value -= w/100;
+			active_value_2 = active_value;
+		}
 	}
 
 	@Override
