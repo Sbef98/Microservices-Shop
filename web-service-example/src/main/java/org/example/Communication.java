@@ -16,19 +16,20 @@ public class Communication {
 	/**
 	 * Function to process the PUT request building the JSONObject 
 	 * 
-	 * @param url Decision service's url: the target of PUT message
-	 * @param serviceURI address of the actual service
-	 * @param serverPort port listening at "serviceURI" address
-	 * @param type type of service: service or actuator
-	 * @param getMapping GET functions list to use with this service to execute a data request. Optional
-	 * @param putMapping PUT functions list of this service. Optional
-	 * @param groupID service belonging group
-	 * @param description general info
-	 * @param values Actual measured values
-	 * @param wanted Ideal target values suggested
-	 * @param needed_services USED ONLY FOR ACTUATORS: model to describe the comparison beetwen which services are needed to execute actions   
-	 * @return TO serviceS: resends the received message, TO ACTUATOR: return a JSONObject with values' delta
-	 * @throws UnirestException
+	 * @param url Decision Service's url: the target of PUT message,
+	 * @param serviceName Service name;
+	 * @param serviceURI http address of the actual service;
+	 * @param serverPort port listening at "serviceURI" address;
+	 * @param getMapping GET functions list to use with this service to execute a data request. Optional;
+	 * @param putMapping PUT functions list of this service. Optional;
+	 * @param groupID service belonging group;
+	 * @param description general info; Optional; Avoid punctuation;
+	 * @param values Actual measured values;
+	 * @param wanted target value suggested;
+	 * @param workspaces used to get a evaluation from Decision Service;
+	 * @param isSensor true if service is a sensor, false if it is an actuator;  
+	 * @return TO services: Decision Service resends the received message, TO ACTUATOR: return a JSONObject with result of workspace evaluation
+	 * @throws UnirestException threw with connection problems;
 	 */
 	protected static String put(String url, String serviceName, String serviceURI, int serverPort,
 								String getMapping, String putMapping, String groupID, String description,
@@ -57,6 +58,11 @@ public class Communication {
 	}
 	
 	
+	/**
+	 * @param type name of new type of data;
+	 * @param url http address of Decision Service;
+	 * @return answer of Decision Service;
+	 */
 	protected static String registerNewType(String type, String url) {
 		return sendJSONObject(new JSONObject(), url + "register-new-data-type?data-type=" + type);
 		/*Sends an empty JSONObject*/

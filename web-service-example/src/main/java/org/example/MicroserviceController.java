@@ -10,28 +10,68 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 
+/**
+ * Class to declare fundamental core method to implement a service
+ * working correctly with Decision Service;
+ * Is necessary to add @RestController annotation in the service class created;
+ */
 public interface MicroserviceController 
 {	
 	
-	 @PostConstruct
+	 /**
+	 * Before sending any input to Decision Service, is necessary to
+	 * let him know that data, this function can use static method 
+	 * "registerNewType" from Communication class to add data types inside
+	 * Decision Service Database. Pay attention about DataName spelling;
+	 */
+	@PostConstruct
 	 public void addDataType();
 	 
-	 public String getGetMapping();
+	 /**
+	 * GET mapping is the final extension of service address where it is listening
+	 * for a GET http request;
+	 * @return  Final extension of service address;
+	 */
+	public String getGetMapping();
 	 
-	 public String getPutMapping();
+	 /**
+	 * PUT mapping is the final extension of service address where it is listening
+	 * for a PUT http request;
+	 * @return  Final extension of service address;
+	 */
+	public String getPutMapping();
 	 
-	 public JSONObject getValues();
+	 /**
+	 * @return a JSONObject with a list of data types handled used as keys for Arrays of relative values; 
+	 */
+	public JSONObject getValues();
 	 
-	 public JSONObject getWanted();
+	 /**
+	 * @return a JSONObject with a list of data types handled used as keys for relative singles values;
+	 */
+	public JSONObject getWanted();
 	 
-	 public JSONArray getWorkspaces();
+	 /**
+	 * Necessary to obtain from Decision Service a reference value; 
+	 * @return a JSONArray with list of data type handled by this actuator;
+	 */
+	public JSONArray getWorkspaces();
 	 
-	 public boolean isSensor();
+	 /**
+	 * @return true if service is a sensor, false if it is an actuator;
+	 */
+	public boolean isSensor();
 
-	 public void update();
+	 /**
+	 * Function to put to Decision Service workspace;
+	 */
+	public void update();
 	 	 
 	 public String toString();
 	 
-	 @PreDestroy
+	 /**
+	 * Sending to Decision Service ending of this service process and communications;
+	 */
+	@PreDestroy
 	 public void end();
 }

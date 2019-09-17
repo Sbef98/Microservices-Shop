@@ -33,7 +33,7 @@ public class HistoryTracker {
 		try {
 			DatabaseConnection.ExecUpdate(sql);
 		} catch (SQLException e1) {
-			;
+			e1.printStackTrace();;
 		}
 		Date date = new Date();
 		Object timestamp = new Timestamp(date.getTime());
@@ -67,7 +67,7 @@ public class HistoryTracker {
 				try{
 					DatabaseConnection.ExecUpdate(sql3);
 				} catch (Exception e) {
-					;
+					e.printStackTrace();;
 				}
 			}
 		}
