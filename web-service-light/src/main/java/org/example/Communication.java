@@ -32,7 +32,7 @@ public class Communication {
 	 */
 	protected static String put(String url, String serviceName, String serviceURI, int serverPort,
 								String getMapping, String putMapping, String groupID, String description,
-								JSONObject values, JSONObject wanted, JSONArray workspaces, boolean isSensor) throws UnirestException
+								JSONObject values, JSONObject wanted, JSONArray workspaces, Boolean isSensor) throws UnirestException
 	{
 		JSONObject msg = new JSONObject();
 		msg.put("uri", serviceURI);
@@ -47,8 +47,11 @@ public class Communication {
 			msg.put("wanted", wanted.toString());
 		if(workspaces != null)
 			msg.put("workspaces", workspaces.toString());
-		msg.put("sensor", false);
-		msg.put("closed", "false");
+		if(isSensor == false)
+			msg.put("isSensor", "c");
+		else
+			msg.put("isSensor", "s");
+		
 		return sendJSONObject(msg,url + "put?serviceName=" + serviceName);		
 	}
 	
@@ -59,11 +62,14 @@ public class Communication {
 	 * @param groupID service belonging group
 	 * @throws UnirestException
 	 */
-	protected static void close(String url, String groupID) throws UnirestException
+	protected static void close(String url, String serviceURI, int serverPort, String groupID, String description) throws UnirestException
 	{
 		JSONObject msg = new JSONObject();
 		msg.put("close", true);
+		msg.put("uri", serviceURI);
+		msg.put("port", serverPort);
 		msg.put("groupID", groupID);
+		msg.put("description", description);
 		sendJSONObject(msg, url);
 	}
 	

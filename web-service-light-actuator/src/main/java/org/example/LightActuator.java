@@ -64,7 +64,7 @@ public class LightActuator extends ServiceController
 			return;
 		}
 		try {
-			lightLevel += (int) responseValue.getDouble(0);
+			lightLevel = (int) responseValue.getDouble(0);
 		}catch(JSONException e) {
 			System.out.println(e);
 			return;

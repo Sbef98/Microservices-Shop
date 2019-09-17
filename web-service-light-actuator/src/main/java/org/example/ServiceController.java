@@ -52,7 +52,7 @@ public abstract class ServiceController
 		String response = new String("Error");
 		try {
 			 response = Communication.put(url, serviceName, serviceURI, servicePort, getGetMapping(), getPutMapping(),
-					 					  groupID, description, getValues(), getWanted(), getWorkspaces());
+					 					  groupID, description, getValues(), getWanted(), getWorkspaces(), isSensor());
 		} catch (kong.unirest.UnirestException e) {
 			System.out.println("UnirestException while connecting to " + url);
 		}
@@ -68,8 +68,9 @@ public abstract class ServiceController
 	@PreDestroy
 	public void end()
 	{
+		//close(String url, String serviceURI, int serverPort, String groupID, String description)
 		try {
-			Communication.close(url, groupID);
+			Communication.close(url, serviceURI, servicePort, groupID, description);
 		} catch (kong.unirest.UnirestException e) {
 			System.out.println("UnirestException while connecting to " + url);
 		}
