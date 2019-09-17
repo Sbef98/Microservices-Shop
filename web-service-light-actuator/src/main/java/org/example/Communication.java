@@ -32,7 +32,7 @@ public class Communication {
 	 */
 	protected static String put(String url, String serviceName, String serviceURI, int serverPort,
 								String getMapping, String putMapping, String groupID, String description,
-								JSONObject values, JSONObject wanted, JSONArray workspaces) throws UnirestException
+								JSONObject values, JSONObject wanted, JSONArray workspaces, Boolean isSensor) throws UnirestException
 	{
 		JSONObject msg = new JSONObject();
 		msg.put("uri", serviceURI);
@@ -47,6 +47,11 @@ public class Communication {
 			msg.put("wanted", wanted.toString());
 		if(workspaces != null)
 			msg.put("workspaces", workspaces.toString());
+		if(isSensor == null)
+			msg.put("isSensor", false);
+		else
+			msg.put("isSensor", isSensor);
+		
 		return sendJSONObject(msg,url + "put?serviceName=" + serviceName);		
 	}
 	

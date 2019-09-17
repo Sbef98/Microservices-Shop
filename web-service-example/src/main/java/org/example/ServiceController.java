@@ -32,6 +32,7 @@ public abstract class ServiceController
 	abstract JSONObject getValues();
 	abstract JSONObject getWanted();
 	abstract JSONArray getWorkspaces();
+	abstract boolean isSensor();
 	
 	abstract void elabResponse(String response);
 	@Override
@@ -51,7 +52,7 @@ public abstract class ServiceController
 		String response = new String("Error");
 		try {
 			 response = Communication.put(url, serviceName, serviceURI, servicePort, getGetMapping(), getPutMapping(),
-					 					  groupID, description, getValues(), getWanted(), getWorkspaces());
+					 					  groupID, description, getValues(), getWanted(), getWorkspaces(), isSensor());
 		} catch (kong.unirest.UnirestException e) {
 			System.out.println("UnirestException while connecting to " + url);
 		}

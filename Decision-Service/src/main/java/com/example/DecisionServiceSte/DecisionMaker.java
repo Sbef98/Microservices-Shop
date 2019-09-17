@@ -27,13 +27,21 @@ public class DecisionMaker
 		return maxValue;
 	}
 	private static   Double wantedValue(String workspace, 
-			Hashtable<String, ServiceDetailsRequestModel> groupAvailableServices) throws NumberFormatException {
+			Hashtable<String, ServiceDetailsRequestModel> groupAvailableServices) throws NumberFormatException 
+	{
 		LinkedList<Double> numbers = new LinkedList<Double>();
+		
 		for(String serviceID : groupAvailableServices.keySet()) {
 			if(groupAvailableServices.get(serviceID).getWorkspaces() != null) {
+				
+				if(groupAvailableServices.get(serviceID).getWanted() == null)
+					continue;
+				
 				for(Object wanted : groupAvailableServices.get(serviceID).getWanted().keySet()) {
 					if(workspace.compareToIgnoreCase((String) wanted) == 0) {
+						
 						String wantedVal = groupAvailableServices.get(serviceID).getWanted().getString((String) wanted);
+						
 						try {
 							numbers.add((double) ((Integer)Integer.parseInt(wantedVal)));
 						}catch(NumberFormatException e) {
@@ -50,16 +58,17 @@ public class DecisionMaker
 		Double mean = 0.0;
 		for(Object measuredValue : measuredValues) {
 			try {
-				mean+= (double)((Integer) Integer.parseInt((String) measuredValue));
+				mean+= (double)((Integer) Integer.parseInt(measuredValue.toString()));
 			}catch(NumberFormatException e) {
-				mean += Double.parseDouble((String) measuredValue);
+				mean += Double.parseDouble(measuredValue.toString());
 			}
 		}
 		return mean/measuredValues.length();
 	}
 	
 	private static   Double averageMeasuredValue(String workspace,
-			Hashtable<String, ServiceDetailsRequestModel> groupAvailableServices) throws NumberFormatException {
+			Hashtable<String, ServiceDetailsRequestModel> groupAvailableServices) throws NumberFormatException 
+	{
 		Double mean = 0.0;
 		//cont conta il numero di sensori aggiunti alla media
 		int  cont = 0;
@@ -70,7 +79,12 @@ public class DecisionMaker
 		 * than one with just 2 measures!)
 		 */
 		for(String serviceID : groupAvailableServices.keySet()) {
+			if(groupAvailableServices.get(serviceID).isSensor() == false) {
+				//If it is not a sensor the reported values are not measures. so we will skip it
+				continue;
+			}
 			for(String type : groupAvailableServices.get(serviceID).getValues().keySet()) {
+				
 				if(type.compareToIgnoreCase(workspace) == 0) {
 					cont += groupAvailableServices.get(serviceID).getValues().getJSONArray(type).length();
 					mean += serviceMeasuredMean(groupAvailableServices.get(serviceID).getValues().getJSONArray(type)) * groupAvailableServices.get(serviceID).getValues().getJSONArray(type).length();

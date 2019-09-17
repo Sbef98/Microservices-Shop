@@ -79,6 +79,10 @@ public class Light extends ServiceController
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	boolean isSensor() {
+		return true;
+	}
 
 
 

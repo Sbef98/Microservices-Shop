@@ -1,5 +1,7 @@
 package org.example;
 
+import javax.annotation.PostConstruct;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -8,9 +10,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class LightActuator extends ServiceController
 {
-	private float lightLevel = 501;
-	private float switchLevel = 500; //under 500 the lights are switched on
-	private boolean lightSwitch = false;
+	private Integer lightLevel = 501;
+	private Integer switchLevel = 500; //under 500 the lights are switched on
+	private char lightSwitch = 0;
+	
+	@PostConstruct
+	public void addDatatType() {
+		System.out.println("Registering SwitchOn type at " + url);
+		Communication.registerNewType("SwitchOn", url);
+
+	}
 	
 	@Override
 	String getGetMapping() {
@@ -55,15 +64,15 @@ public class LightActuator extends ServiceController
 			return;
 		}
 		try {
-			lightLevel += (Double) responseValue.getDouble(0);
+			lightLevel += (int) responseValue.getDouble(0);
 		}catch(JSONException e) {
 			System.out.println(e);
 			return;
 		}
 		if(lightLevel > 500)
-			lightSwitch = true;
+			lightSwitch = 1;
 		if(lightLevel < 500)
-			lightSwitch = false;
+			lightSwitch = 0;
 	}
 
 	@Override
@@ -77,6 +86,11 @@ public class LightActuator extends ServiceController
 		JSONArray returnValue = new JSONArray();
 		returnValue.put("light");
 		return returnValue;
+	}
+
+	@Override
+	boolean isSensor() {
+		return false;
 	}
 
 }

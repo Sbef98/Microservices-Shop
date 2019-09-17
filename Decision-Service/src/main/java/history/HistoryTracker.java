@@ -52,7 +52,7 @@ public class HistoryTracker {
 			String dataType = it.next();
 			JSONArray values = (JSONArray) service.getValues().get(dataType);
 			for (Object val : values) {
-				String sql2 = new String("INSERT INTO ServicesValues VALUES ( " + "'"+ (String)val + "'" + ", " 
+				String sql2 = new String("INSERT INTO ServicesValues VALUES ( " + "'"+ val.toString() + "'" + ", " 
 																	+ "'" + dataType + "'" + ", "
 																	+ "'" + timestamp + "'" + ", "
 																	+ "'" + serviceId.toString() + "'"

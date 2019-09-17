@@ -32,6 +32,7 @@ public abstract class ServiceController
 	abstract JSONObject getValues();
 	abstract JSONObject getWanted();
 	abstract JSONArray getWorkspaces();
+	abstract boolean isSensor();
 	
 	abstract void elabResponse(String response);
 	@Override
