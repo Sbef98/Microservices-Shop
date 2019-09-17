@@ -46,24 +46,16 @@ public class LightActuator extends ServiceController
 	@Override
 	void elabResponse(String response) 
 	{
-		JSONObject responseValue;
+		JSONArray responseValue;
 		try{
-			responseValue = new JSONObject(response);
+			responseValue = new JSONArray(response);
 		}catch(JSONException e) {
 			System.out.println(e);
 			System.out.println(response);
 			return;
 		}
-		JSONObject lightServiceValue;
 		try {
-			lightServiceValue = responseValue.getJSONObject("lightService");
-		}catch(JSONException e)
-		{
-			System.out.println(e);
-			return;
-		}
-		try {
-			lightLevel += lightServiceValue.getInt("lightLevel");
+			lightLevel += (Double) responseValue.getDouble(0);
 		}catch(JSONException e) {
 			System.out.println(e);
 			return;

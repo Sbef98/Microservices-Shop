@@ -41,10 +41,12 @@ public class Communication {
 		msg.put("put_mapping", putMapping);
 		msg.put("groupID", groupID);
 		msg.put("description", description);
-		msg.put("values", values.toString());
+		if(values != null)
+			msg.put("values", values.toString());
 		if(wanted != null)
 			msg.put("wanted", wanted.toString());
-		msg.put("workspaces", workspaces);
+		if(workspaces != null)
+			msg.put("workspaces", workspaces.toString());
 		return sendJSONObject(msg,url + "put?serviceName=" + serviceName);		
 	}
 	
