@@ -15,12 +15,12 @@ It works on sensorial environment conditions like lights, temperature, color and
 
 This prototype software deploys some sample **RESTful microservices that communicate between HTTP protocol**. The microservices’ net is used to collect all the data from sensors microservices, to process them in a decision service and to communicate to actuator microservices the action needed.
 
-What’s a RESTful microservice?
+*What’s a RESTful microservice?*
 
 A RESTful web microservice implements REST architecture.  
 REST means “Representational State Transfer” and it is an “architectural style”. A REST architecture has a **complete independent logic for server and client** and the communication between client and server is **stateless**: every message sent by a client to the server must be like it is his first message, not related to previous communication.
 
-Why choose REST architecture?
+*Why choose REST architecture?*
 
 The most important advantages of REST are **reliability and scalability** due to the clear separation between client and server and their complete independent deployment. This let also to use **different code languages and specific technologies for each service**.
 
@@ -37,7 +37,7 @@ We saved collected data inside a Relational Database handled by **MySQL** RDBMS 
 
 The access to the DB is managed by a Core Decision Service throw a **jdbc connector driver** obtainable from [https://dev.mysql.com/downloads/connector/j/](https://dev.mysql.com/downloads/connector/j/).
 
-Core Decision Service
+*Core Decision Service*
 
 We deployed our core service on a **hosted VPS** (Virtual Private Server) with trusted network, 2-factor authentication and snapshot backup system.
 
@@ -45,10 +45,12 @@ This microservice run as system service and permits communications between all s
 
 Decision Service calculates average for values measured by sensors and trend for value wanted from different services; than obtain the difference of that value and communicate it the updated absolute setting value to actuators.
 
-Other services
+*Other services*
 
 They complete a PUT http request to obtain a subscription and to get saved by the system and then publish their data sharing with other services;
 
-Browser function
+*Browser function*
 
 Using Mozzilla Firefox is possible to obtain all the service connected (_/get-available-connected_), all the service connected with related data (_/get-available-service_) and is possible to subscribe interrogation query(_/query/{your-query}_).
+
+
