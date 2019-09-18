@@ -1,4 +1,5 @@
 org\example\ServiceController.class
 org\example\Light.class
+org\example\MicroserviceController.class
 org\example\Communication.class
 org\example\MainApp.class
