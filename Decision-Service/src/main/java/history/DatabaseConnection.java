@@ -23,9 +23,9 @@ public class DatabaseConnection {
 	static Statement cmd = null;
 
 	public static Connection DBConnection() {
-		String url = "jdbc:mysql://212.237.20.175:3306/DB_Bicocco?serverTimezone=GMT";
+		String url = "jdbc:mysql:xxxxz";
 		try {
-			conn = DriverManager.getConnection (url, "Leo", "LeoMirots15");
+			conn = DriverManager.getConnection (url, "", "");
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("Errore nella connessione al DB");
