@@ -190,7 +190,7 @@ public class BIOS { // basic input output service (nice joke i know)
 		return returnValue;
 	}
 	
-	@Scheduled(fixedDelay = 600000)
+	@Scheduled(fixedDelay = 6000)
 	/*Every ten minutes*/
 	public void garbageCollector(){
 		/*
@@ -204,7 +204,7 @@ public class BIOS { // basic input output service (nice joke i know)
 	       Set<String> serviceIDS = availableServices.get(groupID).keySet();
 	       for(String serviceID : serviceIDS) {
 	    	   /*Going through all the services inside of a group*/
-	    	   if((new Date()).getTime() - availableServices.get(groupID).get(serviceID).getLastUpdateDate().getTime() >= (60*60*1000) ) {
+	    	   if((new Date()).getTime() - availableServices.get(groupID).get(serviceID).getLastUpdateDate().getTime() >= (10*60*1000) ) {
 	    		   /*If the last update was more than 1 hours ago i delete it ...*/
 	    		   HistoryTracker.storeProcedure(availableServices.get(groupID).get(serviceID), serviceID);
 	    		   availableServices.get(groupID).remove(serviceID);
