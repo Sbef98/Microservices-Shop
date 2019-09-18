@@ -54,3 +54,4 @@ They complete a PUT http request to obtain a subscription and to get saved by th
 Using Mozzilla Firefox is possible to obtain all the service connected (_/get-available-connected_), all the service connected with related data (_/get-available-service_) and is possible to subscribe interrogation query(_/query/{your-query}_).
 
 
+NOTE: read FinalPaper.pdf
