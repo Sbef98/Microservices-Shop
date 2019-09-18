@@ -90,7 +90,6 @@ public class Sims extends ServiceController{
 		return  sleepTime;
 	}
 	@Override
-	@Async //Async means that the scheduled function will run again after the given time even if the previous one was not finished
 	@Scheduled(cron="#{@getCronValue}") //cool feature
 	public void update()
 	{
@@ -103,6 +102,12 @@ public class Sims extends ServiceController{
 				System.out.println("UnirestException while connecting to " + url);
 			}
 			elabResponse(response);
+		}
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 
