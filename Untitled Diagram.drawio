@@ -1,17 +1,17 @@
-<mxfile host="app.diagrams.net" modified="2020-09-05T10:14:11.520Z" agent="5.0 (X11)" etag="ldi6sIkFFQV_xN2Gk9gc" version="13.6.6" type="github">
+<mxfile host="app.diagrams.net" modified="2020-09-05T11:20:51.781Z" agent="5.0 (X11)" etag="Zb82BWvAdwrqRUBZeNrN" version="13.6.6" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1422" dy="805" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="9900" pageHeight="9900" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="Dp6MvVSpYbuMeK2W6vsO-2" value="&lt;table style=&quot;width: 100% ; height: 100% ; border-collapse: collapse&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; border=&quot;1&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;&amp;lt;&amp;lt;Abstract&amp;gt;&amp;gt;&lt;br&gt;Composizione&lt;br&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+tipo:String&lt;br&gt;+dato:Object&lt;br&gt;- peso:Integer&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+assegnaPeso(peso:Integer):Integer&lt;br&gt;+aggiungi(comp:Composizione):void&lt;br&gt;+rimuovi(comp:Composizione):void&lt;br&gt;+getChild():Composizione&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;strokeColor=none;fillColor=none;overflow=fill;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="1570" y="2830" width="226" height="170" as="geometry" />
+          <mxGeometry x="1570" y="2820" width="226" height="180" as="geometry" />
         </mxCell>
         <mxCell id="Dp6MvVSpYbuMeK2W6vsO-4" value="&lt;table style=&quot;width: 100% ; height: 100% ; border-collapse: collapse&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; border=&quot;1&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Composizione&lt;br&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+assegnaPeso(peso:Integer):Integer&lt;br&gt;+aggiungi(comp:Composizione):void&lt;br&gt;+rimuovi(comp:Composizione):void&lt;br&gt;+getChild():Composizione&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;strokeColor=none;fillColor=none;overflow=fill;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="1730" y="3040" width="240" height="140" as="geometry" />
         </mxCell>
         <mxCell id="Dp6MvVSpYbuMeK2W6vsO-5" value="&lt;table style=&quot;width: 100% ; height: 100% ; border-collapse: collapse&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; border=&quot;1&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Dato&lt;br&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+ assegnaPeso(peso:Integer):Integer&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;strokeColor=none;fillColor=none;overflow=fill;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="1440" y="3040" width="220" height="90" as="geometry" />
+          <mxGeometry x="1430" y="3040" width="230" height="90" as="geometry" />
         </mxCell>
         <mxCell id="Dp6MvVSpYbuMeK2W6vsO-11" value="Extends" style="endArrow=block;endSize=16;endFill=0;html=1;exitX=0.471;exitY=0.014;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Dp6MvVSpYbuMeK2W6vsO-4" target="Dp6MvVSpYbuMeK2W6vsO-2" edge="1">
           <mxGeometry x="-0.125" width="160" relative="1" as="geometry">
@@ -36,6 +36,8 @@
             <Array as="points">
               <mxPoint x="2010" y="3100" />
               <mxPoint x="2010" y="2958" />
+              <mxPoint x="1910" y="2958" />
+              <mxPoint x="1910" y="2955" />
             </Array>
             <mxPoint as="offset" />
           </mxGeometry>
@@ -112,15 +114,15 @@
             <mxPoint x="1131" y="2871" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ndI1uFcIVvxZb7R-7Dkx-18" value="&lt;table style=&quot;width: 100% ; height: 100% ; border-collapse: collapse&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; border=&quot;1&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Controller&lt;br&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+ip:String&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+updateContesti(composizione:Composizione):void&lt;br&gt;+updateStati(composizione:composizione):void&lt;br&gt;+addAttuatori(attuatore:RecuperoStati):void&lt;br&gt;+removeAttuatori(attuatore:RecuperoStati):void&lt;br&gt;+notifyAttuatori():void&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;strokeColor=none;fillColor=none;overflow=fill;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="1910" y="2420" width="310" height="140" as="geometry" />
+        <mxCell id="ndI1uFcIVvxZb7R-7Dkx-18" value="&lt;table style=&quot;width: 100% ; height: 100% ; border-collapse: collapse&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; border=&quot;1&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Controller&lt;br&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+ip:String&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+updateContesti(composizione:Composizione, ipProvenienza:String):void&lt;br&gt;+updateStati(composizione:composizione, ipProvenienza:String):void&lt;br&gt;+addAttuatori(attuatore:RecuperoStati):void&lt;br&gt;+removeAttuatori(attuatore:RecuperoStati):void&lt;br&gt;-notifyAttuatori():void&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;strokeColor=none;fillColor=none;overflow=fill;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1740" y="2420" width="430" height="140" as="geometry" />
         </mxCell>
         <mxCell id="ndI1uFcIVvxZb7R-7Dkx-19" value="" style="endArrow=open;startArrow=cross;endFill=0;startFill=0;endSize=8;startSize=10;html=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" target="ndI1uFcIVvxZb7R-7Dkx-18">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="1330" y="2250" as="sourcePoint" />
             <mxPoint x="1470" y="2250" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="1988" y="2250" />
+              <mxPoint x="1848" y="2250" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -129,10 +131,59 @@
             <mxPoint x="1536" y="2400" as="sourcePoint" />
             <mxPoint x="1696" y="2400" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="1730" y="2400" />
-              <mxPoint x="1730" y="2490" />
+              <mxPoint x="1660" y="2400" />
+              <mxPoint x="1660" y="2490" />
             </Array>
           </mxGeometry>
+        </mxCell>
+        <mxCell id="ndI1uFcIVvxZb7R-7Dkx-21" value="&lt;table style=&quot;width: 100% ; height: 100% ; border-collapse: collapse&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; border=&quot;1&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;&amp;lt;&amp;lt;Abstract&amp;gt;&amp;gt;&lt;br&gt;Decisore&lt;br&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+composizioneContesti:Composizione&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+aggiornaContesti(contesti:Composizione, ipProvenienza:String):void&lt;br&gt;+&lt;i&gt;assegnamentoPeso():Composizione&lt;br&gt;+ottenimentoGrafo():Composizione&lt;br&gt;-autoPulizia():void&lt;br&gt;&lt;/i&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;strokeColor=none;fillColor=none;overflow=fill;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="2250" y="2220" width="230" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="ndI1uFcIVvxZb7R-7Dkx-22" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Dp6MvVSpYbuMeK2W6vsO-49" target="ndI1uFcIVvxZb7R-7Dkx-0">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="1250" y="2580" as="sourcePoint" />
+            <mxPoint x="1410" y="2580" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1240" y="2560" />
+              <mxPoint x="1200" y="2560" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ndI1uFcIVvxZb7R-7Dkx-23" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=1.012;entryY=0.886;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ndI1uFcIVvxZb7R-7Dkx-12" target="ndI1uFcIVvxZb7R-7Dkx-1">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="1530" y="2580" as="sourcePoint" />
+            <mxPoint x="1570" y="2490" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1560" y="2600" />
+              <mxPoint x="1560" y="2494" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ndI1uFcIVvxZb7R-7Dkx-24" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ndI1uFcIVvxZb7R-7Dkx-1" target="ndI1uFcIVvxZb7R-7Dkx-12">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="1550" y="2500" as="sourcePoint" />
+            <mxPoint x="1710" y="2500" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1600" y="2475" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ndI1uFcIVvxZb7R-7Dkx-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.226;entryY=1.014;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ndI1uFcIVvxZb7R-7Dkx-26" target="ndI1uFcIVvxZb7R-7Dkx-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ndI1uFcIVvxZb7R-7Dkx-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ndI1uFcIVvxZb7R-7Dkx-26">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1980" y="2680" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ndI1uFcIVvxZb7R-7Dkx-26" value="&lt;div&gt;updateContesti chiama Decisore.aggiornaContesti(), Database.salvaContesti() e self.notifyAttuatori();&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;updateStati() chiama database.salvaStati()&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1760" y="2600" width="180" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="ndI1uFcIVvxZb7R-7Dkx-29" value="&lt;table style=&quot;width: 100% ; height: 100% ; border-collapse: collapse&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; border=&quot;1&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;br&gt;Database&lt;br&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+salvaStati(stati:Composizione, ipProvenienza:String)&lt;br&gt;+salvaContesti(contesti:Composizione, ipProvenienza:String)&lt;br&gt;+ottieniStoricoContesti(&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;strokeColor=none;fillColor=none;overflow=fill;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="2225" y="2470" width="345" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="ndI1uFcIVvxZb7R-7Dkx-30" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;&lt;b&gt;Title&lt;/b&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;Section 1.1&#xa;Section 1.2&#xa;Section 1.3&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;Section 2.1&#xa;Section 2.2&#xa;Section 2.3&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="text;html=1;strokeColor=none;fillColor=none;overflow=fill;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="2225" y="2640" width="160" height="140" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
