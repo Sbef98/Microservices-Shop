@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-09-08T14:25:28.129Z" agent="5.0 (X11)" etag="fInc2BgPwdOEZWFEFT0p" version="13.6.6" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2020-09-08T14:43:22.598Z" agent="5.0 (X11)" etag="o6FGGHBCb37-rZwVsRJ-" version="13.6.6" type="github" pages="4">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1955" dy="-222" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -73,8 +73,8 @@
         <mxCell id="ndI1uFcIVvxZb7R-7Dkx-0" value="&lt;table style=&quot;width: 100% ; height: 100% ; border-collapse: collapse&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; border=&quot;1&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;&lt;b&gt;RecuperatoreContesti&lt;/b&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+ip:String&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+updateContesti(contesto:Contesto):void&lt;br&gt;-assegnamentoPesi():void&lt;br&gt;+notifyControllers():void&lt;br&gt;+addController(controller:controller):void&lt;br&gt;+removeController(controller:Controller):void&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;strokeColor=none;fillColor=none;overflow=fill;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="10" y="1320" width="260" height="140" as="geometry" />
         </mxCell>
-        <mxCell id="ndI1uFcIVvxZb7R-7Dkx-1" value="&lt;table style=&quot;width: 100% ; height: 100% ; border-collapse: collapse&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; border=&quot;1&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;RecuperatoreStati&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+ip:String&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+updaAttuatore(stato:Stato):void&lt;br&gt;+removeAttuatore(attuatore:Attuatore):void&lt;br&gt;+addAttuatore(attuatore:Attuatore):void&lt;br&gt;+notifyAttuatori():void&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;strokeColor=none;fillColor=none;overflow=fill;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="216" y="1490" width="260" height="140" as="geometry" />
+        <mxCell id="ndI1uFcIVvxZb7R-7Dkx-1" value="&lt;table style=&quot;width: 100% ; height: 100% ; border-collapse: collapse&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; border=&quot;1&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;RecuperatoreStati&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+ip:String&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+updaAttuatore(stato:Stato):void&lt;br&gt;+removeAttuatore(attuatore:Attuatore):void&lt;br&gt;+addAttuatore(attuatore:Attuatore):void&lt;br&gt;+notifyAttuatori():void&lt;br&gt;notifyControllers():void&lt;br&gt;addController(controller:Controller):void&lt;br&gt;removeController(controller:COntroller):void&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;strokeColor=none;fillColor=none;overflow=fill;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="216" y="1490" width="260" height="160" as="geometry" />
         </mxCell>
         <mxCell id="ndI1uFcIVvxZb7R-7Dkx-12" value="&lt;table style=&quot;width: 100% ; height: 100% ; border-collapse: collapse&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; border=&quot;1&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;br&gt;Attuatore&lt;br&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+update()&lt;br&gt;+remove()&lt;br&gt;+add()&lt;br&gt;+notify()&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;Section 2.1&lt;br&gt;Section 2.2&lt;br&gt;Section 2.3&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;strokeColor=none;fillColor=none;overflow=fill;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="460" y="1760" width="160" height="110" as="geometry" />
@@ -237,6 +237,42 @@
         </mxCell>
         <mxCell id="OzjkkR5l2p39zToK4pCS-0" value="&lt;div&gt;CLASS DIAGRAMA completo&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="980" y="2035" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="FWjQx-l_E2E1eGjO0J7R-0" value="*" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="150" y="1470" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="FWjQx-l_E2E1eGjO0J7R-1" value="*" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="180" y="1730" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="FWjQx-l_E2E1eGjO0J7R-2" value="*" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="40" y="1460" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="FWjQx-l_E2E1eGjO0J7R-3" value="*" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="40" y="1970" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="FWjQx-l_E2E1eGjO0J7R-4" value="*" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="410" y="1650" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="FWjQx-l_E2E1eGjO0J7R-5" value="*" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="410" y="1970" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="FWjQx-l_E2E1eGjO0J7R-6" value="*" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="480" y="1570" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="FWjQx-l_E2E1eGjO0J7R-7" value="*" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="560" y="1730" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="FWjQx-l_E2E1eGjO0J7R-8" value="*" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="280" y="1390" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="FWjQx-l_E2E1eGjO0J7R-9" value="*" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="740" y="1500" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="FWjQx-l_E2E1eGjO0J7R-10" value="*" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="490" y="1490" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="FWjQx-l_E2E1eGjO0J7R-11" value="*" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="660" y="1590" width="20" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
