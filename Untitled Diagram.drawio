@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-09-08T14:43:22.598Z" agent="5.0 (X11)" etag="o6FGGHBCb37-rZwVsRJ-" version="13.6.6" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2020-09-08T15:03:52.307Z" agent="5.0 (X11)" etag="LSi5JDGXv9QjTUY0D_3D" version="13.6.6" type="github" pages="4">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1955" dy="-222" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -273,6 +273,15 @@
         </mxCell>
         <mxCell id="FWjQx-l_E2E1eGjO0J7R-11" value="*" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="660" y="1590" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="FWjQx-l_E2E1eGjO0J7R-12" value="Si può notare l&#39;utilizzo del design pattern &quot;observer&quot; per quanto riguarda il rapporto tra i sensori/attuatori e il reuperatori di stati/contesti e nel&amp;nbsp; rapporto tra i recuperatori e i controller " style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="10" y="1180" width="1020" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="FWjQx-l_E2E1eGjO0J7R-13" value="&lt;div&gt;Inoltre, è presente l&#39;utilizzo del FACADE pattern per quanto riguarda il Controller e il template pattern all&#39;interno del decisore. &lt;br&gt;&lt;/div&gt;&lt;div&gt;Quest&#39;ultimo, infatti, necessiterà di essere implemebntato dall&#39;utente, ma sarà costretto ad eseguire due operazioni fondomantali che portino alla creazione&lt;br&gt;di un grafo rapportante dei pesi/misure, in maniera tale che il controller possa individuare il percorso ideale utilizzando la relativa classe.&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="10" y="1210" width="880" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="FWjQx-l_E2E1eGjO0J7R-14" value="Negli UML successivi non sarà ovviamente riportato alcun funzionamento dei pattern essendo questi ultimi standardizzati." style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="10" y="1270" width="690" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
