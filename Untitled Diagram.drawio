@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-09-08T16:23:02.722Z" agent="5.0 (X11)" etag="WGAOq6EFrP-m2DyFlYXJ" version="13.6.6" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2020-09-08T16:48:03.818Z" agent="5.0 (X11)" etag="LB04oaIpS9eHHIiSaX9y" version="13.6.6" type="github" pages="4">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1955" dy="-222" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -807,6 +807,97 @@
             <mxPoint x="263.5" y="560" as="sourcePoint" />
             <mxPoint x="343.5" y="560" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="CiU7yfUQ7HwTvPafk8tj-35" value=":Recuperatore contesti" style="html=1;" vertex="1" parent="pd1NO9z6XSvhfkL7vAzJ-1">
+          <mxGeometry x="60" y="710" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CiU7yfUQ7HwTvPafk8tj-36" value=":RecuperatoreStati" style="html=1;" vertex="1" parent="pd1NO9z6XSvhfkL7vAzJ-1">
+          <mxGeometry x="230" y="710" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CiU7yfUQ7HwTvPafk8tj-37" value=":Controller" style="html=1;" vertex="1" parent="pd1NO9z6XSvhfkL7vAzJ-1">
+          <mxGeometry x="440" y="710" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CiU7yfUQ7HwTvPafk8tj-38" value=":Database" style="html=1;" vertex="1" parent="pd1NO9z6XSvhfkL7vAzJ-1">
+          <mxGeometry x="661" y="710" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CiU7yfUQ7HwTvPafk8tj-43" value="" style="endArrow=none;dashed=1;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="pd1NO9z6XSvhfkL7vAzJ-1" source="CiU7yfUQ7HwTvPafk8tj-54" target="CiU7yfUQ7HwTvPafk8tj-36">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="285" y="1160" as="sourcePoint" />
+            <mxPoint x="310" y="870" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CiU7yfUQ7HwTvPafk8tj-44" value="" style="endArrow=none;dashed=1;html=1;entryX=0.573;entryY=1.08;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="pd1NO9z6XSvhfkL7vAzJ-1" source="CiU7yfUQ7HwTvPafk8tj-50" target="CiU7yfUQ7HwTvPafk8tj-37">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="495" y="1160" as="sourcePoint" />
+            <mxPoint x="510" y="860" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CiU7yfUQ7HwTvPafk8tj-45" value="" style="endArrow=none;dashed=1;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="pd1NO9z6XSvhfkL7vAzJ-1" source="CiU7yfUQ7HwTvPafk8tj-52" target="CiU7yfUQ7HwTvPafk8tj-38">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="716" y="1160" as="sourcePoint" />
+            <mxPoint x="750" y="860" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CiU7yfUQ7HwTvPafk8tj-48" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="pd1NO9z6XSvhfkL7vAzJ-1">
+          <mxGeometry x="120" y="800" width="10" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="CiU7yfUQ7HwTvPafk8tj-49" value="dispatch" style="html=1;verticalAlign=bottom;startArrow=oval;endArrow=block;startSize=8;fillColor=#fff2cc;strokeColor=#d6b656;" edge="1" target="CiU7yfUQ7HwTvPafk8tj-48" parent="pd1NO9z6XSvhfkL7vAzJ-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="21" y="800" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CiU7yfUQ7HwTvPafk8tj-52" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="pd1NO9z6XSvhfkL7vAzJ-1">
+          <mxGeometry x="711" y="880" width="10" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="CiU7yfUQ7HwTvPafk8tj-55" value="dispatch" style="html=1;verticalAlign=bottom;startArrow=oval;endArrow=block;startSize=8;fillColor=#f8cecc;strokeColor=#b85450;" edge="1" target="CiU7yfUQ7HwTvPafk8tj-54" parent="pd1NO9z6XSvhfkL7vAzJ-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="180" y="900" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CiU7yfUQ7HwTvPafk8tj-54" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="pd1NO9z6XSvhfkL7vAzJ-1">
+          <mxGeometry x="280" y="880" width="10" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="CiU7yfUQ7HwTvPafk8tj-59" value="dispatch" style="html=1;verticalAlign=bottom;endArrow=block;entryX=-0.2;entryY=0.25;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#fff2cc;strokeColor=#d6b656;" edge="1" parent="pd1NO9z6XSvhfkL7vAzJ-1" target="CiU7yfUQ7HwTvPafk8tj-50">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="130" y="870" as="sourcePoint" />
+            <mxPoint x="171" y="870" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CiU7yfUQ7HwTvPafk8tj-61" value="dispatch" style="html=1;verticalAlign=bottom;endArrow=block;fillColor=#f8cecc;strokeColor=#b85450;" edge="1" parent="pd1NO9z6XSvhfkL7vAzJ-1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="290" y="920" as="sourcePoint" />
+            <mxPoint x="490" y="920" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CiU7yfUQ7HwTvPafk8tj-62" value="dispatch" style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0.138;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#fff2cc;strokeColor=#d6b656;" edge="1" parent="pd1NO9z6XSvhfkL7vAzJ-1" source="CiU7yfUQ7HwTvPafk8tj-50" target="CiU7yfUQ7HwTvPafk8tj-52">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="501" y="889.5" as="sourcePoint" />
+            <mxPoint x="581" y="889.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CiU7yfUQ7HwTvPafk8tj-64" value="" style="endArrow=none;dashed=1;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="pd1NO9z6XSvhfkL7vAzJ-1" target="CiU7yfUQ7HwTvPafk8tj-35">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="125" y="802" as="sourcePoint" />
+            <mxPoint x="85" y="760" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CiU7yfUQ7HwTvPafk8tj-50" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="pd1NO9z6XSvhfkL7vAzJ-1">
+          <mxGeometry x="501" y="850" width="10" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="CiU7yfUQ7HwTvPafk8tj-70" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="pd1NO9z6XSvhfkL7vAzJ-1">
+          <mxGeometry x="491" y="880" width="10" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="CiU7yfUQ7HwTvPafk8tj-71" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="pd1NO9z6XSvhfkL7vAzJ-1">
+          <mxGeometry x="701" y="900" width="10" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="CiU7yfUQ7HwTvPafk8tj-72" value="dispatch" style="html=1;verticalAlign=bottom;endArrow=block;fillColor=#f8cecc;strokeColor=#b85450;" edge="1" parent="pd1NO9z6XSvhfkL7vAzJ-1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="501" y="959" as="sourcePoint" />
+            <mxPoint x="700" y="959" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CiU7yfUQ7HwTvPafk8tj-73" value="&lt;div&gt;Il salvataggio di nuovi contesti e di stati attivi può avvenire in maniera del tutto indipendente e contemporanea.&amp;nbsp; &lt;br&gt;Il ciclo di funzionamento previsto del software è illustrato nell&#39;activity diagram, esso mostra come di il salvataggio dei contesti debba&lt;/div&gt;&lt;div&gt; avvenire prima del salvataggio degli stati, essendo questi ultimi registrati al momento della loro variazione. &lt;br&gt;&lt;/div&gt;&lt;div&gt;Ma ciò non significa che, durante il termine del ciclo naturale, non ne abbia&lt;/div&gt;&lt;div&gt;già avuto inizio un secondo, che andrà a lavorare in parallelo.&lt;br&gt;Thread rosso: salvataggio degli stati&lt;br&gt;Thread giallo: salvataggio dei contesti&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="pd1NO9z6XSvhfkL7vAzJ-1">
+          <mxGeometry x="39" y="1000" width="750" height="100" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
