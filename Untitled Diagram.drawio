@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-09-08T15:03:52.307Z" agent="5.0 (X11)" etag="LSi5JDGXv9QjTUY0D_3D" version="13.6.6" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2020-09-08T15:35:26.135Z" agent="5.0 (X11)" etag="6sYDNDk58OwAAwcTh-3x" version="13.6.6" type="github" pages="4">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1955" dy="-222" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -29,7 +29,7 @@
         <mxCell id="Dp6MvVSpYbuMeK2W6vsO-22" value="&lt;table style=&quot;width: 100% ; height: 100% ; border-collapse: collapse&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; border=&quot;1&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Contesto&lt;br&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+tipo:String&lt;br&gt;+idSensore:int&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;strokeColor=none;fillColor=none;overflow=fill;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="50" y="1990" width="160" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="Dp6MvVSpYbuMeK2W6vsO-25" value="Relation" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" target="Dp6MvVSpYbuMeK2W6vsO-2" edge="1">
+        <mxCell id="Dp6MvVSpYbuMeK2W6vsO-25" value="Extends" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" target="Dp6MvVSpYbuMeK2W6vsO-2" edge="1">
           <mxGeometry x="0.2232" relative="1" as="geometry">
             <mxPoint x="910" y="2220" as="sourcePoint" />
             <mxPoint x="1070" y="2220" as="targetPoint" />
