@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2020-09-08T16:51:24.564Z" agent="5.0 (X11)" etag="24Z-29XPiO2eEud4e3qV" version="13.6.6" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2020-09-08T16:55:31.165Z" agent="5.0 (X11)" etag="cH6MNWMEA9-8ozog7jN4" version="13.6.6" type="github" pages="4">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="2031" dy="-19" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1185" dy="-498" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -73,8 +73,8 @@
         <mxCell id="ndI1uFcIVvxZb7R-7Dkx-0" value="&lt;table style=&quot;width: 100% ; height: 100% ; border-collapse: collapse&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; border=&quot;1&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;&lt;b&gt;RecuperatoreContesti&lt;/b&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+ip:String&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+updateContesti(contesto:Contesto):void&lt;br&gt;-assegnamentoPesi():void&lt;br&gt;+notifyControllers():void&lt;br&gt;+addController(controller:controller):void&lt;br&gt;+removeController(controller:Controller):void&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;strokeColor=none;fillColor=none;overflow=fill;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="10" y="1320" width="260" height="140" as="geometry" />
         </mxCell>
-        <mxCell id="ndI1uFcIVvxZb7R-7Dkx-1" value="&lt;table style=&quot;width: 100% ; height: 100% ; border-collapse: collapse&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; border=&quot;1&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;RecuperatoreStati&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+ip:String&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+updaAttuatore(stato:Stato):void&lt;br&gt;+removeAttuatore(attuatore:Attuatore):void&lt;br&gt;+addAttuatore(attuatore:Attuatore):void&lt;br&gt;+notifyAttuatori():void&lt;br&gt;+notifyControllers():void&lt;br&gt;+addController(controller:Controller):void&lt;br&gt;+removeController(controller:COntroller):void&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;strokeColor=none;fillColor=none;overflow=fill;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="216" y="1490" width="260" height="160" as="geometry" />
+        <mxCell id="ndI1uFcIVvxZb7R-7Dkx-1" value="&lt;table style=&quot;width: 100% ; height: 100% ; border-collapse: collapse&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; border=&quot;1&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;RecuperatoreStati&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+ip:String&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+updateAttuatore(stato:Stato):void&lt;br&gt;+removeAttuatore(attuatore:Attuatore):void&lt;br&gt;+addAttuatore(attuatore:Attuatore):void&lt;br&gt;+notifyAttuatori():void&lt;br&gt;+updateController(composizione:COmposizione):void&lt;br&gt;+notifyControllers():void&lt;br&gt;+addController(controller:Controller):void&lt;br&gt;+removeController(controller:COntroller):void&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;strokeColor=none;fillColor=none;overflow=fill;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="160" y="1490" width="310" height="180" as="geometry" />
         </mxCell>
         <mxCell id="ndI1uFcIVvxZb7R-7Dkx-12" value="&lt;table style=&quot;width: 100% ; height: 100% ; border-collapse: collapse&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; border=&quot;1&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;br&gt;Attuatore&lt;br&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+update()&lt;br&gt;+remove()&lt;br&gt;+add()&lt;br&gt;+notify()&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;Section 2.1&lt;br&gt;Section 2.2&lt;br&gt;Section 2.3&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;strokeColor=none;fillColor=none;overflow=fill;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="460" y="1760" width="160" height="110" as="geometry" />
@@ -104,7 +104,8 @@
             <mxPoint x="330" y="1630" as="sourcePoint" />
             <mxPoint x="400" y="1670" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="396" y="1680" />
+              <mxPoint x="376" y="1720" />
+              <mxPoint x="396" y="1720" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -136,7 +137,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="ndI1uFcIVvxZb7R-7Dkx-21" value="&lt;table style=&quot;width: 100% ; height: 100% ; border-collapse: collapse&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; border=&quot;1&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;&amp;lt;&amp;lt;Abstract&amp;gt;&amp;gt;&lt;br&gt;Decisore&lt;br&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+calcoloGrafoComposizioni(contesti:Coposizione):composizione&lt;br&gt;-&lt;i&gt;assegnamentoPeso():Composizione&lt;br&gt;-ottenimentoGrafo():Composizione&lt;/i&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;strokeColor=none;fillColor=none;overflow=fill;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="ndI1uFcIVvxZb7R-7Dkx-21" value="&lt;table style=&quot;width: 100% ; height: 100% ; border-collapse: collapse&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; border=&quot;1&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;&amp;lt;&amp;lt;Abstract&amp;gt;&amp;gt;&lt;br&gt;Decisore&lt;br&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;+calcoloGrafoComposizioni(contesti:Coposizione):composizione&lt;br&gt;-&lt;i&gt;assegnamentoPunteggi():Composizione&lt;br&gt;-ottenimentoGrafo():Composizione&lt;/i&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;strokeColor=none;fillColor=none;overflow=fill;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="1190" y="1310" width="410" height="140" as="geometry" />
         </mxCell>
         <mxCell id="ndI1uFcIVvxZb7R-7Dkx-22" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Dp6MvVSpYbuMeK2W6vsO-49" target="ndI1uFcIVvxZb7R-7Dkx-0" edge="1">
@@ -155,7 +156,7 @@
             <mxPoint x="510" y="1610" as="targetPoint" />
             <Array as="points">
               <mxPoint x="500" y="1720" />
-              <mxPoint x="500" y="1614" />
+              <mxPoint x="500" y="1649" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -164,7 +165,7 @@
             <mxPoint x="490" y="1620" as="sourcePoint" />
             <mxPoint x="650" y="1620" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="540" y="1595" />
+              <mxPoint x="540" y="1625" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -257,7 +258,7 @@
           <mxGeometry x="410" y="1970" width="20" height="20" as="geometry" />
         </mxCell>
         <mxCell id="FWjQx-l_E2E1eGjO0J7R-6" value="*" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="480" y="1570" width="20" height="20" as="geometry" />
+          <mxGeometry x="490" y="1630" width="20" height="20" as="geometry" />
         </mxCell>
         <mxCell id="FWjQx-l_E2E1eGjO0J7R-7" value="*" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="560" y="1730" width="20" height="20" as="geometry" />
@@ -733,17 +734,18 @@
             <mxPoint x="401" y="250" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="CiU7yfUQ7HwTvPafk8tj-20" value="dispatch" style="html=1;verticalAlign=bottom;endArrow=block;entryX=1.2;entryY=0.417;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="pd1NO9z6XSvhfkL7vAzJ-1" target="CiU7yfUQ7HwTvPafk8tj-12">
-          <mxGeometry width="80" relative="1" as="geometry">
+        <mxCell id="CiU7yfUQ7HwTvPafk8tj-20" value="assegnamentoPunteggi" style="html=1;verticalAlign=bottom;endArrow=block;entryX=1.2;entryY=0.417;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="pd1NO9z6XSvhfkL7vAzJ-1" target="CiU7yfUQ7HwTvPafk8tj-12">
+          <mxGeometry x="-0.2178" y="-13" width="80" relative="1" as="geometry">
             <mxPoint x="422" y="260" as="sourcePoint" />
             <mxPoint x="601" y="300" as="targetPoint" />
             <Array as="points">
               <mxPoint x="501" y="260" />
               <mxPoint x="501" y="304" />
             </Array>
+            <mxPoint x="22" y="10" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="CiU7yfUQ7HwTvPafk8tj-21" value="dispatch" style="html=1;verticalAlign=bottom;endArrow=block;entryX=1.1;entryY=0.792;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.9;exitY=0.531;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="pd1NO9z6XSvhfkL7vAzJ-1" source="CiU7yfUQ7HwTvPafk8tj-12" target="CiU7yfUQ7HwTvPafk8tj-12">
+        <mxCell id="CiU7yfUQ7HwTvPafk8tj-21" value="ottenimentoGrafo" style="html=1;verticalAlign=bottom;endArrow=block;entryX=1.1;entryY=0.792;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.9;exitY=0.531;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="pd1NO9z6XSvhfkL7vAzJ-1" source="CiU7yfUQ7HwTvPafk8tj-12" target="CiU7yfUQ7HwTvPafk8tj-12">
           <mxGeometry width="80" relative="1" as="geometry">
             <mxPoint x="501" y="310" as="sourcePoint" />
             <mxPoint x="601" y="350" as="targetPoint" />
@@ -751,12 +753,6 @@
               <mxPoint x="481" y="319" />
               <mxPoint x="481" y="353" />
             </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="CiU7yfUQ7HwTvPafk8tj-22" value="Use" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=-0.3;exitY=0.983;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="pd1NO9z6XSvhfkL7vAzJ-1" source="CiU7yfUQ7HwTvPafk8tj-12" target="CiU7yfUQ7HwTvPafk8tj-13">
-          <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="335" y="390" as="sourcePoint" />
-            <mxPoint x="495" y="390" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="CiU7yfUQ7HwTvPafk8tj-8" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="pd1NO9z6XSvhfkL7vAzJ-1">
@@ -788,16 +784,18 @@
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="CiU7yfUQ7HwTvPafk8tj-30" value="dispatch" style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0.4;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.95;exitY=0.9;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="pd1NO9z6XSvhfkL7vAzJ-1" source="CiU7yfUQ7HwTvPafk8tj-13" target="CiU7yfUQ7HwTvPafk8tj-26">
-          <mxGeometry width="80" relative="1" as="geometry">
+        <mxCell id="CiU7yfUQ7HwTvPafk8tj-30" value="calcola" style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0.4;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.95;exitY=0.9;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="pd1NO9z6XSvhfkL7vAzJ-1" source="CiU7yfUQ7HwTvPafk8tj-13" target="CiU7yfUQ7HwTvPafk8tj-26">
+          <mxGeometry x="0.0671" width="80" relative="1" as="geometry">
             <mxPoint x="263.5" y="439.5" as="sourcePoint" />
             <mxPoint x="343.5" y="439.5" as="targetPoint" />
+            <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="CiU7yfUQ7HwTvPafk8tj-31" value="return" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;exitX=0;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.65;entryY=0.025;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="pd1NO9z6XSvhfkL7vAzJ-1" source="CiU7yfUQ7HwTvPafk8tj-26" target="CiU7yfUQ7HwTvPafk8tj-29">
+        <mxCell id="CiU7yfUQ7HwTvPafk8tj-31" value="Composizione" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;exitX=0;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.65;entryY=0.025;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="pd1NO9z6XSvhfkL7vAzJ-1" source="CiU7yfUQ7HwTvPafk8tj-26" target="CiU7yfUQ7HwTvPafk8tj-29">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="401" y="490" as="sourcePoint" />
             <mxPoint x="321" y="490" as="targetPoint" />
+            <Array as="points" />
           </mxGeometry>
         </mxCell>
         <mxCell id="CiU7yfUQ7HwTvPafk8tj-29" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="pd1NO9z6XSvhfkL7vAzJ-1">
@@ -899,6 +897,16 @@
         </mxCell>
         <mxCell id="CiU7yfUQ7HwTvPafk8tj-73" value="&lt;div&gt;Il salvataggio di nuovi contesti e di stati attivi può avvenire in maniera del tutto indipendente e contemporanea.&amp;nbsp; &lt;br&gt;Il ciclo di funzionamento previsto del software è illustrato nell&#39;activity diagram, esso mostra come di il salvataggio dei contesti debba&lt;/div&gt;&lt;div&gt; avvenire prima del salvataggio degli stati, essendo questi ultimi registrati al momento della loro variazione. &lt;br&gt;&lt;/div&gt;&lt;div&gt;Ma ciò non significa che, durante il termine del ciclo naturale, non ne abbia&lt;/div&gt;&lt;div&gt;già avuto inizio un secondo, che andrà a lavorare in parallelo.&lt;br&gt;Thread rosso: salvataggio degli stati&lt;br&gt;Thread giallo: salvataggio dei contesti&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="pd1NO9z6XSvhfkL7vAzJ-1">
           <mxGeometry x="39" y="1000" width="750" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="d2CWKOniNU9E5TO8e7td-1" value=":Composizione" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;" edge="1" parent="pd1NO9z6XSvhfkL7vAzJ-1" target="CiU7yfUQ7HwTvPafk8tj-13">
+          <mxGeometry x="0.0922" y="-10" relative="1" as="geometry">
+            <mxPoint x="410" y="360" as="sourcePoint" />
+            <mxPoint x="330" y="360" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="340" y="360" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
