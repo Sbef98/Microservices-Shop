@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-09-08T16:57:42.925Z" agent="5.0 (X11)" etag="kie7-anz1E7gD4Nor8dE" version="13.6.6" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2020-09-08T16:59:11.477Z" agent="5.0 (X11)" etag="-DIgqehoG-KmBBjCCSBE" version="13.6.6" type="github" pages="4">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1185" dy="-498" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -288,7 +288,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="hvOVDtf0bOY5Uqaqx2Np" name="Page-2">
-    <mxGraphModel dx="1662" dy="805" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1422" dy="805" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="g7u6mpnRc3hWR77MVMvJ-0" />
         <mxCell id="g7u6mpnRc3hWR77MVMvJ-1" parent="g7u6mpnRc3hWR77MVMvJ-0" />
@@ -298,7 +298,7 @@
         <mxCell id="g7u6mpnRc3hWR77MVMvJ-3" value="Attuatore" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" parent="g7u6mpnRc3hWR77MVMvJ-1" vertex="1">
           <mxGeometry x="110" y="310" width="30" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="g7u6mpnRc3hWR77MVMvJ-4" value="Botolo" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" parent="g7u6mpnRc3hWR77MVMvJ-1" vertex="1">
+        <mxCell id="g7u6mpnRc3hWR77MVMvJ-4" value="Sistema" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" parent="g7u6mpnRc3hWR77MVMvJ-1" vertex="1">
           <mxGeometry x="560" y="170" width="30" height="60" as="geometry" />
         </mxCell>
         <mxCell id="g7u6mpnRc3hWR77MVMvJ-5" value="Raccoglie Dato" style="ellipse;whiteSpace=wrap;html=1;" parent="g7u6mpnRc3hWR77MVMvJ-1" vertex="1">
@@ -488,7 +488,7 @@
           <mxGeometry x="635" y="855" width="30" height="20" as="geometry" />
         </mxCell>
         <mxCell id="VIxZnLgpCk4TEExnezM1-0" value="&lt;div&gt;Use case diagram funzionamento generale&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="g7u6mpnRc3hWR77MVMvJ-1">
-          <mxGeometry x="515" y="360" width="250" height="30" as="geometry" />
+          <mxGeometry x="505" y="370" width="250" height="30" as="geometry" />
         </mxCell>
         <mxCell id="VIxZnLgpCk4TEExnezM1-1" value="&lt;div&gt;Grafo composizioni e assegnamento pesi/punteggi&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="g7u6mpnRc3hWR77MVMvJ-1">
           <mxGeometry x="490" y="540" width="300" height="30" as="geometry" />
@@ -505,11 +505,29 @@
         <mxCell id="VIxZnLgpCk4TEExnezM1-5" value="&lt;div&gt;Peso nodo&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="g7u6mpnRc3hWR77MVMvJ-1">
           <mxGeometry x="60" y="770" width="80" height="30" as="geometry" />
         </mxCell>
+        <mxCell id="3RqgDh3p7JYdEC-JRuPC-0" value="Aggiorna Storico Contesti" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="g7u6mpnRc3hWR77MVMvJ-1">
+          <mxGeometry x="630" y="60" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="3RqgDh3p7JYdEC-JRuPC-1" value="Aggiorna Storico Stati" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="g7u6mpnRc3hWR77MVMvJ-1">
+          <mxGeometry x="635" y="260" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="3RqgDh3p7JYdEC-JRuPC-2" value="" style="endArrow=none;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="g7u6mpnRc3hWR77MVMvJ-1" source="g7u6mpnRc3hWR77MVMvJ-4" target="3RqgDh3p7JYdEC-JRuPC-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="615" y="230" as="sourcePoint" />
+            <mxPoint x="665" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3RqgDh3p7JYdEC-JRuPC-3" value="" style="endArrow=none;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="g7u6mpnRc3hWR77MVMvJ-1" source="g7u6mpnRc3hWR77MVMvJ-4" target="3RqgDh3p7JYdEC-JRuPC-0">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="660" y="210" as="sourcePoint" />
+            <mxPoint x="710" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="lr0PJCbucm-8rJlecLst" name="Page-3">
-    <mxGraphModel dx="1662" dy="805" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="1422" dy="805" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="xkUJHAomlZ4KHMKvxwrd-0" />
         <mxCell id="xkUJHAomlZ4KHMKvxwrd-1" parent="xkUJHAomlZ4KHMKvxwrd-0" />
