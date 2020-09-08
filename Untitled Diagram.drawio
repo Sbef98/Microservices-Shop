@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2020-09-08T16:59:11.477Z" agent="5.0 (X11)" etag="-DIgqehoG-KmBBjCCSBE" version="13.6.6" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2020-09-08T17:02:39.247Z" agent="5.0 (X11)" etag="VlSu82gwO9A7GwpguDZ4" version="13.6.6" type="github" pages="4">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="1185" dy="-498" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2031" dy="-19" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -496,7 +496,7 @@
         <mxCell id="VIxZnLgpCk4TEExnezM1-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1.1;entryY=0.7;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="g7u6mpnRc3hWR77MVMvJ-1" source="VIxZnLgpCk4TEExnezM1-3" target="g7u6mpnRc3hWR77MVMvJ-42">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="VIxZnLgpCk4TEExnezM1-3" value="&lt;div&gt;Punteggio appaiamento nodo prcedente e suggessivo&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="g7u6mpnRc3hWR77MVMvJ-1">
+        <mxCell id="VIxZnLgpCk4TEExnezM1-3" value="&lt;div&gt;Punteggio appaiamento nodo prcedente e successivo&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="g7u6mpnRc3hWR77MVMvJ-1">
           <mxGeometry x="470" y="580" width="320" height="30" as="geometry" />
         </mxCell>
         <mxCell id="VIxZnLgpCk4TEExnezM1-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.533;entryY=1.1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="g7u6mpnRc3hWR77MVMvJ-1" source="VIxZnLgpCk4TEExnezM1-5" target="g7u6mpnRc3hWR77MVMvJ-43">
